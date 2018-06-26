@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.darkhole.shiro.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.darkhole.shiro.model.User" >
+    <id column="u_id" property="uId" jdbcType="VARCHAR" />
+    <result column="u_account" property="uAccount" jdbcType="VARCHAR" />
+    <result column="u_password" property="uPassword" jdbcType="VARCHAR" />
+    <result column="u_salt" property="uSalt" jdbcType="VARCHAR" />
+    <result column="u_status" property="uStatus" jdbcType="INTEGER" />
+      <collection column="u_id" property="roles" ofType="com.darkhole.shiro.model.Role" >
+          <id column="r_id" property="rId" jdbcType="VARCHAR" />
+          <result column="r_name" property="rName" jdbcType="VARCHAR" />
+          <result column="r_status" property="rStatus" jdbcType="INTEGER" />
+        <collection column="r_id" property="permsList" ofType="com.darkhole.shiro.model.Perms" >
+          <id column="p_id" property="pId" jdbcType="VARCHAR" />
+          <result column="p_name" property="pName" jdbcType="VARCHAR" />
+          <result column="p_status" property="pStatus" jdbcType="INTEGER" />
+        </collection>
+      </collection>
+
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    u_id, u_account, u_password, u_salt, u_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where u_id = #{uId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where u_id = #{uId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.darkhole.shiro.model.User" >
+    insert into user (u_id, u_account, u_password, 
+      u_salt, u_status)
+    values (#{uId,jdbcType=VARCHAR}, #{uAccount,jdbcType=VARCHAR}, #{uPassword,jdbcType=VARCHAR}, 
+      #{uSalt,jdbcType=VARCHAR}, #{uStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.darkhole.shiro.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        u_id,
+      </if>
+      <if test="uAccount != null" >
+        u_account,
+      </if>
+      <if test="uPassword != null" >
+        u_password,
+      </if>
+      <if test="uSalt != null" >
+        u_salt,
+      </if>
+      <if test="uStatus != null" >
+        u_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        #{uId,jdbcType=VARCHAR},
+      </if>
+      <if test="uAccount != null" >
+        #{uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uSalt != null" >
+        #{uSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="uStatus != null" >
+        #{uStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.darkhole.shiro.model.User" >
+    update user
+    <set >
+      <if test="uAccount != null" >
+        u_account = #{uAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        u_password = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="uSalt != null" >
+        u_salt = #{uSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="uStatus != null" >
+        u_status = #{uStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.darkhole.shiro.model.User" >
+    update user
+    set u_account = #{uAccount,jdbcType=VARCHAR},
+      u_password = #{uPassword,jdbcType=VARCHAR},
+      u_salt = #{uSalt,jdbcType=VARCHAR},
+      u_status = #{uStatus,jdbcType=INTEGER}
+    where u_id = #{uId,jdbcType=VARCHAR}
+  </update>
+
+  <!-- 根据账号查询出用户基本信息和相关联的权限信息 -->
+  <select id="selectUserInfoAndPermsByAccount" resultMap="BaseResultMap" parameterType="String">
+    /* 用户状态 1 --> 正常 0 --> 删除 */
+    select u.u_account,u.u_id,u.u_password,u.u_salt,u.u_status,r.r_id,r.r_name,r.r_status,p.p_id ,p.p_name ,p.p_status
+    from user u
+    left join user_role ur on u.u_id = ur.u_id
+    left join role r on r.r_id = ur.r_id
+    left join role_perms rp on r.r_id = rp.r_id
+    left join perms p on p.p_id = rp.p_id
+    where u.u_account = #{account} and r.r_status='1' and  p.p_status='1'
+    group by r.r_id,p.p_id
+  </select>
+
+</mapper>

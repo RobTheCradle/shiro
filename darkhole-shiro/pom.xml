@@ -12,6 +12,12 @@
     <artifactId>darkhole-shiro</artifactId>
 
     <dependencies>
+        <!-- core模块依赖 -->
+        <dependency>
+            <groupId>com.darkhole</groupId>
+            <artifactId>darkhole-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- shiro依赖 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>

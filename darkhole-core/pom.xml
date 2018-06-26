@@ -11,5 +11,7 @@
 
     <artifactId>darkhole-core</artifactId>
 
+    <dependencies>
 
+    </dependencies>
 </project>

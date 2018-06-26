@@ -1,6 +1,6 @@
 package com.darkhole;
 
-import javafx.application.Application;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2018/6/15 15:39
  * Copyright (c) ©1994-2018 Scjydz.com All Rights Reserved.
  */
+@MapperScan("**.dao")
 @SpringBootApplication
 public class DarkholeApplication {
     public static void main(String[] args) {

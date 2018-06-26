@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.darkhole.shiro.dao.UrlMapper" >
+  <resultMap id="BaseResultMap" type="com.darkhole.shiro.model.Url" >
+    <id column="url_id" property="urlId" jdbcType="VARCHAR" />
+    <result column="url_href" property="urlHref" jdbcType="VARCHAR" />
+    <result column="url_perms" property="urlPerms" jdbcType="VARCHAR" />
+    <result column="url_prems_type" property="urlPremsType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    url_id, url_href, url_perms, url_prems_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from url
+    where url_id = #{urlId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from url
+    where url_id = #{urlId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.darkhole.shiro.model.Url" >
+    insert into url (url_id, url_href, url_perms, 
+      url_prems_type)
+    values (#{urlId,jdbcType=VARCHAR}, #{urlHref,jdbcType=VARCHAR}, #{urlPerms,jdbcType=VARCHAR}, 
+      #{urlPremsType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.darkhole.shiro.model.Url" >
+    insert into url
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="urlId != null" >
+        url_id,
+      </if>
+      <if test="urlHref != null" >
+        url_href,
+      </if>
+      <if test="urlPerms != null" >
+        url_perms,
+      </if>
+      <if test="urlPremsType != null" >
+        url_prems_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="urlId != null" >
+        #{urlId,jdbcType=VARCHAR},
+      </if>
+      <if test="urlHref != null" >
+        #{urlHref,jdbcType=VARCHAR},
+      </if>
+      <if test="urlPerms != null" >
+        #{urlPerms,jdbcType=VARCHAR},
+      </if>
+      <if test="urlPremsType != null" >
+        #{urlPremsType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.darkhole.shiro.model.Url" >
+    update url
+    <set >
+      <if test="urlHref != null" >
+        url_href = #{urlHref,jdbcType=VARCHAR},
+      </if>
+      <if test="urlPerms != null" >
+        url_perms = #{urlPerms,jdbcType=VARCHAR},
+      </if>
+      <if test="urlPremsType != null" >
+        url_prems_type = #{urlPremsType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where url_id = #{urlId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.darkhole.shiro.model.Url" >
+    update url
+    set url_href = #{urlHref,jdbcType=VARCHAR},
+      url_perms = #{urlPerms,jdbcType=VARCHAR},
+      url_prems_type = #{urlPremsType,jdbcType=INTEGER}
+    where url_id = #{urlId,jdbcType=VARCHAR}
+  </update>
+</mapper>
