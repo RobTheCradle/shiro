@@ -115,5 +115,7 @@
     where u.u_account = #{account} and r.r_status='1' and  p.p_status='1'
     group by r.r_id,p.p_id
   </select>
-
+  <select id="selectByAccount" parameterType="String" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from user where u_account = #{account}
+  </select>
 </mapper>

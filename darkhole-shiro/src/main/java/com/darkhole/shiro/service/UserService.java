@@ -3,6 +3,8 @@ package com.darkhole.shiro.service;
 import com.darkhole.shiro.model.User;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author 辜勇胜
  * @Title: UserService
@@ -18,4 +20,17 @@ public interface UserService {
      * @throws
      */
     User getUserInfoWithPerms(String account);
+    /**
+     * @Description: TODO(根据用户账号获取用户基本信息)
+     * @param account 用户账号
+     * @throws
+     */
+    User getUserBasicInfo(String account);
+    /**
+     * @Description: TODO(用户登陆)
+     * @param account  用户账号
+     * @param password  用户密码
+     * @throws
+     */
+    boolean login(String account, String password, HttpServletRequest request);
 }

@@ -4,10 +4,10 @@ import com.darkhole.shiro.model.User;
 import com.darkhole.shiro.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 辜勇胜
@@ -18,7 +18,6 @@ import javax.annotation.Resource;
  * Copyright (c) ©1994-2018 Scjydz.com All Rights Reserved.
  */
 @Controller
-@RequestMapping("/user")
 public class UserController {
     //用户数据处理逻辑
     @Resource
@@ -39,4 +38,10 @@ public class UserController {
         }
         return user;
     }
+    @GetMapping("/login")
+    @ResponseBody
+    public boolean login(String account , String password, HttpServletRequest request){
+        return userService.login(account,password, request);
+    }
+
 }

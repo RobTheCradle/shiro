@@ -48,7 +48,7 @@ public class CustomRealm extends AuthorizingRealm {
             }
         }
 
-        return null;
+        return simpleAuthorizationInfo;
     }
     /**
      * @Description: TODO(登陆控制--验证用户合法性)
@@ -58,7 +58,7 @@ public class CustomRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //只是根据用户名查询出，不涉及密码
-        User user = (User) SecurityUtils.getSubject().getSession().getAttribute("user");
+       User user = userService.getUserBasicInfo(authenticationToken.getPrincipal().toString());
         if (user != null) {
             // 把获取到的用户存到session中
             SecurityUtils.getSubject().getSession().setAttribute("user", user);
@@ -66,21 +66,6 @@ public class CustomRealm extends AuthorizingRealm {
             // 即把正确的用户名，密码，交给shiro,再和前台输入的校验。
             AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getuAccount(), user.getuPassword(), "customRealm");
             return authenticationInfo;
-
-
-          /*  sysUser.setAccount(user.getAccount());
-            try {
-                sysUser = sysUserMapper.selectByProperty(sysUser);
-                sysUser.setVerify(user.getAccount());
-                request.getSession().setAttribute("sysUser", sysUser);
-                Subject subject = SecurityUtils.getSubject();
-                UsernamePasswordToken token = new UsernamePasswordToken(user.getAccount(), MD5Util.md5(user.getPassword(), sysUser.getSalt()), user.isRememberMe());
-                subject.login(token);
-            } catch (Exception e) {
-                e.printStackTrace();
-                log.error("错误的用户名或密码");
-                status = false;
-            }*/
         } else {
             return null;
         }

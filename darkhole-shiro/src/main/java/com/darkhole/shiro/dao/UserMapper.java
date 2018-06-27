@@ -28,4 +28,10 @@ public interface UserMapper {
      * @throws
      */
     User selectUserInfoAndPermsByAccount(String account);
+    /**
+     * @Description: TODO(根据用户账号查询出用户基本信息)
+     * @param account 用户账号
+     * @throws
+     */
+    User selectByAccount(String account);
 }
