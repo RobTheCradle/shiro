@@ -9,8 +9,12 @@ import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.apache.shiro.web.filter.authz.AuthorizationFilter;
 
+import javax.servlet.Filter;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author 辜勇胜
@@ -22,15 +26,18 @@ import java.util.LinkedHashMap;
  */
 @Configuration
 public class ShiroConfig {
+
+
     /**
      * @Description: TODO(shiro权限过滤链)
      * @param manager
      * @throws
      */
-
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager manager) {
-
+        //配置自定义filter
+        Map<String, Filter> filterMap = new HashMap<>();
+        filterMap.put("roles",new CustomRolesAuthorizationFilter());
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(manager);
         //配置登录的url和登录成功的url
@@ -44,6 +51,8 @@ public class ShiroConfig {
 
         //将权限注入到过滤链
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        //注入自定义filter
+        bean.setFilters(filterMap);
         return bean;
     }
 
