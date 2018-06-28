@@ -1,0 +1,34 @@
+[
+  {
+    "id":"1",
+    "riskQuota" : "巡逻人员类型",
+    "riskAAAA" : "内保队员 || 武警队员",
+    "riskAAA" : "内保队员 || 武警队员",
+    "riskAA" : "内保队员 || 武警队员",
+    "riskA" : "内保队员 || 武警队员"
+  },
+  {
+    "id":"2",
+    "riskQuota" : "巡逻人员年龄结构",
+    "riskAAAA" : "40",
+    "riskAAA" : "50",
+    "riskAA" : "60",
+    "riskA" : "40"
+  },
+  {
+    "id":"3",
+    "riskQuota" : "巡逻次数",
+    "riskAAAA" : "不小于2",
+    "riskAAA" : "不小于2",
+    "riskAA" : "不小于2",
+    "riskA" : "不小于1"
+  },
+  {
+    "id":"4",
+    "riskQuota" : "巡逻人员数量",
+    "riskAAAA" : "不小于2",
+    "riskAAA" : "不小于2",
+    "riskAA" : "不小于2",
+    "riskA" : "不小于2"
+  }
+]

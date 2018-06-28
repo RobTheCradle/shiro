@@ -1,0 +1,209 @@
+/*初始化样式*/
+/** Main.777....................................................................................... **/
+#main {position: relative;width: 100%;float: left;z-index: 666;}
+
+/** left **/
+#left-bar {position: absolute;left: 0;top: 54px;width: 200px;height: 100%;z-index: 777;text-align: center;background: #d2d6de;}
+.index-case-name {padding: 5px; margin-left: 5px;}
+.bar {border-top: 1px solid #e7e7e7;margin-bottom: 5px;min-height: 220px;}
+.bar-title {color: #fff;height: 30px;line-height: 30px;background-color: #adadad;}
+.bar-body {padding: 5px;}
+.case-time {font-size: 14px;color: #fff;}
+
+/** center .666**/
+.center {position: absolute;width: 100%;height: 100%;}
+
+/*右侧主内容*/
+.wrapper{position: relative;width: 100%;height: 100%;float: left;z-index: 666;}
+.wrapper:before, .wrapper:after {content: " ";display: table;}
+.wrapper:after {clear: both;}
+.content {position: relative;width: 100%;padding: 0 15px 15px 5px;padding-bottom: 0 !important;border-top: 3px solid #d2d6de;background-color:#e7e7e7;}
+/*background-color: #e7e7e7;*/
+
+/*技术防范下的视频管理*/
+#video_map {margin-top: 15px;}
+.vbox {width: 460px;height: 280px;}
+.vbox > img {border-right: 1px solid #fff;}
+.vgroup img{width: 120px;height: 120px;margin: 15px;}
+
+.page-content {width: 100%;padding: 15px;padding-top: 0;}
+
+/** query **/
+.query,.page-url {height: 32px;border-bottom: 1px solid #d2d6de;}
+.page-url {color: #d2d6de;}
+.breadcrumb {background:none;}
+
+/*技术防范下的资产统计右侧表单*/
+.add {border: 1px solid #d2d6de;border-left: 0;border-top: 0;padding: 15px;margin-top: 34px;}
+
+#query_details {margin: 5px;margin-bottom: 0;}
+#query_submit {color: #fff;background-color: #0888cc;border-color: #2e6da4;}
+#query_submit:focus {color: #fff;background-color: #286090;border-color: #122b40;}
+#query_submit:hover,#query_submit:active {color: #fff;background-color: #286090;border-color: #204d74;}
+
+/** right **/
+#right-bar {position: absolute; right: 10px;top: 33%;z-index: 999;}
+.btn-speed {background-color: rgba(0,0,0,0);border: 0;font-size: 28px;display: block;margin: 5px;}
+
+/** Footer.888....................................................................................... **/
+#footer {position: absolute;bottom: 0;width: 100%;overflow: hidden;z-index: 888;}
+.tab {display: inherit;z-index: 888;}
+.tab-content {background-color: #fff;}
+
+/*home右侧主内容*/
+.tab-pane {width: 100%;padding-left: 15px;padding-right: 15px;overflow-y: scroll;}
+#modTabs {padding-left: 15px;padding-right: 15px;border-top: 3px solid #d2d6de;background-color: #666;}
+.foot_panel {background-color: #fff;}
+#modTabs li a {height: 45px;background-color: #e7e7e7;color: #666;text-align: center;z-index: 888;}
+#modTabs li:last-child a,#modTabs li:last-child a:hover {color: #fff;background-color: #f1a417;margin-right: 60px;}
+
+/** ReSet........................................................................................ **/
+.navbar{border: 0;}
+.navbar-brand {font-size: 14px;}
+.text-info {color: #0888cc;}
+.text-warning {color: #ef3f52;}
+.text-success {color: #4cae4c;}
+.navbar-nav > li a {font-size: 14px;}
+.control-label {color: #000;font-size: medium;}
+.modal-lg {width: 1020px;}
+.modal-header {text-align: center;color: #0888cc;border-top: 1px solid #d2d6de;background-color: #2d3e46;}
+.btn-default {width:40px;}
+
+/*分组信息表单*/
+/*.form-group {margin-bottom: 15px !important;}*/
+/*.form-group > label { width: 90px;}*/
+/*.form-group > .form-control {width: 90%;}*/
+/*a.list-group-item {*/
+	/*border: 0;*/
+/*}*/
+
+a.list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: #e7e7e7;border-right: 0;}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {border-color: #d2d6de;color: #0888cc;background-color: #e7e7e7;border-right: 0;}
+.panel-heading {background-color: #e7e7e7;border-top: 1px solid #fff !important;}
+.fixed-table-container {margin-top: 15px;}
+.th-inner {color: #0888cc;}
+
+.thumbnail {width: 220px;height: 220px;overflow: hidden;}
+.treeview {margin-top: 15px;}
+.node-treeview-selectable { background-color: #d2d6de;}
+
+.panel-body {
+    padding: 5px;
+}
+.panel-heading {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0;
+    border: 0 !important;
+}
+.panel-collapse > ul > li > a {
+	color: #000;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 20%;
+  	position: relative;
+  	display: block;
+}
+.panel-collapse > ul > li > a:hover,
+.panel-collapse > ul > li > a:focus {
+	background-color: #e7e7e7;
+}
+/** Canvas........................................................................................ **/
+/*.assess-item {text-align: left;}*/
+/*.assess-title{height: 34px;line-height: 34px;}*/
+/*.assess-score {position: absolute;top: 124px;left: 50%;margin-left: -16px;font-size: large;font-weight: bold;color: #337ab7;}*/
+.canvas {padding: 15px;}
+
+/*导航条修改*/
+.navbar-collapse{background-color: #2d3e46;}
+.navbar-default .navbar-brand{color: #d2d6de;}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color:#0888cc;
+}
+.navbar-default .navbar-nav > li > a{color: #ffffff;}
+/*.navbar-default .navbar-nav > li > a:hover{color: #d2d6de;}*/
+/*.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{background-color: #d2d6de;}*/
+.btn-primary, .btn-default, .btn-info{}
+.btn-danger{background-color: #fe8f01;}
+.modal-header{padding: 10px;}
+.btn-info:hover{color: #0888cc;}
+.navbar-default .navbar-nav > li > a:hover{
+    color:#0888cc;
+    background-color: #426273;
+    /*border-top: 2px solid #fe8f01;*/
+}
+.navbar-default .navbar-nav > li > a:focus {
+    color: #0888cc;
+    background-color: #2d3e46;
+    border:0;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover{
+    color: #fff;
+    background-color: #426273;
+}
+
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #0888cc;
+}
+.dropdown-menu {
+    background-color: #426273;
+    border: 0;
+    padding: 0;
+    min-width: 150px;
+    border-bottom: 2px solid #fe8f01;
+}
+.dropdown-menu > li a {
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    padding: 0px 20px;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: #0888cc;
+    text-decoration: none;
+    background-color: #2d3e46;
+}
+
+/** Canvas........................................................................................ **/
+.assess-value {
+    position: relative;
+    font-size: 42px;
+    font-weight: bold;
+    color: #0888cc;
+}
+.assess-item {
+    padding: 10px;
+    padding-left: 30px;
+}
+.assess-title{
+    height: 28px;
+    line-height: 28px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d2d6de;
+    border-bottom: 1px solid #0888cc;
+}
+.assess-score {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #d2d6de;
+    /*height: 160px;*/
+}
+.canvas {
+    padding: 15px;
+}
+
+/** 法律法规表格CSS........................................................................................ **/
+.details {
+    margin-top: 5px;
+}
+.details-title {
+    color: red;
+}
+
+

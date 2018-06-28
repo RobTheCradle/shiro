@@ -1,0 +1,254 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 宣传教育</a></li>
+                <li>»</li>
+                <li class="active">宣传</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addPropaganda"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tablePropaganda -->
+    <div class="table container-fluid">
+        <table id="tablePropaganda"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Propaganda == 宣传 ********** -->
+<!--添加 addPropaganda -->
+<div class="modal fade" id="addPropaganda" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="propagandaOrg"><b>单位</b></label>
+                            <input class="form-control" name="" id="propagandaOrg" type="text" placeholder="请输入单位名称">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="propagandist"><b>宣传人员</b></label>
+                            <input class="form-control" name="" id="propagandist" type="text" placeholder="请输入宣传人员姓名">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="propagandaPlace"><b>宣传地点</b></label>
+                            <input class="form-control" name="" id="propagandaPlace" type="text" placeholder="请输入宣传地点">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="propagandaDate"><b>宣传时间</b></label>
+                            <input class="form-control" name="" id="propagandaDate" type="datetime" placeholder="请选择宣传时间">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="propagandaContent"><b>内部培训/教育内容</b></label>
+                            <div class="summernote" id="propagandaContent"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 infoPropaganda -->
+<div class="modal fade" id="infoPropaganda" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">单位</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">宣传人员</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">宣传地点</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">宣传时间</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">内部培训/教育内容</td>
+                        <td class="info-content" colspan="5"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editPropaganda -->
+<div class="modal fade" id="editPropaganda" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="editOrg"><b>单位</b></label>
+                            <input class="form-control" name="" id="editOrg" type="text" placeholder="请输入单位名称">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editPropagandist"><b>宣传人员</b></label>
+                            <input class="form-control" name="" id="editPropagandist" type="text" placeholder="请输入宣传人员姓名">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="editPlace"><b>宣传地点</b></label>
+                            <input class="form-control" name="" id="editPlace" type="text" placeholder="请输入宣传地点">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editDate"><b>宣传时间</b></label>
+                            <input class="form-control" name="" id="editDate" type="datetime" placeholder="请选择宣传时间">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editContent"><b>内部培训/教育内容</b></label>
+                            <div class="summernote" id="editContent"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认删除 deletePropaganda -->
+<div class="modal fade" id="deletePropaganda" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tablePropaganda').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"mechanism",
+                    title:"单位",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"teacher",
+                    title:"宣传人员",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+
+                {
+                    field:"time",
+                    title:"时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"place",
+                    title:"地点",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"content",
+                    title:"内容",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"mechanism":"xx集团有限公司","teacher":"...","time":"2017-9-6","place":"...","content":"..."},
+                {"mechanism":"xx集团有限公司","teacher":"...","time":"2017-9-6","place":"...","content":"..."},
+                {"mechanism":"xx集团有限公司","teacher":"...","time":"2017-9-6","place":"...","content":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoPropaganda">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#editPropaganda">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#deletePropaganda">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    //富文本初始化
+    $('.summernote').summernote({
+        height: 300,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+</script>

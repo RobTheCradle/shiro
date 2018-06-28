@@ -1,0 +1,29 @@
+body {background: #e5e6e6;}
+.table-left>thead {
+    background: #ddd;
+}
+.table-left>thead>tr>th, .table-left>tbody>tr>td {
+    text-align: left;
+}
+
+.riskCount-title,.riskCount-value {
+    padding: 0;
+    width: 220px;
+    vertical-align : middle !important;
+}
+.riskCount-value {
+    width: 220px;
+    height: 120px;
+    color: #fe8f01;
+    font-size: 72px;
+    font-weight: 800;
+    text-align: center;
+}
+.risk-value {
+    width: 100px;
+    vertical-align : middle !important;
+    text-align: center;
+}
+.risk-chart {
+    height: 340px;
+}

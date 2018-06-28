@@ -1,0 +1,18 @@
+[
+  {
+    "id":"1",
+    "riskQuota" : "构造",
+    "riskAAAA" : "砖墙 || 石墙 || 混凝土墙",
+    "riskAAA" : "砖墙 || 石墙 || 混凝土墙",
+    "riskAA" : "砖墙 || 石墙 || 混凝土墙",
+    "riskA" : "--"
+  },
+  {
+    "id":"2",
+    "riskQuota" : "厚度",
+    "riskAAAA" : "不小于180mm",
+    "riskAAA" : "不小于180mm",
+    "riskAA" : "不小于180mm",
+    "riskA" : "--"
+  }
+]

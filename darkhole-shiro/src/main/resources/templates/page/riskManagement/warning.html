@@ -1,0 +1,33 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/tabs.css"/>
+</head>
+<body>
+<section class="wrapper site-min-height">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 风险管理</a></li>
+                <li>»</li>
+                <li class="active">风险分析</li>
+            </ul>
+        </div>
+    </div>
+    <div class='tabs' id="tabs">
+        <ul class='horizontal'>
+            <li rel="tab-1" class="selectActive"><a href="#">人防风险分析</a></li>
+            <li rel="tab-2" ><a href="#">技防风险分析</a></li>
+            <li rel="tab-3" ><a href="#">物防风险分析</a></li>
+            <li rel="tab-4"><a href="#">综合风险分析</a></li>
+        </ul>
+        <div rel='tab-1'><span>人防风险分析</span></div>
+        <div rel='tab-2'><span>技防风险分析</span></div>
+        <div rel='tab-3'><span>物防风险分析</span></div>
+        <div rel='tab-4'><span>综合风险分析</span></div>
+    </div>
+</section>
+<script type="text/javascript" src="js/tabs.js"></script>
+<script type="text/javascript">
+    tabs_takes.init("tabs");
+</script>

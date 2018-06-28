@@ -1,0 +1,692 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 台账管理</a></li>
+                <li>»</li>
+                <li class="active">台账更新</li>
+            </ul>
+        </div>
+    </div>
+    <section class="panel" style="margin: 0 15px">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#flowDesign">入库台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowTodo">出库台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowMonitor">借用台账</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+        <!--入库台账-->
+                <div id="flowDesign" class="tab-pane active">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_RK"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_departments"></table>
+                    </div>
+                    <!--------模态框----------->
+                    <!--详情 入库台账 == detail_RK  -->
+                    <div class="modal fade" id="detail_RK" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>设备类型</b></td>
+                                            <td>XXX</td>
+                                            <td><b>入库时间</b></td>
+                                            <td>XXX</td>
+                                            <td><b>移交人</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>设备来源</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 入库台账 == add_RK -->
+                    <div class="modal fade" id="add_RK" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备类型</b></label>
+                                            <select class="form-control" name=""  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>入库时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入"  data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>移交人</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入"  data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>设备来源</b></label>
+                                            <textarea class="form-control" name="" cols="10" rows="5"
+                                                      placeholder="请输入……" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 入库 == edit_RK -->
+                    <div class="modal fade" id="edit_RK" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备类型</b></label>
+                                            <select class="form-control" name=""  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>入库时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入"  data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>移交人</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入"  data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>设备来源</b></label>
+                                            <textarea class="form-control" name="" cols="10" rows="5" placeholder="请输入……" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!--出库台账-->
+                <div id="flowTodo" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_CK"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount2" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowTodo"></table>
+                    </div>
+                    <!----------------------模态框-------------------------->
+                    <!--详情 出库台账 == detail  -->
+                    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>设备类型</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出库时间</b></td>
+                                            <td>XXX</td>
+                                            <td><b>领用人</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>设备去处</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 出库台账 == add_CK -->
+                    <div class="modal fade" id="add_CK" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备类型</b></label>
+                                            <select class="form-control" name=""  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>出库时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入"  data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>领用人</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入"  data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>设备去处</b></label>
+                                            <textarea class="form-control" name="" cols="10" rows="5" placeholder="请输入……" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 出库 == edit_CK -->
+                    <div class="modal fade" id="edit_CK" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备类型</b></label>
+                                            <select class="form-control" name=""  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>出库时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入"  data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>领用人</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入"  data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>设备去处</b></label>
+                                            <textarea class="form-control" name="" cols="10" rows="5" placeholder="请输入……" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!--借用台账-->
+                <div id="flowMonitor" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_JY"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount3" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowMonitor"></table>
+                    </div>
+                    <!-----------------模态框-------------->
+                    <!--详情 借用台账 == detail  -->
+                    <div class="modal fade" id="detail_JY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>设备类型</b></td>
+                                            <td>XXX</td>
+                                            <td><b>借用时间</b></td>
+                                            <td>XXX</td>
+                                            <td><b>借用人</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>借用事由</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 借用台账 == add_JY -->
+                    <div class="modal fade" id="add_JY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备类型</b></label>
+                                            <select class="form-control" name=""  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>借用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入"  data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>借用人</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入"  data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>借用事由</b></label>
+                                            <textarea class="form-control" name="" cols="10" rows="5" placeholder="请输入……" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                         <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 ==  edit_JY -->
+                    <div class="modal fade" id="edit_JY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备类型</b></label>
+                                            <select class="form-control" name=""  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>借用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入"  data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>借用人</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入"  data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>借用事由</b></label>
+                                            <textarea class="form-control" name="" cols="10" rows="5" placeholder="请输入……" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--入库台账-->
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"type",
+                    title:"设备类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:150
+                },
+                {
+                    field:"time",
+                    title:"入库时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:150
+                },
+                {
+                    field:"people",
+                    title:"移交人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:150
+                },
+                {
+                    field:"choose",
+                    title:"设备来源",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"type":"...","choose":"设备来源","time":"...","people":"..."},
+                {"type":"...","choose":"设备来源","time":"...","people":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_RK" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_RK" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $(this).prev('input').click()
+    });
+
+    $('form').easyform()
+</script>
+<!--出库台账-->
+<script>
+    $(function () {
+        $('#tb_flowTodo').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"type",
+                    title:"设备类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:150
+                },
+                {
+                    field:"time",
+                    title:"出库时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:150
+                },
+                {
+                    field:"people",
+                    title:"领用人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:150
+                },
+                {
+                    field:"choose",
+                    title:"设备去处",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"type":"...","choose":"设备去处","time":"...","people":"..."},
+                {"type":"...","choose":"设备去处","time":"...","people":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowTodo').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_CK" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_CK" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+
+    });
+</script>
+<!--借用台账-->
+<script>
+    $(function () {
+        $('#tb_flowMonitor').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"type",
+                    title:"设备类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:150
+                },
+                {
+                    field:"time",
+                    title:"借用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:150
+                },
+                {
+                    field:"people",
+                    title:"借用人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:150
+                },
+                {
+                    field:"choose",
+                    title:"借用事由",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"type":"设备类型","choose":"...","time":"...","people":"..."},
+                {"type":"设备类型","choose":"...","time":"...","people":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowMonitor').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_JY" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_JY" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+</script>

@@ -1,0 +1,17 @@
+[
+{"id":4, "pId":0, "name":"保卫部", "open":true},
+{"id":41, "pId":4, "name":"张三"},
+{"id":42, "pId":4, "name":"李四"},
+{"id":43, "pId":4, "name":"王五"},
+{"id":44, "pId":4, "name":"赵六"},
+{"id":5, "pId":0, "name":"办公室", "open":true},
+{"id":51, "pId":5, "name":"员工1"},
+{"id":52, "pId":5, "name":"员工2"},
+{"id":53, "pId":5, "name":"员工3"},
+{"id":54, "pId":5, "name":"员工4"},
+{"id":6, "pId":0, "name":"财务部", "open":true},
+{"id":61, "pId":6, "name":"人员1"},
+{"id":62, "pId":6, "name":"人员2"},
+{"id":63, "pId":6, "name":"人员3"},
+{"id":64, "pId":6, "name":"人员4"}
+]

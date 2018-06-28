@@ -1,0 +1,231 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">档案管理</a></li>
+                <li>»</li>
+                <li class="active"><a href="#">档案销毁</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addDestroy"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+                <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+                <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableDestroy -->
+    <div class="table container-fluid">
+        <table id="tableDestroy"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Destroy == 借阅 ********** -->
+<!-- 添加  addDestroy -->
+<div class="modal fade" id="addDestroy" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="destroyDate"><b>销毁时间</b></label>
+                            <input type="date" class="form-control" name="" id="destroyDate">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveId"><b>档案编号</b></label>
+                            <input type="text" class="form-control" name="" id="archiveId" placeholder="请输入档案编号">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="archiveTitle"><b>档案名称</b></label>
+                            <input type="text" class="form-control" name="" id="archiveTitle" placeholder="请输入档案名称">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="destroyReason"><b>销毁原因</b></label>
+                            <input type="text" class="form-control" name="" id="destroyReason" placeholder="请输入销毁原因">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 详情 infoDestroy -->
+<div class="modal fade" id="infoDestroy" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">档案编号：</td>
+                        <td class="info-content">DA000116</td>
+                        <td class="info-name">档案名称：</td>
+                        <td class="info-content" colspan="3">X档案</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">销毁原因：</td>
+                        <td class="info-content" colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">销毁时间：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 编辑 editDestroy -->
+<div class="modal fade" id="editDestroy" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" >
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="editDate"><b>销毁时间</b></label>
+                            <input type="date" class="form-control" name="" id="editDate">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editArchiveId"><b>档案编号</b></label>
+                            <input type="text" class="form-control" name="" id="editArchiveId" disabled value="DA000116">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editArchiveTitle"><b>档案名称</b></label>
+                            <input type="text" class="form-control" name="" id="editArchiveTitle" disabled value="X档案">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editReason"><b>销毁原因</b></label>
+                            <input type="text" class="form-control" name="" id="editReason" placeholder="请输入销毁原因">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除 deleteDestroy -->
+<div class="modal fade" id="deleteDestroy" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+              确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableDestroy').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序列",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:60
+                },
+                {
+                    field:"content",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"time",
+                    title:"时间",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"reason",
+                    title:"原因",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"content":"档案名称","time":"2017-9-1","reason":"销毁原因"},
+                {"content":"档案名称","time":"2017-9-1","reason":"销毁原因"},
+                {"content":"档案名称","time":"2017-9-1","reason":"销毁原因"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableDestroy').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoDestroy">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#editDestroy">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#deleteDestroy">删除</a>'
+            ].join('');
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+</script>

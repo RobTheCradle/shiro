@@ -1,0 +1,427 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>宣传教育</a></li>
+                <li>»</li>
+                <li class="active">内部人员宣传教育</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addTrain"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableTrain_in -->
+    <div class="table container-fluid">
+        <table id="tableTrain_in"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Train == 培训 ********** -->
+<!--添加 addTrain -->
+<div class="modal fade" id="addTrain" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-md-8 no-blur">
+                            <label ><b>培训单位</b></label>
+                            <input class="long-input form-control " type="text" name="vv"  value=""/>
+                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                            <div class="menuContent"  style="display:none; position: absolute;">
+                                <ul id="treeDemo0" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 no-blur">
+                            <label ><b>培训老师</b></label>
+                            <input class="short-input form-control" type="text"  value=""/>
+                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                            <div class="menuContent"  style="display:none; position: absolute;">
+                                <ul id="treeDemo1" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                            </div>
+                        </div>
+                        <!--多选下拉框-->
+                        <div class="form-group col-md-8 no-blur">
+                            <label>受教育人员/机构</label>
+                            <input class="long-input form-control" type="text"  name="vv" value=""/>
+                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                            <div class="menuContent"  style="display:none; position: absolute;">
+                                <ul id="treeDemo2" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 no-blur">
+                            <label><b>受培训单位</b></label>
+                            <input class="short-input form-control" type="text" name="vv"  value=""/>
+                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                            <div class="menuContent"  style="display:none; position: absolute;">
+                                <ul id="treeDemo3" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="trainCode"><b>内部培训代码</b></label>
+                            <input class="form-control" name="" id="trainCode" type="text" placeholder="请输入培训代码" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="traineeNumber"><b>内部受教育人数</b></label>
+                            <input class="form-control" name="" id="traineeNumber" type="number" placeholder="0" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="traineeTime"><b>内部受教育学时</b></label>
+                            <input class="form-control" name="" id="traineeTime" placeholder="0" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="trainDate"><b>内部培训时间</b></label>
+                            <input class="form-control" name="" id="trainDate" type="date" placeholder="请选择培训时间" data-easyform="null;date;" data-message="请正确选择时间">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <p><b>取证情况</b></p>
+                            <input class="" name="trainCard" id="trainCard_1" type="radio" value="1" data-message="请选择一项">
+                            <label class="radio-inline" for="trainCard_1"><b>已取证</b></label>
+                            <input class="" name="trainCard" id="trainCard_0" type="radio" value="0">
+                            <label class="radio-inline" for="trainCard_0"><b>未取证</b></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="trainCard_ID"><b>证件编号</b></label>
+                            <input class="form-control" name="" id="trainCard_ID"  placeholder="请输入证件编号" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainPlace"><b>内部培训地点</b></label>
+                        <input class="form-control" name="" id="trainPlace" type="text" placeholder="请输入培训地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group">
+                        <label for="trainContent"><b>内部培训/教育内容</b></label>
+                        <div class="summernote" id="trainContent"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--详情 infoTrain -->
+<div class="modal fade" id="infoTrain" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">培训单位：</td>
+                        <td class="info-content" colspan="3">xx集团有限公司</td>
+                        <td class="info-name">培训教师：</td>
+                        <td class="info-content">张丽</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">受培训单位：</td>
+                        <td class="info-content">信息部</td>
+                        <td class="info-name">受教育人数：</td>
+                        <td class="info-content">5</td>
+                        <td class="info-name">培训代码：</td>
+                        <td class="info-content">XXB00012</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">受教育人员/机构：</td>
+                        <td class="info-content" colspan="3">小明、张三</td>
+                        <td class="info-name">学时：</td>
+                        <td class="info-content">1天</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">培训时间：</td>
+                        <td class="info-content">2017年09月17日</td>
+                        <td class="info-name">是否取证：</td>
+                        <td class="info-content">已取证</td>
+                        <td class="info-name">证件编号：</td>
+                        <td class="info-content">000012</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">培训地点：</td>
+                        <td class="info-content" colspan="5">保卫部3号门保卫部3号门</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">培训/教育内容：</td>
+                        <td class="info-content" colspan="5">
+                            进出门佩戴证件，进出门佩戴证件，进出门佩戴证件，进出门佩戴证件,进出门佩戴证件，进出门佩戴证件，进出门佩戴证件，进出门佩戴证件,
+                            进出门佩戴证件，进出门佩戴证件，进出门佩戴证件，进出门佩戴证件,进出门佩戴证件，进出门佩戴证件，进出门佩戴证件，进出门佩戴证件,
+                            进出门佩戴证件，进出门佩戴证件，进出门佩戴证件，进出门佩戴证件,进出门佩戴证件，进出门佩戴证件，进出门佩戴证件，进出门佩戴证件
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editTrain -->
+<div class="modal fade" id="editTrain" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+        <form action="">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-8 no-blur">
+                        <label><b>培训单位</b></label>
+                        <input class="form-control  long-input" type="text"  value=""  />
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul id="treeDemo5" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>培训教师</b></label>
+                        <input class="form-control short-input" type="text"  value=""  />
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul id="treeDemo6" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-8 no-blur">
+                        <label><b>受教育人员/机构</b></label>
+                        <input class="form-control long-input" type="text"  value=""  />
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul id="treeDemo7" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>受培训单位</b></label>
+                        <input class="form-control short-input" type="text"  value=""  />
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul id="treeDemo8" class="ztree" style="margin-top:0; height: 300px;"></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="editCode"><b>内部培训代码</b></label>
+                        <input class="form-control" name="" id="editCode" type="text" placeholder="请输入培训代码" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="editTrainee_Number"><b>内部受教育人数</b></label>
+                        <input class="form-control" name="" id="editTrainee_Number" type="number" placeholder="0" data-easyform="null;number" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="editTrainee_Time"><b>内部受教育学时</b></label>
+                        <input class="form-control" name="" id="editTrainee_Time"  placeholder="0" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="editDate"><b>内部培训时间</b></label>
+                        <input class="form-control" name="" id="editDate" type="date" placeholder="请选择培训时间" data-easyform="null;date" data-message="请选择正确时间">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>取证情况</b></p>
+                        <input class="" name="editCard" id="editCard_1" type="radio" value="1" data-message="请选择一项">
+                        <label class="radio-inline" for="editCard_1"><b>已取证</b></label>
+                        <input class="" name="editCard" id="editCard_0" type="radio" value="0">
+                        <label class="radio-inline" for="editCard_0"><b>未取证</b></label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="editCard_ID"><b>证件编号</b></label>
+                        <input class="form-control" name="" id="editCard_ID"  placeholder="请输入证件编号" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editPlace"><b>内部培训地点</b></label>
+                    <input class="form-control" name="" id="editPlace" type="text" placeholder="请输入培训地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                </div>
+                <div class="form-group">
+                    <label for="editContent"><b>内部培训/教育内容</b></label>
+                    <div class="summernote" id="editContent"></div>
+                </div>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <input type="submit" class="btn btn-info" value="提交">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<!--确认删除 deleteTrain -->
+<div class="modal fade" id="deleteTrain" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableTrain_in').bootstrapTable({
+             url:'../../testData/tableTrain-in.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序列",
+                    width:'60',
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"mechanism",
+                    title:"培训单位",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"teacher",
+                    title:"培训教师",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"come",
+                    title:"受培训单位",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"number",
+                    title:"人数",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"date",
+                    title:"时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+                },
+                {
+                    field:" choose",
+                    title:"是否取证",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+
+                },
+                {
+                    field:"coding",
+                    title:"培训代码",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableTrain_in').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoTrain">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#editTrain">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#deleteTrain">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    //富文本初始化
+    $('.summernote').summernote({
+        height: 300,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+
+    $('form').easyform();
+
+//    初始化人员树
+    $.fn.zTree.init($("#treeDemo0"), setting1, zNodes);
+    $.fn.zTree.init($("#treeDemo1"), setting1, zNodes);
+    $.fn.zTree.init($("#treeDemo2"), setting1, zNodes);
+    $.fn.zTree.init($("#treeDemo3"), setting1, zNodes);
+
+
+//    编辑
+
+
+    $.fn.zTree.init($("#treeDemo5"), setting2, zNodes);
+    $.fn.zTree.init($("#treeDemo6"), setting2, zNodes);
+    $.fn.zTree.init($("#treeDemo7"), setting2, zNodes);
+    $.fn.zTree.init($("#treeDemo8"), setting2, zNodes);
+
+//    初始选项的id
+    var value5 = [42, 43, 44];
+    var value6 = [42, 53, 64];
+    var value7 = [42, 63, 54];
+    var value8 = [42, 51, 44];
+
+// 搜索节点的方法（ id不加# ，初始id）
+    searchNode('treeDemo5', value5);
+    searchNode('treeDemo6', value6);
+    searchNode('treeDemo7', value7);
+    searchNode('treeDemo8', value8)
+</script>

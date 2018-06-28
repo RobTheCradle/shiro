@@ -1,0 +1,598 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 现场监督检查</a></li>
+                <li>»</li>
+                <li class="active">隐患整改</li>
+            </ul>
+        </div>
+    </div>
+    <section class="panel" style="margin: 0 15px">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#flowDesign">整改通知</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowTodo">整改措施</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowa">整改复核</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!--整改通知-->
+                <div id="flowDesign" class="tab-pane active">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_JQ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control"  placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_departments"></table>
+                    </div>
+                    <!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+                    <!-- 年度专项检查 详情  detail_JQ-->
+                    <div class="modal fade" id="detail_JQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">整改通知</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>时间</b></td>
+                                            <td>1995-03-24</td>
+                                            <td><b>地点</b></td>
+                                            <td>XX</td>
+                                            <td><b>责任人</b></td>
+                                            <td>XX</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><b>责任单位</b></td>
+                                            <td colspan="3"></td>
+                                            <td><b>整改期限</b></td>
+                                            <td ></td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>隐患描述</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>整改措施描述</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 年度专项检查 ==add_JQ -->
+                    <div class="modal fade" id="add_JQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form class="" action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label><b>地点</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>负责人</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>责任单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>整改期限</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>整改措施描述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="3" placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--年度专项检查 == edit_JQ -->
+                    <div class="modal fade" id="edit_JQ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form class="" action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label><b>地点</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>负责人</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>责任单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>整改期限</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>整改措施描述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="3" placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--整改措施-->
+                <div id="flowTodo" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_FH"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowTodo"></table>
+                    </div>
+                    <!--------------模态框-------------------->
+                    <!--整改措施 详情 == detail_FH -->
+                    <div class="modal fade" id="detail_FH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">整改措施详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr class="KP">
+                                            <td><b>重要物资管理</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 整改措施 == add_FH-->
+                    <div class="modal fade" id="add_FH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="form-group col-md-12">
+                                        <input   type="file" multiple  name="xx" style="display: none" />
+                                        <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传附件</button>
+                                    </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <input type="submit" class="btn btn-info" value="提交">
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                    <!--编辑 整改措施 == edit_FH -->
+                    <div class="modal fade" id="edit_FH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新附件</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--整改复核-->
+                <div id="flowa" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_JS"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowa"></table>
+                    </div>
+                    <!------------------模态框-------------------->
+                    <!--整改复核 详情 == detail_JS -->
+                    <div class="modal fade" id="detail_JS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">整改复核详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr class="KP">
+                                            <td><b>整改完成情况描述</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 整改复核 == add_JS-->
+                    <div class="modal fade" id="add_JS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传附件</button>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 其他专项检查 == edit_JS -->
+                    <div class="modal fade" id="edit_JS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="form-group col-md-12">
+                                        <input   type="file" multiple  name="xx" style="display: none" />
+                                        <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新附件</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<!---------------模态框---------------->
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--年度专项检查-->
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field: "id",
+                    title: "序号",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 80
+                },
+                {
+                    field: "time",
+                    title: "时间",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 160
+                },
+                {
+                    field: "position",
+                    title: "地点",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: "people",
+                    title: "责任人",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true",
+                    width: 100
+                },
+                {
+                    field: "company",
+                    title: "责任单位",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true",
+                },
+                {
+                    field: "qixian",
+                    title: "整改期限",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true",
+                    width: 100
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align: "center",
+                    valign: "middle",
+                    formatter: operateFormatter,
+                    width: 200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "bianhao": "M1321544",
+                    "title": "项目名称",
+                    "people": "张三",
+                    "time": "2017-9-6",
+                    "position":"XXX",
+                    "company":"XXX",
+                    "qixian":"XXX"
+                }
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function () {
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_JQ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_JQ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $(this).prev('input').click()
+    });
+    //    表单验证
+    $('form').easyform()
+</script>
+<!--重大节假日专项检查-->
+<script>
+    $(function () {
+        $('#tb_flowTodo').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field: "id",
+                    title: "序号",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 80
+                },
+                {
+                    field: "cuoshi",
+                    title: "整改措施",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align: "center",
+                    valign: "middle",
+                    formatter: operateFormatter,
+                    width: 200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "cuoshi": "M1321544",
+                }
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function () {
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_FH" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_FH" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+
+    });
+</script>
+<!--整改复核-->
+<script>
+    $(function () {
+        $('#tb_flowa').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field: "id",
+                    title: "序号",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 80
+                },
+                {
+                    field: "fuhe",
+                    title: "整改完成情况",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align: "center",
+                    valign: "middle",
+                    formatter: operateFormatter,
+                    width: 200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "fuhe": "M1321544",
+                }
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function () {
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_JS" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_JS" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+
+    });
+</script>

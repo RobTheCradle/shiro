@@ -1,0 +1,371 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>危险品过程管控</a></li>
+                <li>»</li>
+                <li class="active">领用过程管控</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add"><i class="fa fa-plus"
+                                                                                                 aria-hidden="true"></i>
+                添加
+            </button>
+            <input type="file" multiple name="xx" id="upload" style="display: none"/>
+            <button type="button" class="btn btn-info upload"><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit" class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!--模态框-->
+<!--行前检查记录-->
+<!--详情 == detail-->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body row">
+                <table class="detail" border="1" width="100%">
+
+                    <tr>
+                        <td><b>申请单位</b></td>
+                        <td>XXXX</td>
+                        <td><b>领用时间</b></td>
+                        <td>M1321544</td>
+                        <td><b>领用人</b></td>
+                        <td>XXX</td>
+                    </tr>
+                    <tr>
+                        <td><b>危化品数量</b></td>
+                        <td>XXX</td>
+                        <td><b>保卫人员</b></td>
+                        <td>XXXXX</td>
+                        <td><b>库房管理人员</b></td>
+                        <td>XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>危化品用途</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加 == add -->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>申请单位</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>领用时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>领用人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>危化品数量</b></label>
+                        <input class="form-control" name="" placeholder="请输入"
+                               data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>保卫人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>库房管理人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>危化品用途</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="2"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                     <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--编辑 == edit -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>申请单位</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>领用时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>领用人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>危化品数量</b></label>
+                        <input class="form-control" name="" placeholder="请输入"
+                               data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>保卫人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>库房管理人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>危化品用途</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="2"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                     <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field: "id",
+                    title: "序号",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 80
+                },
+                {
+                    field: "type",
+                    title: "申请单位",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true"
+                },
+                {
+                    field: "brand",
+                    title: "领用时间",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true",
+                    width: 160
+                },
+                {
+                    field: "ascription",
+                    title: "领用人",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: "inspection",
+                    title: "数量",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: "Driver's",
+                    title: "用途",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: "body",
+                    title: "保卫人员",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: "Careful",
+                    title: "管理人员",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align: "center",
+                    valign: "middle",
+                    formatter: operateFormatter,
+                    width: 200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "type": "申请单位",
+                    "brand": "2017-9-6",
+                    "ascription": "小明",
+                    "inspection": "数量",
+                    "Driver's": "...",
+                    "body": "保卫人员",
+                    "Careful": "管理人员"
+                },
+                {
+                    "type": "申请单位",
+                    "brand": "2017-9-6",
+                    "ascription": "小明",
+                    "inspection": "数量",
+                    "Driver's": "...",
+                    "body": "保卫人员",
+                    "Careful": "管理人员"
+                },
+                {
+                    "type": "申请单位",
+                    "brand": "2017-9-6",
+                    "ascription": "小明",
+                    "inspection": "数量",
+                    "Driver's": "...",
+                    "body": "保卫人员",
+                    "Careful": "管理人员"
+                }
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function () {
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    $('form').easyform()
+
+    // 初始化人员树
+    $.fn.zTree.init($(".tree"), setting, zNodes);
+</script>

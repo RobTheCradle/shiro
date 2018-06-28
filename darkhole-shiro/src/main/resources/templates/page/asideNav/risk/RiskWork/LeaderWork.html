@@ -1,0 +1,239 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">风险评估</a></li>
+                <li>»</li>
+                <li class="active">领导审批</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Tab  -->
+    <section class="panel" style="margin: 0 15px;">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#Waiting">待审批列表</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#Ending">已审批列表</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!--待审批列表-->
+                <div id="Waiting" class="tab-pane active">
+                    <div class="table container-fluid">
+                        <table id="tableWaiting"></table>
+                    </div>
+                </div>
+                <!--已审批列表-->
+                <div id="Ending" class="tab-pane">
+                    <div class="table container-fluid">
+                        <table id="tableEnding"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Waiting == 待审批 ********** -->
+<!--详情 infoWaiting -->
+<div class="modal fade" id="infoWaiting" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body info-content law-content">
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--通过 passWaiting -->
+<div class="modal fade" id="passWaiting" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                审批通过？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--反馈 backWaiting -->
+<div class="modal fade" id="backWaiting" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                拒绝通过？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ********** Ending == 已审批 ********** -->
+<!--详情 infoEnding -->
+<div class="modal fade" id="infoEnding" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body info-content law-content">
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#tableWaiting').bootstrapTable({
+            url:'../../testData/risk/tableRiskInfo-leader.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"workType",
+                    title:"业务分类",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"workName",
+                    title:"业务名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"riskName",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle",
+                },
+                {
+                    field:"riskType",
+                    title:"风险类别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"riskStep",
+                    title:"管控措施",
+                    align:"center",
+                    valign:"middle",
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter1,
+                    width:220
+                }
+                //自定义方法，添加操作按钮,
+            ]
+        });
+        $('#tableEnding').bootstrapTable({
+            url:'../../testData/tableRiskInfo-leader.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"workType",
+                    title:"业务分类",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"workName",
+                    title:"业务名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"riskName",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle",
+                },
+                {
+                    field:"riskType",
+                    title:"风险类别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"riskStep",
+                    title:"管控措施",
+                    align:"center",
+                    valign:"middle",
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter2,
+                    width:120
+                }
+            ]
+        });
+        $(window).resize(function () {
+            $('#tableEnding').bootstrapTable('resetView');
+        });
+        function operateFormatter1(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoWaiting">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#passWaiting">通过</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#backWaiting">拒绝</a>'
+            ].join('');
+        }
+        function operateFormatter2(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoEnding">详情</a>'
+            ].join('');
+        }
+    });
+</script>

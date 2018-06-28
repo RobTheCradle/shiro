@@ -1,0 +1,344 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>现场监督检查</a></li>
+                <li>»</li>
+                <li class="active">保卫专项检查</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addLaw"><i class="fa fa-plus"
+                                                                                                    aria-hidden="true"></i>
+                添加
+            </button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit" class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!---------------模态框---------------->
+<!--隐患整改-->
+<!--详情 == detail-->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body row">
+                <table class="detail" border="1" width="100%">
+                    <tr>
+                        <td><b>时间</b></td>
+                        <td>M1321544</td>
+                        <td><b>地点</b></td>
+                        <td>XXX</td>
+                        <td><b>人员</b></td>
+                        <td>XXX</td>
+                    </tr>
+                    <tr>
+                        <td><b>制度体系检查情况</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>人防检查情况</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>物防检查情况</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>技防检查情况</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>出入口管理</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>外来人员管理</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>重要物资管理情况</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加 == add -->
+<div class="modal fade" id="addLaw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row ">
+                    <div class="form-group col-md-4">
+                        <label><b>时间</b></label>
+                        <input class="form-control" type="date" name="" placeholder="请输入" data-easyform="null;date;"
+                               data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>地点</b></label>
+                        <input class="form-control" name="" placeholder="请输入"
+                               data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>人员</b></label>
+                        <input class="form-control" name="" placeholder="请输入"
+                               data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>制度体系检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>人防检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>物防检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>技防检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>出入口管理</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>外来人员管理</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>重要物资管理情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input   type="file" multiple  name="xx" style="display: none" />
+                        <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传附件</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--编辑 == edit -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row ">
+                    <div class="form-group col-md-4">
+                        <label><b>时间</b></label>
+                        <input class="form-control" type="date" name="" placeholder="请输入" data-easyform="null;date;"
+                               data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>地点</b></label>
+                        <input class="form-control" name="" placeholder="请输入"
+                               data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>人员</b></label>
+                        <input class="form-control" name="" placeholder="请输入"
+                               data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>制度体系检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>人防检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>物防检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>技防检查情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>出入口管理</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>外来人员管理</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>重要物资管理情况</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="3" placeholder="请输入……"
+                                  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input   type="file" multiple  name="xx" style="display: none" />
+                        <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新附件</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field: "id",
+                    title: "序号",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 80
+                },
+                {
+                    field: "time",
+                    title: "时间",
+                    align: "center",
+                    valign: "middle",
+                    clickToSelect: "true",
+                    width: 150
+                },
+                {
+                    field: "place",
+                    title: "地点",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true",
+                    width: 160
+                },
+                {
+                    field: "people",
+                    title: "人员",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: "administration",
+                    title: "制度体系检查情况",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align: "center",
+                    valign: "middle",
+                    formatter: operateFormatter,
+                    width: 200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "time": "2017-9-6",
+                    "place": "地点",
+                    "people": "...",
+                    "administration": "...",
+
+                },
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function () {
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+$('form').easyform()
+</script>

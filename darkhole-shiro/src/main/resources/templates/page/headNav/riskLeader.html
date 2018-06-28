@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="msapplication-tap-highlight" content="no"><!--windows phone-->
+    <meta name="renderer" content="webkit"><!--360极速模式-->
+    <meta name="description" content=""><!--150-->
+    <meta name="keywords" content=""/>
+    <!-- ICON -->
+    <link href="../../favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+    <link href="../../favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="../../favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_z6bs8mfg9h3t0529.css">
+    <title>欢迎领导登录</title>
+    <!-- CSS-->
+    <link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/bootstrap/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/style-responsive.css" rel="stylesheet">
+    <link href="../../assets/bootstrap-table/bootstrap-table.css" rel="stylesheet">
+    <link href="../../assets/bootstrap-treeview/css/bootstrap-treeview.css" rel="stylesheet" >
+    <link href="../../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../fonts/iconfont/iconfont.css" rel="stylesheet">
+    <link href="../../assets/easyform/css/easyform.css" rel="stylesheet" >
+    <link href="../../css/headNav/risk.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../../assets/html5shiv.js"></script>
+    <script src="../../assets/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<!-- 页面 容器 -->
+<section id="container">
+    <header class="header white-bg">
+        <!-- LOGO -->
+        <div class="logo" style="line-height: 60px;">
+            <img src="../../img/logo/logo.png" style="display: block;float: left;width: 45px;height: 45px;margin-top: 8px;">
+            <a target="index00.html" class="logo-media " >军工企业保卫管理与防范识别处理系统</a>
+        </div>
+        <!-- 顶部导航 -->
+        <nav class="nav notify-row" style="margin: 0 0 0 4%;">
+            <ul class="nav nav-pills head-nav">
+                <li role="presentation" >
+                    <a href="../../index.html">
+                        <i class="iconfont icon-shouye-copy "></i>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="defend.html">
+                        <i class="iconfont icon-zhidu-"></i>
+                        <p>保卫体系</p>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="safeGuard.html">
+                        <i class="iconfont icon-anquan"></i>
+                        <p>安全防范</p>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="produceDefend.html">
+                        <i class="iconfont icon-guanli-"></i>
+                        <p>生产保卫</p>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="emergency.html">
+                        <i class="iconfont icon-yingjiguanli"></i>
+                        <p>应急管理</p>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="workGuide.html">
+                        <i class="iconfont icon-yewu1"></i>
+                        <p>业务指导</p>
+                    </a>
+                </li>
+                <li role="presentation" class="active">
+                    <a href="riskAssessment.html">
+                        <i class="iconfont icon-fengxiantishi"></i>
+                        <p>风险评估</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 用户登陆信息  -->
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="../../img/avatar1_small.jpg">
+                        <span class="username">Admin</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu  logout">
+                        <li class="log-arrow-up"></li><!-- 图标 -->
+                        <li>
+                            <a href="../login/login.html">
+                                <i class="fa fa-power-off"></i><!-- 图标 -->
+                                注销/退出登陆
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--***** ***** 用户登陆信息 -->
+        <!--进度、通知、提醒-->
+        <nav class="nav notify-row notice" >
+            <ul class="nav top-menu">
+                <!-- 任务栏1 -->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-tasks"></i><!-- 图标 -->
+                        <span class="badge bg-success">6</span><!-- 条目提示 -->
+                    </a>
+                    <!-- 任务列表 -->
+                    <ul class="dropdown-menu extended tasks-bar">
+                        <li class="notify-arrow notify-arrow-blue"></li>
+                        <li><p class="blue">您有6条待处理的任务</p></li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">任务1</div>
+                                    <div class="percent">40%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success set-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                        <span class="sr-only">40% 完成 (成功)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">任务2</div>
+                                    <div class="percent"> 60%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning set-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" >
+                                        <span class="sr-only">60% 完成 (错误)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">任务3</div>
+                                    <div class="percent">87%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info set-87" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" >
+                                        <span class="sr-only">87% 完成</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">任务4</div>
+                                    <div class="percent">33%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-danger set-33" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" >
+                                        <span class="sr-only">33% 完成 (危险)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div class="desc">任务5</div>
+                                    <div class="percent">45%</div>
+                                </div>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar set-45" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" >
+                        <span class="sr-only">
+                          45% Complete
+                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="external">
+                            <a href="#">
+                                显示全部任务
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 任务栏2 -->
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-envelope-o"></i><!-- 图标 -->
+                        <span class="badge bg-important">5</span><!-- 条目提示 -->
+                    </a>
+
+                    <!-- 信息/留言 列表 -->
+                    <ul class="dropdown-menu extended inbox">
+                        <li class="notify-arrow notify-arrow-blue"></li>
+                        <li><p class="blue">您有5条提醒</p></li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="../../img/avatar-mini.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">张三</span>
+                      <span class="time">刚刚（5分钟内）</span>
+                    </span>
+                                <span class="message">
+                      张三的信息/留言
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="../../img/avatar-mini2.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">李四</span>
+                      <span class="time">10分钟</span>
+                    </span>
+                                <span class="message">
+                      李四的信息/留言
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="../../img/avatar-mini3.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">王二</span>
+                      <span class="time">3小时</span>
+                    </span>
+                                <span class="message">
+                      王二的信息/留言
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="photo">
+                      <img alt="avatar" src="../../img/avatar-mini4.jpg">
+                    </span>
+                                <span class="subject">
+                      <span class="from">刘一</span>
+                      <span class="time">刚刚（5分钟内）</span>
+                    </span>
+                                <span class="message">
+                      刘一的信息/留言
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                显示全部信息/留言
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 任务栏3 -->
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-bell-o"></i><!-- 图标 -->
+                        <span class="badge bg-warning">7</span><!-- 条目提示 -->
+                    </a>
+
+                    <!-- 通知/警告 列表 -->
+                    <ul class="dropdown-menu extended notification">
+                        <li class="notify-arrow notify-arrow-blue">
+                        </li>
+                        <li><p class="blue">您有7条新的通知/警告</p></li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-danger">
+                      <i class="fa fa-bolt"></i><!-- 图标 -->
+                    </span>
+                                <span class="subject">
+                      <span class="small italic">3号服务器超载</span>
+                      <span class="time">34分钟</span>
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-warning">
+                      <i class="fa fa-bell"></i><!-- 图标 -->
+                    </span>
+                                <span class="subject">
+                      <span class="small italic">10号服务器无响应</span>
+                      <span class="time">1小时</span>
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-danger">
+                      <i class="fa fa-bolt"></i><!-- 图标 -->
+                    </span>
+                                <span class="subject">
+                      <span class="small italic">数据库超载</span>
+                      <span class="time">4小时</span>
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-success">
+                      <i class="fa fa-plus"></i><!-- 图标 -->
+                    </span>
+                                <span class="subject">
+                      <span class="small italic">新用户注册</span>
+                      <span class="time">刚刚（5分钟内）</span>
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-primary">
+                      <i class="fa fa-bullhorn"><!-- 图标 -->
+                      </i>
+                    </span>
+                                <span class="subject">
+                      <span class="small italic">应用报错</span>
+                      <span class="time">10分钟</span>
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                显示全部通知/警告
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!--***** ***** 顶部导航 -->
+    </header><!--***** ***** ***** ****+* 顶部 -->
+    <!-- 侧边栏 *****************************************************************************-->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <!--<li class="sub-menu">-->
+                    <!--<a href="javascript:;">-->
+                        <!--<i class="iconfont icon-dingqi"></i>&lt;!&ndash; 图标 &ndash;&gt;<span>风险管控配置</span>-->
+                        <!--<span class="label label-primary span-sidebar">2</span>-->
+                    <!--</a>-->
+                    <!--<ul class="sub">-->
+                        <!--<li>-->
+                            <!--<a target="../asideNav/risk/RiskSet/FormSet.html">安全防范表单配置</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a target="../asideNav/risk/RiskSet/RiskLibrary.html">风险库配置</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" iconfont icon-pinggu"></i><!-- 图标 --><span>风险管控工作</span>
+                        <span class="label label-primary span-sidebar">1</span>
+                    </a>
+                    <ul class="sub">
+                        <!--<li>-->
+                            <!--<a target="../asideNav/risk/RiskWork/RiskForm.html">安全防范统计表</a>-->
+                        <!--</li>-->
+                        <li>
+                            <a target="../asideNav/risk/RiskWork/LeaderWork.html">领导审批</a>
+                        </li>
+                        <!--<li>-->
+                            <!--<a target="../asideNav/risk/RiskWork/defendWork.html">保卫部审核</a>-->
+                        <!--</li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside><!--***** ***** ***** ***** 侧边栏 -->
+    <!-- 主体内容 *****************************************************************************-->
+    <section id="main-content">
+        <!-- 包裹  -->
+        <section class="wrapper site-min-height">
+
+            <!-- 页面地址栏  -->
+            <div class=" container-fluid">
+                <div class="">
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-home"></i></a></li>
+                        <li>»</li>
+                        <li><a href="#">风险评估</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Content  -->
+            <div class="row">
+
+                <div class="col-md-3">
+                    <table class="table table-left" style="height: 400px;">
+                        <thead>
+                        <tr>
+                            <th colspan="2" class="table-header">&nbsp;&nbsp;<i class="fa fa-bookmark"></i>&nbsp;&nbsp;单位基本信息</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>单位名称：</td><td>？？？？</td>
+                        </tr>
+                        <tr>
+                            <td>单位性质：</td><td>？？？？</td>
+                        </tr>
+                        <tr>
+                            <td>相对方位：</td><td>？？？？</td>
+                        </tr>
+                        <tr>
+                            <td>占地面积：</td><td>？？？？㎡</td>
+                        </tr>
+                        <tr>
+                            <td>建筑年限：</td><td>？？？？年</td>
+                        </tr>
+                        <tr>
+                            <td>覆盖区域：</td><td>？？？？</td>
+                        </tr>
+                        <tr>
+                            <td>职工人数：</td><td>？？？？人</td>
+                        </tr>
+                        <tr>
+                            <td>责任领导：</td><td>？？？？</td>
+                        </tr>
+                        <tr>
+                            <td>保卫管理人员：</td><td>？？？？</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table" id="riskEditing" style="height: 242px">
+                        <thead>
+                        <tr>
+                            <th colspan="3" class="table-header">&nbsp;&nbsp;<i class="fa fa-bell"></i>&nbsp;&nbsp;隐患整改进度</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td width="80">？？？？</td><td>？？？？</td><td>？？%</td>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<td width="80">11月15日</td><td>3楼#301门禁系统失效，电路板烧坏</td><td>40%</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td width="80">10月23日</td><td>1楼照明设备维修及更换</td><td>100%</td>-->
+                        <!--</tr>-->
+                        </tbody>
+                    </table>
+
+                    <button class="btn btn-block btn-warning"><i class="fa fa-wrench"></i>&nbsp;&nbsp;故障申报</button>
+                    <button class="btn btn-block btn-danger"><i class="fa fa-warning"></i>&nbsp;&nbsp;隐患上报</button>
+                </div>
+
+                <div class="col-md-9" style="padding-left: 0;">
+                    <div class="row">
+                        <div class="col-md-12" style="height: 160px;">
+                            <table class="table table-bordered" style="height: 160px;">
+                                <!--<thead>-->
+                                <!--<tr><th colspan="5">&nbsp;&nbsp;<i class="fa fa-tags"></i>&nbsp;&nbsp;安全防范综合风险评估</th></tr>-->
+                                <!--</thead>-->
+                                <tbody style="background: #2d3e46;color: #fff;">
+                                <tr>
+                                    <td colspan="1" rowspan="5" class="countRisk" width="120">？</td>
+                                    <td width="100">风险点统计 :</td>
+                                    <td width="120">？？？？</td>
+                                    <td width="100">安全等级 :</td>
+                                    <td>？？？？</td>
+                                </tr>
+                                <tr>
+                                    <td width="100">存在隐患 :</td>
+                                    <td width="120">？？？？</td>
+                                    <td width="100">防范效果 :</td>
+                                    <td>？？？？</td>
+                                </tr>
+                                <tr style="height: 80px;">
+                                    <td width="100">案事件统计 :</td>
+                                    <td width="120">？？？？</td>
+                                    <td width="100">评价分析 :</td>
+                                    <td>？？？？</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-4" style="height: 342px;">
+                            <table class="table" style="height: 321px">
+                                <thead>
+                                <tr>
+                                    <th class="table-header">&nbsp;&nbsp;<i class="fa fa-group"></i>&nbsp;&nbsp;人力防范情况</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="padding: 0;">
+                                        <div id="RenFRisk" style="width: 320px;height: 300px"></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-4" style="height: 342px;">
+                            <table class="table" style="height: 321px">
+                                <thead>
+                                <tr>
+                                    <th class="table-header">&nbsp;&nbsp;<i class="fa fa-windows"></i>&nbsp;&nbsp;物理防范情况</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="padding: 0;">
+                                        <div id="WuFRisk" style="width: 320px;height: 300px"></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-4" style="height: 342px;">
+                            <table class="table" style="height: 321px">
+                                <thead>
+                                <tr>
+                                    <th class="table-header">&nbsp;&nbsp;<i class="fa fa-tachometer"></i>&nbsp;&nbsp;技术防范情况</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="padding: 0;">
+                                        <div id="JiFInfo" style="width: 320px;height: 300px"></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12" style="height: 260px;">
+                            <table class="table" style="height: 260px">
+                                <thead>
+                                <tr>
+                                    <th class="table-header">&nbsp;&nbsp;<i class="fa fa-cog"></i>&nbsp;&nbsp;保卫管理情况</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td style="padding: 0;">
+                                        <div id="XuanChuan" style="width: 960px;height: 210px"></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </section><!--***** ***** ***** ***** 主体内容 -->
+    <!-- 页脚 *****************************************************************************-->
+    <footer class="site-footer">
+        <div class="setting">
+            成都飞机工业（集团）有限责任公司
+        </div>
+    </footer><!--***** ***** ***** ***** 页脚 -->
+</section>
+
+<!-- JS -->
+<script src="../../assets/jquery/jquery-3.2.1.min.js" ></script><!-- jQuery -->
+<script src="../../assets/bootstrap/js/bootstrap.min.js" ></script><!-- Bootstrap  -->
+<script src="../../assets/jquery/jquery.dcjqaccordion.2.7.js"></script><!-- 手风琴导航 -->
+<script src="../../assets/respond.min.js" ></script><!-- 支持IE  -->
+<script src="../../js/iframeDiv.js"></script>
+<script src="../../js/common-scripts.js" ></script><!-- 初始化插件  -->
+<script src="../../assets/bootstrap-treeview/js/bootstrap-treeview.min.js"></script> <!--树插件-->
+<script src="../../assets/bootstrap-table/bootstrap-table.min.js"></script><!--bootstrap表格插件-->
+<script src="../../assets/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script><!--bootstrap表格插件-->
+<script src="../../js/bootstrap-table.config.js"></script><!--初始化bootstrapTable-->
+<script src="../../assets/easyform/js/easyform.js"></script> <!--表单验证-->
+<script src="../../assets/echart/echarts.min.js"></script>
+
+<script>
+    $(function () {
+//        $('#riskEditing').bootstrapTable({
+//            url : '../../testData/riskEditing.json',
+//            columns : [
+//                {
+//
+//                },
+//                {
+//
+//                }
+//            ]
+//        });
+
+        var RenFRisk =  echarts.init(document.getElementById('RenFRisk'));
+        var WuFRisk =  echarts.init(document.getElementById('WuFRisk'));
+        var JiFInfo = echarts.init(document.getElementById('JiFInfo'));
+        var XuanChuan =  echarts.init(document.getElementById('XuanChuan'));
+        RenFRisk.setOption(option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x : 'left',
+                data: ['管理人员', '值守人员','巡逻人员']
+            },
+            radar: {
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '年龄结构', max: 65},
+                    { name: '文化程度', max: 100},
+                    { name: '身体素质', max: 100},
+                    { name: '擒拿训练', max: 100},
+                    { name: '技术能力', max: 100},
+                    { name: '响应能力', max: 100}
+                ],
+                center: ['50%','50%'],
+                radius: 80
+            },
+            series: [{
+                name: '量化平均分值',
+                type: 'radar',
+                tooltip: {
+                    trigger: 'item'
+                },
+                itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                data : [
+                    {
+                        value : [0, 0, 0, 0, 0, 0],
+                        name : '管理人员'
+                    },
+                    {
+                        value : [0, 0, 0, 0, 0, 0],
+                        name : '值守人员'
+                    },
+                    {
+                        value : [0, 0, 0, 0, 0, 0],
+                        name : '巡逻人员'
+                    }
+                ]
+            }]
+        });
+        WuFRisk.setOption(option = {
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                x : 'center',
+                y : 'top',
+                data:['易损度','性价比','维护率','延迟能力','强度']
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'半径模式',
+                    type:'pie',
+                    radius : [20, 110],
+                    center : ['50%', '50%'],
+                    roseType : 'radius',
+                    label: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    lableLine: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data:[
+                        {value:0, name:'易损度'},
+                        {value:0, name:'性价比'},
+                        {value:0, name:'维护率'},
+                        {value:0, name:'延迟能力'},
+                        {value:0, name:'强度'}
+                    ]
+                }
+            ]
+        });
+        JiFInfo.setOption(option = {
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['视频监控','报警器','门禁系统','存储设备','传输设备','巡更系统']
+            },
+            grid: {
+                left: '2%',
+                right: '2%',
+                bottom: '2%',
+                containLabel: true
+            },
+            xAxis:  {
+                type: 'value'
+            },
+            yAxis: {
+                type: 'category',
+                data: ['更换量', '维修量', '总量']
+            },
+            series: [
+                {
+                    name: '视频监控',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0]
+                },
+                {
+                    name: '报警器',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0]
+                },
+                {
+                    name: '门禁系统',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0]
+                },
+                {
+                    name: '存储设备',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0]
+                },
+                {
+                    name: '传输设备',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0]
+                },
+                {
+                    name: '巡更系统',
+                    type: 'bar',
+                    stack: '总量',
+                    data: [0, 0, 0]
+                }
+            ]
+        });
+        XuanChuan.setOption(option = {
+//            title: {
+//                subtext: '数据更新时间：2017年11月'
+//            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data:['外来人员培训','内部人员培训','宣传']
+            },
+//            toolbox: {
+//                feature: {
+//                    saveAsImage: {}
+//                }
+//            },
+            grid: {
+                left: '2%',
+                right: '2%',
+                bottom: '2%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月']
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'外来人员培训',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    name:'内部人员培训',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    name:'宣传',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                }
+            ]
+        });
+    })
+</script>
+</body>
+</html>

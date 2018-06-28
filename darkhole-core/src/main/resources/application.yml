@@ -27,6 +27,21 @@ spring:
       testOnReturn: false
       poolPreparedStatements: true
       maxOpenPreparedStatements: 20
-logging:
-  level:
-    com.onepro.custom.mapper: DEBUG
+  ########################################################
+  ###THYMELEAF (ThymeleafAutoConfiguration)
+  ########################################################
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  resources:
+    chain:
+      cache: false
+  devtools:
+    livereload:
+      enabled: false
+

@@ -1,0 +1,15 @@
+[
+  {"id":1,"riskType":"制度建设及运行类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"保卫管理机构","riskSubName":"专门保卫工作机构","riskJudge":"是否配置"},
+  {"id":2,"riskType":"制度建设及运行类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"保卫管理机构","riskSubName":"专职保卫管理人员","riskJudge":"是否配置"},
+  {"id":3,"riskType":"条件保障类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"保卫经费","riskSubName":"以外伤害保险","riskJudge":"是否配置"},
+  {"id":4,"riskType":"条件保障类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"保卫经费","riskSubName":"风险补贴","riskJudge":"是否配置"},
+  {"id":5,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"保卫专用器材","riskSubName":"防护器材、器械","riskJudge":"是否配置"},
+  {"id":6,"riskType":"制度建设及运行类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"行政制度防范","riskSubName":"保卫管理制度","riskJudge":"是否配置"},
+  {"id":7,"riskType":"制度建设及运行类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"思想防范","riskSubName":"案事件情况档案","riskJudge":"是否配置"},
+  {"id":8,"riskType":"宣贯培训类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"思想防范","riskSubName":"宣传教育","riskJudge":"是否配置"},
+  {"id":9,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"应急处置","riskSubName":"应急处置预案","riskJudge":"是否配置"},
+  {"id":10,"riskType":"宣贯培训类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"内保队员综合素质","riskSubName":"培训教育","riskJudge":"是否配置"},
+  {"id":11,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"内保队员综合素质","riskSubName":"取证情况","riskJudge":"是否配置"},
+  {"id":12,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"内保队员综合素质","riskSubName":"身体健康状况","riskJudge":"是否达标"},
+  {"id":13,"riskType":"保密类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"内保队员综合素质","riskSubName":"思想政治素质","riskJudge":"是否达标"}
+]

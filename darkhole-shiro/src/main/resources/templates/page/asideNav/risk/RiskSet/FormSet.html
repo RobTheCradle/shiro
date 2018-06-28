@@ -1,0 +1,554 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">风险评估</a></li>
+                <li>»</li>
+                <li class="active">安全防范表单配置</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Content  -->
+    <div class="row">
+        <!-- Tree  -->
+        <div class="col-md-2" style="height:720px;overflow: hidden;overflow-y: scroll;margin: 0;padding: 0;">
+            <section id="treeOS" style="padding-left: 15px;"></section>
+        </div>
+
+        <!-- Tab  -->
+        <section class="panel col-md-10" style="height:720px;margin: 0;padding: 0 15px;border: 0;background: #e5e6e6;">
+            <!-- Tabs nav -->
+            <header class="panel-heading tab-bg-dark-navy-blue ">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#RFset" onclick="$(window).resize();">人防防范类配置</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#WFset" onclick="$(window).resize();">物防防范类配置</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#JFset" onclick="$(window).resize();">技防防范类配置</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#GLset" onclick="$(window).resize();">管理防范类配置</a>
+                    </li>
+                </ul>
+            </header>
+            <!-- Tabs body -->
+            <div class="panel-body" style="height: 628px;background: #fff;">
+                <div class="tab-content">
+                    <!--人防防范类配置-->
+                    <div id="RFset" class="tab-pane active">
+                        <table id="tableRFset"></table>
+                    </div>
+                    <!--物防防范类配置-->
+                    <div id="WFset" class="tab-pane">
+                        <table id="tableWFset"></table>
+                    </div>
+                    <!--技防防范类配置-->
+                    <div id="JFset" class="tab-pane">
+                        <table id="tableJFset"></table>
+                    </div>
+                    <!--管理防范类配置-->
+                    <div id="GLset" class="tab-pane">
+                        <table id="tableGLset"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer" style="text-align: center;">
+                <button type="button" class="btn btn-default">清空</button>
+                <button type="button" class="btn btn-info">保存设置</button>
+            </div>
+        </section>
+    </div>
+</section>
+
+<script>
+
+    $(function () {
+
+        //Tree
+        var _OS = [
+            {
+                text: "运营部门",
+                nodes: [
+                    {
+                        text: "经营管理部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "生产管理部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "技术中心",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "产品研制部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "检验检测部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "技术服务部",
+                        backColor: "#e5e6e6",
+                    }
+                ]
+            },
+            {
+                text: "管理与支撑部门",
+                nodes: [
+                    {
+                        text: "综合管理部／党委工作部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "财务部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "企业发展部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "人力资源部／党委组织部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "企业文化部／党委宣传部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "审计与法律部／纪检监察部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "人力资源部／党委组织部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "企业文化部／党委宣传部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "审计与法律部／纪检监察部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "材料采购部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "成品采购部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "技术改造部",
+                        backColor: "#e5e6e6",
+                    },
+                    {
+                        text: "流程与信息化部",
+                        backColor: "#e5e6e6",
+                    }
+
+                ]
+            },
+            {
+                text: "专业厂"
+            },
+            {
+                text: "611所  "
+            },
+            {
+                text: "退休职工家属管理处 "
+            },
+            {
+                text: "博士后科研工作站"
+            }
+        ];
+
+        $('#treeOS').treeview({
+            backColor: '#c9cccf',
+            selectedBackColor : "#428bca",
+            onhoverColor : "#428bca",
+            emptyIcon : "fa fa-square-o",
+            expandIcon : "fa fa-plus-square",
+            collapseIcon : "fa fa-minus-square",
+            color : "#2a3542",
+            data: _OS
+        });
+
+        //Table
+        $('#tableRFset').bootstrapTable({
+            url:'../../testData/risk/tableRFset.json',// 服务器数据的加载地址
+            classes : 'table table-border-0',
+            height : 618,
+            striped : false,
+            detailView : true,
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:40
+                },
+                {
+                    field:"riskType",
+                    title:"风险类型",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskLevel",
+                    title:"风险等级",
+                    align:"center",
+                    valign:"middle",
+                    width:40
+                },
+                {
+                    field:"riskNature",
+                    title:"风险性质",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"riskName",
+                    title:"防范类(风险点)",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskSubName",
+                    title:"防范子类",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskJudge",
+                    title:"防范指标",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field: 'operate',
+                    title: '配置',
+                    align:"center",
+                    valign:"middle",
+                    formatter: function () {
+                        return '<input type="checkbox" class="checkbox form-control w-20" id="agree" name="agree">'
+                    },
+                    width:80
+                }
+            ],
+            onExpandRow: onExpandRows
+        });
+
+        $('#tableWFset').bootstrapTable({
+            url:'../../testData/risk/tableWFset.json',// 服务器数据的加载地址
+            classes : 'table table-border-0',
+            height : 618,
+            striped : false,
+            detailView : true,
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:40
+                },
+                {
+                    field:"riskType",
+                    title:"风险类型",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskLevel",
+                    title:"风险等级",
+                    align:"center",
+                    valign:"middle",
+                    width:40
+                },
+                {
+                    field:"riskNature",
+                    title:"风险性质",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"riskName",
+                    title:"防范类(风险点)",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskSubName",
+                    title:"防范子类",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskJudge",
+                    title:"防范指标",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field: 'operate',
+                    title: '配置',
+                    align:"center",
+                    valign:"middle",
+                    formatter: function () {
+                        return '<input type="checkbox" class="checkbox form-control w-20" id="agree" name="agree">'
+                    },
+                    width:80
+                }
+            ],
+            onExpandRow: onExpandRows
+
+        });
+
+        $('#tableJFset').bootstrapTable({
+            url:'../../testData/risk/tableJFset.json',// 服务器数据的加载地址
+            classes : 'table table-border-0',
+            height : 618,
+            striped : false,
+            detailView : true,
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:40
+                },
+                {
+                    field:"riskType",
+                    title:"风险类型",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskLevel",
+                    title:"风险等级",
+                    align:"center",
+                    valign:"middle",
+                    width:40
+                },
+                {
+                    field:"riskNature",
+                    title:"风险性质",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"riskName",
+                    title:"防范类(风险点)",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskSubName",
+                    title:"防范子类",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskJudge",
+                    title:"防范指标",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field: 'operate',
+                    title: '配置',
+                    align:"center",
+                    valign:"middle",
+                    formatter: function () {
+                        return '<input type="checkbox" class="checkbox form-control w-20" id="agree" name="agree">'
+                    },
+                    width:80
+                }
+            ],
+            onExpandRow: onExpandRows
+        });
+
+        $('#tableGLset').bootstrapTable({
+            url:'../../testData/risk/tableGLset.json',// 服务器数据的加载地址
+            classes : 'table table-border-0',
+            height : 618,
+            striped : false,
+            detailView : true,
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:40
+                },
+                {
+                    field:"riskType",
+                    title:"风险类型",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskLevel",
+                    title:"风险等级",
+                    align:"center",
+                    valign:"middle",
+                    width:40
+                },
+                {
+                    field:"riskNature",
+                    title:"风险性质",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"riskName",
+                    title:"防范类(风险点)",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskSubName",
+                    title:"防范子类",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"riskJudge",
+                    title:"防范指标",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field: 'operate',
+                    title: '配置',
+                    align:"center",
+                    valign:"middle",
+                    formatter: function () {
+                        return '<input type="checkbox" class="checkbox form-control w-20" id="agree" name="agree">'
+                    },
+                    width:80
+                }
+            ],
+            onExpandRow: onExpandRows
+        });
+
+        //Functions
+        $(window).resize(function () {
+            $('#tableRFset').bootstrapTable('resetView');
+            $('#tableWFset').bootstrapTable('resetView');
+            $('#tableJFset').bootstrapTable('resetView');
+            $('#tableGLset').bootstrapTable('resetView');
+        });
+
+        function onExpandRows(index, row, $detail) {
+            initSubTable(index,row,$detail);
+        }
+
+        function initSubTable(index,row,$detail) {
+            var cur_table = $detail.html('<table></table>').find('table');
+            $(cur_table).bootstrapTable({
+                url:'../../testData/risk/'+$detail[0].offsetParent.id+row.id+'.json',
+                pagination : false,
+                detailView : false,
+                columns: [
+                    [
+                        {
+                            field:"id",
+                            title:"序号",
+                            align:"center",
+                            valign:"middle",
+                            sortable:"true",
+                            rowspan : 2,
+                            width:40
+                        },
+                        {
+                            field:"riskQuota",
+                            title:"指标项",
+                            align:"center",
+                            valign:"middle",
+                            rowspan : 2
+                        },
+                        {
+                            field:"riskArea",
+                            title:"区域指标",
+                            align:"center",
+                            valign:"middle",
+                            colspan : 4
+                        }
+                    ],
+                    [
+                        {
+                            field:"riskAAAA",
+                            title:"禁区",
+                            align:"center",
+                            valign:"middle",
+                            cellStyle:{
+                                css:{"background-color":"#ff6c60","color":"#fff"}
+                            },
+                            width:160
+                        },
+                        {
+                            field:"riskAAA",
+                            title:"防护区",
+                            align:"center",
+                            valign:"middle",
+                            cellStyle:{
+                                css:{"background-color":"#FCB322","color":"#fff"}
+                            },
+                            width:160
+                        },
+                        {
+                            field:"riskAA",
+                            title:"监视区",
+                            align:"center",
+                            valign:"middle",
+                            cellStyle:{
+                                css:{"background-color":"#41cac0","color":"#fff"}
+                            },
+                            width:160
+                        },
+                        {
+                            field:"riskA",
+                            title:"周界",
+                            align:"center",
+                            valign:"middle",
+                            cellStyle:{
+                                css:{"background-color":"#a9d86e","color":"#fff"}
+                            },
+                            width:160
+                        }
+                    ]
+                ]
+            });
+        }
+    });
+
+
+</script>

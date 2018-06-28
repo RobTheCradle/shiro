@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html>
+<body>
+<div th:fragment="editor">
+    <div id="editor" style="width:300px;height:800px;">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+    <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+    <script type="text/javascript" src="js/wangEditor.js"></script>
+    <script type="text/javascript">
+        var E = window.wangEditor
+        var editor = new E('#editor')
+        // 或者 var editor = new E( document.getElementById('editor') )
+        editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+        editor.create()
+    </script>
+</div>
+</body>
+
+</html>

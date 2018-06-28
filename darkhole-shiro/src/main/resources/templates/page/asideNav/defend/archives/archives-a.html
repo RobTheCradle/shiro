@@ -1,0 +1,427 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">档案管理</a></li>
+                <li>»</li>
+                <li class="active"><a href="#">生成档案</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addArchive"><i class="fa fa-plus" aria-hidden="true"></i> 添加</button>
+            <input type="file" multiple name="xx" id="upload" style="display: none"/>
+            <button type="button" class="btn btn-info upload"><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+            <button type="submit" class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableArchive -->
+    <div class="table container-fluid">
+        <table id="tableArchive"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Archive == 档案 ********** -->
+<!-- 添加  addArchive -->
+<div class="modal fade" id="addArchive" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="archiveTitle"><b>档案名称</b></label>
+                            <input type="text" class="form-control" name="" id="archiveTitle" placeholder="请输入名称">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveType"><b>档案类别</b></label>
+                            <select class="form-control" name="" id="archiveType">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <!-- 档案编号 自动生成 不可修改 -->
+                            <label for="archiveId"><b>档案编号</b></label>
+                            <input type="text" class="form-control" name="" id="archiveId" disabled value="DA0000116">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="archiveList"><b>档案目录</b></label>
+                            <input type="text" class="form-control" name="" id="archiveList" placeholder="请输入档案目录">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveDatetime"><b>生成时间</b></label>
+                            <input type="datetime" class="form-control" name="" id="archiveDatetime">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="archiveContent"><b>档案内容</b></label>
+                            <div class="summernote" id="archiveContent"></div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button type="button" class="btn btn-primary" onclick="javascript:$('#fileup').click();" style="margin-top: 20px;">
+                                <i class="fa fa-link"></i>上传附件
+                            </button>
+                            <input id="fileup" class="form-group" type="file" style="display: none;">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="archiveSource"><b>档案来源</b></label>
+                            <input type="text" class="form-control" name="" id="archiveSource" placeholder="请输入档案来源">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveCycle"><b>存储周期</b></label>
+                            <input type="number" class="form-control" name="" id="archiveCycle">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveTurn"><b>档案移交人</b></label>
+                            <input type="text" class="form-control" name="" id="archiveTurn" placeholder="请输入档案来源">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveTake"><b>档案接收人</b></label>
+                            <input type="text" class="form-control" name="" id="archiveTake" placeholder="请输入档案来源">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="archiveStatus"><b>档案状态</b></label>
+                            <select class="form-control" name="" id="archiveStatus">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 详情 infoArchive -->
+<div class="modal fade" id="infoArchive" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">档案编号：</td>
+                        <td class="info-content" colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">档案名称：</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">档案类别：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">档案目录：</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">生成时间：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">档案内容：</td>
+                        <td class="info-content" colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">档案来源：</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">存储周期：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">档案移交人：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">档案接收人：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">档案状态：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                </table>
+
+                <div class="form-group">
+                    <button class="btn btn-primary" type="button"><i class="fa fa-download"></i>下载附件</button>
+                    <input id="infoDown" class="form-group" type="file" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 编辑 editArchive-->
+<div class="modal fade" id="editArchive" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="editTitle"><b>档案名称</b></label>
+                            <input type="text" class="form-control" name="" id="editTitle" placeholder="请输入名称">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editType"><b>档案类别</b></label>
+                            <select class="form-control" name="" id="editType">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <!-- 档案编号 自动生成 不可修改 -->
+                            <label for="editId"><b>档案编号</b></label>
+                            <input type="text" class="form-control" name="" id="editId" disabled value="DA0000116">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="editList"><b>档案目录</b></label>
+                            <input type="text" class="form-control" name="" id="editList" placeholder="请输入档案目录">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editDatetime"><b>生成时间</b></label>
+                            <input type="datetime" class="form-control" name="" id="editDatetime">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editContent"><b>档案内容</b></label>
+                            <div class="summernote" id="editContent"></div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button type="button" class="btn btn-primary" onclick="javascript:$('#fileup').click();" style="margin-top: 20px;">
+                                <i class="fa fa-link"></i>上传附件
+                            </button>
+                            <input id="editFile" class="form-group" type="file" style="display: none;">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="editSource"><b>档案来源</b></label>
+                            <input type="text" class="form-control" name="" id="editSource" placeholder="请输入档案来源">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editCycle"><b>存储周期</b></label>
+                            <input type="number" class="form-control" name="" id="editCycle">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editTurn"><b>档案移交人</b></label>
+                            <input type="text" class="form-control" name="" id="editTurn" placeholder="请输入档案来源">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editTake"><b>档案接收人</b></label>
+                            <input type="text" class="form-control" name="" id="editTake" placeholder="请输入档案来源">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editStatus"><b>档案状态</b></label>
+                            <select class="form-control" name="" id="editStatus">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除 deleteArchive -->
+<div class="modal fade" id="deleteArchive" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableArchive').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                 {
+                 field:"id",
+                 title:"序列",
+                 align:"center",
+                 valign:"middle",
+                 sortable:"true",
+                 width:60
+                 },
+                {
+                    field: "date",
+                    title: "生成时间",
+                    align: "center",
+                    valign: "middle",
+                    sortable: "true",
+                    width: 100
+                },
+                {
+                    field: "type",
+                    title: "类别",
+                    align: "center",
+                    valign: "middle",
+                    width: 160
+                },
+                {
+                    field: "content",
+                    title: "名称",
+                    align: "center",
+                    valign: "middle"
+                },
+                {
+                    field: "directory",
+                    title: "目录",
+                    align: "center",
+                    valign: "middle"
+                },
+                {
+                    field: "source",
+                    title: "来源",
+                    align: "center",
+                    valign: "middle"
+                },
+                {
+                    field: "peoplea",
+                    title: "移交人",
+                    align: "center",
+                    valign: "middle"
+
+                },
+                {
+                    field: "peopleb",
+                    title: "接收人",
+                    align: "center",
+                    valign: "middle"
+                },
+                {
+                    field: "time",
+                    title: "储存周期",
+                    align: "center",
+                    valign: "middle"
+                },
+                {
+                    field: "state",
+                    title: "状态",
+                    align: "center",
+                    valign: "middle"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align: "center",
+                    valign: "middle",
+                    formatter: operateFormatter,
+                    width: 220
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "date": "2016-5-6",
+                    "type": "文案类",
+                    "content": "档案名称",
+                    "directory": "目录",
+                    "source": "来源...",
+                    "peoplea": "小明",
+                    "peopleb": "小英",
+                    "time": "一个月",
+                    "state": "状态"
+                },
+                {
+                    "date": "2016-5-6",
+                    "type": "文案类",
+                    "content": "档案名称",
+                    "directory": "目录",
+                    "source": "来源...",
+                    "peoplea": "小明",
+                    "peopleb": "小英",
+                    "time": "一个月",
+                    "state": "状态"
+                },
+                {
+                    "date": "2016-5-6",
+                    "type": "文案类",
+                    "content": "档案名称",
+                    "directory": "目录",
+                    "source": "来源...",
+                    "peoplea": "小明",
+                    "peopleb": "小英",
+                    "time": "一个月",
+                    "state": "状态"
+                }
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function () {
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableArchive').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoArchive">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#editArchive">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#deleteArchive">删除</a>'
+            ].join('');
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    //富文本初始化
+    $('#archiveContent').summernote({
+        height: 400,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+
+    $('#editContent').summernote({
+        height: 400,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+
+</script>

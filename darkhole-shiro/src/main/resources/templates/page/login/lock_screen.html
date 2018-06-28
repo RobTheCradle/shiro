@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content = "IE=edge,chrome=1" />
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="renderer" content="webkit">
+  <meta name="description" content="">
+
+  <!-- ICON -->
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>锁屏</title>
+  <!-- CSS-->
+  <link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+  <link href="../../assets/bootstrap/css/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+  <link href="../../assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+  <link href="../../css/style.css" rel="stylesheet"><!-- BASIC CSS -->
+  <link href="../../css/style-responsive.css" rel="stylesheet"><!-- RESPONSIVE CSS -->
+  <!--[if lt IE 9]>
+  <script src="../../assets/html5shiv.js"></script>
+  <script src="../../assets/respond.min.js"></script>
+  <![endif]-->
+  </head>
+  <body class="lock-screen" onload="startTime()">
+   <!-- LOCK SCREEN WRAPPER-->
+    <div class="lock-wrapper">
+      <div id="time">
+      </div>
+      <div class="lock-box text-center">
+        <img src="../../img/follower-avatar.jpg" alt="lock avatar">
+        <h1>
+          Pruthvi Bardolia
+        </h1>
+        <span class="locked">
+          Locked
+        </span>
+        <form role="form" class="form-inline" action="../headNav/defend.html">
+          <div class="form-group col-lg-12">
+            <input type="password" placeholder="Enter Password" id="exampleInputPassword2" class="form-control lock-input">
+            <button class="btn btn-lock" type="submit">
+              <i class="fa fa-arrow-right">
+              </i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+	 <!-- LOCK SCREEN WRAPPER-->
+    <script>
+	 // TIMER FUNCTION
+      function startTime()
+      {
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        // add a zero in front of numbers<10
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('time').innerHTML=h+":"+m+":"+s;
+        t=setTimeout(function(){
+          startTime()}
+                     ,500);
+      }
+      
+      function checkTime(i)
+      {
+        if (i<10)
+        {
+          i="0" + i;
+        }
+        return i;
+      }
+    </script>
+  </body>
+</html>
+
+

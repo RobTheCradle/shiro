@@ -1,0 +1,8 @@
+[
+  {"Id":"1","assetId":"ZC0002001","deviceName":"OO报警器","deviceId":"BJQ000315","proposer":"张三","jobNumber":"GH0000197...","reportUnit":"深夜食堂伙食团","faultDate":"2017年11月8日"},
+  {"Id":"2","assetId":"ZC0002005","deviceName":"OO报警器","deviceId":"BJQ000319","proposer":"张三","jobNumber":"GH0000197...","reportUnit":"深夜食堂伙食团","faultDate":"2017年11月9日"},
+  {"Id":"3","assetId":"ZC0002009","deviceName":"OO报警器","deviceId":"BJQ000323","proposer":"张三","jobNumber":"GH0000197...","reportUnit":"深夜食堂伙食团","faultDate":"2017年11月10日"},
+  {"Id":"4","assetId":"ZC0001015","deviceName":"XX变压器-24V","deviceId":"BY002222","proposer":"李四","jobNumber":"GH0000199...","reportUnit":"深夜食堂伙食团","faultDate":"2017年12月8日"},
+  {"Id":"5","assetId":"ZC000566","deviceName":"摄像头3000","deviceId":"JK000005","proposer":"李四","jobNumber":"GH0000199...","reportUnit":"深夜食堂伙食团","faultDate":"2017年12月11日"},
+  {"Id":"6","assetId":"ZC0010099","deviceName":"氙气照明灯","deviceId":"D0010007","proposer":"王二","jobNumber":"GH0000058...","reportUnit":"深夜食堂伙食团","faultDate":"2017年12月20日"}
+]

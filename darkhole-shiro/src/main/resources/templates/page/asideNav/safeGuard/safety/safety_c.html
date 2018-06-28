@@ -1,0 +1,1066 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 技术防范管理</a></li>
+                <li>»</li>
+                <li class="active">技防维护保养</li>
+            </ul>
+        </div>
+    </div>
+    <section class="panel" style="margin: 0 15px">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#flowa">日常维护保养</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowb">专项维护保养</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowc">维护保养评价</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!--日常维护保养-->
+                <div id="flowa" class="tab-pane active">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_a"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <button class="btn btn-warning">制定计划</button>
+                            <button class="btn btn-primary">评价</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowa"></table>
+                    </div>
+                    <!-------------模态框----------------->
+                    <!--日常详情 detail_JZ-->
+                    <div class="modal fade" id="detail_a" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1" width="100%">
+                                        <tr>
+                                            <td><b>维保时间</b></td>
+                                            <td>2017-11-11</td>
+                                            <td><b>维保地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>维保单位</b></td>
+                                            <td>Q1321544</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>维保人员</b></td>
+                                            <td colspan="3">XXX</td>
+                                            <td><b>故障申报</b></td>
+                                            <td>是</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>整改起始时间</b></td>
+                                            <td>XXX</td>
+                                            <td><b>验收结束时间</b></td>
+                                            <td>207-11-11</td>
+                                            <td><b>整改时长</b></td>
+                                            <td>2天</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>维保内容</b></td>
+                                            <td colspan="5">XXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>问题描述</b></td>
+                                            <td colspan="5">XXXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>整改措施</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+
+                                        <tr class="KP">
+                                            <td><b>管理人员验收意见</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>验收时间</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 == add -->
+                    <div class="modal fade" id="add_a" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保地点</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保人员</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>维保单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>故障申报</b></p>
+                                            <input class="" name="trainCard" id="fault_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="fault_1"><b>是</b></label>
+                                            <input class="" name="trainCard" id="fault_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="fault_0"><b>否</b></label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>维保内容</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>问题描述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>整改起始时间</b></label>
+                                            <input class="form-control start-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>整改结束时间</b></label>
+                                            <input class="form-control stop-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>整改时长</b></label>
+                                            <input class="form-control time-count" name=""  readonly="readonly">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>整改措施</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>管理人员验收意见</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>验收时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 == edit -->
+                    <div class="modal fade" id="edit_a" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保地点</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保人员</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>维保单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>故障申报</b></p>
+                                            <input class="" name="trainCard" id="edit_fault_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_fault_1"><b>是</b></label>
+                                            <input class="" name="trainCard" id="edit_fault_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_fault_0"><b>否</b></label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>维保内容</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>问题描述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>整改起始时间</b></label>
+                                            <input class="form-control start-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>整改结束时间</b></label>
+                                            <input class="form-control stop-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>整改时长</b></label>
+                                            <input class="form-control time-count" name=""  readonly="readonly">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>整改措施</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>管理人员验收意见</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>验收时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--专项维护保养-->
+                <div id="flowb" class="tab-pane ">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_b"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <button class="btn btn-warning">制定计划</button>
+                            <button class="btn btn-primary">评价</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control"  placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowb"></table>
+                    </div>
+                    <!-------------模态框----------------->
+                    <!--专项维护保养 详情 detail_JZ-->
+                    <div class="modal fade" id="detail_b" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1" width="100%">
+                                        <tr>
+                                            <td><b>维保时间</b></td>
+                                            <td>207-11-11</td>
+                                            <td><b>维保地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>维保人员</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>维保单位</b></td>
+                                            <td colspan="5">M1321544</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>检查清单</b></td>
+                                            <td colspan="5">XXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>问题描述</b></td>
+                                            <td colspan="5">XXXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>整改措施</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>故障申报</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>整改起始时间</b></td>
+                                            <td>XXX</td>
+                                            <td><b>验收结束时间</b></td>
+                                            <td>207-11-11</td>
+                                            <td><b>整改时长</b></td>
+                                            <td>2天</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>管理人员验收意见</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>验收时间</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 == add -->
+                    <div class="modal fade" id="add_b" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保地点</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保人员</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>维保单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>维保内容</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <p><b>检查清单(多选)</b></p>
+                                            <input class="" name="trainCard" id="check_0" type="checkbox" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="check_0"><b>1</b></label>
+                                            <input class="" name="trainCard" id="check_1" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="check_1"><b>2</b></label>
+                                            <input class="" name="trainCard" id="check_2" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="check_2"><b>3</b></label>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>整改起始时间</b></label>
+                                            <input class="form-control start-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>整改结束时间</b></label>
+                                            <input class="form-control stop-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>整改时长</b></label>
+                                            <input class="form-control time-count" name=""  readonly="readonly">
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label ><b>问题描述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>故障申报</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>验收意见</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 == edit -->
+                    <div class="modal fade" id="edit_b" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <label ><b>维保单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保人员</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>整改时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>验收时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>维保地点</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>维保内容</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>问题描述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>故障申报</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>验收意见</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>检查清单</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--维护保养评价-->
+                <div id="flowc" class="tab-pane ">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_c"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control"  placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowc"></table>
+                    </div>
+                    <!-------------模态框----------------->
+                    <!--评价详情 detail_JZ-->
+                    <div class="modal fade" id="detail_c" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1" width="100%">
+                                        <tr class="KP">
+                                            <td><b>情况概述</b></td>
+                                            <td colspan="5">XXXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>评价年份</b></td>
+                                            <td>xxxx4</td>
+                                            <td><b>评价时间</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>维保单位</b></td>
+                                            <td>XXX</td>
+                                            <td><b>故障响应</b></td>
+                                            <td>xxx</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>修复情况</b></td>
+                                            <td colspan="3">XXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>保养质量</b></td>
+                                            <td colspan="5">XXXX</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>执行情况</b></td>
+                                            <td colspan="5">XXXXX</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 == add -->
+                    <div class="modal fade" id="add_c" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <label ><b>情况概述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>评价年份</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>评价时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保单位</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>故障响应</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>修复情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>保养质量</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>执行情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 == edit -->
+                    <div class="modal fade" id="edit_c" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <label ><b>情况概述</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>评价年份</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入"  data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>评价时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>维保单位</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>故障响应</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>修复情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>保养质量</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>执行情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="2"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</section>
+
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_flowa').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"date",
+                    title:"维保单位",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:160
+                },
+                {
+                    field:"people",
+                    title:"维保人员",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:160
+                }
+                ,
+                {
+                    field:"place",
+                    title:"维保地点",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"timea",
+                    title:"维保时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timeb",
+                    title:"维保内容",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"Opinion",
+                    title:"问题描述",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timec",
+                    title:"整改措施",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timed",
+                    title:"故障申报",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timee",
+                    title:"整改时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timef",
+                    title:"验收时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timeg",
+                    title:"验收意见",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"date":"维保单位","people":"维保人员","place":"维保地点","timea":"维保时间","timeb":"维保内容","Opinion":"问题描述","timec":"整改措施", "timed":"故障申报","timee":"整改时间","timef":"验收时间","timeg":"验收意见"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_a" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_a" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload1').click(function () {
+        $('#upload1').click()
+    });
+   $('form').easyform()
+
+</script>
+
+<!--专项管控-->
+<script>
+    $(function () {
+        $('#tb_flowb').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"date",
+                    title:"维保单位",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:160
+                },
+                {
+                    field:"people",
+                    title:"维保人员",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:160
+                }
+                ,
+                {
+                    field:"place",
+                    title:"维保地点",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"timea",
+                    title:"维保时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timeb",
+                    title:"维保内容",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"Opinion",
+                    title:"问题描述",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timec",
+                    title:"整改措施",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timed",
+                    title:"故障申报",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timee",
+                    title:"整改时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timef",
+                    title:"验收时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"date":"维保单位","people":"维保人员","place":"维保地点","timea":"维保时间","timeb":"维保内容","Opinion":"问题描述","timec":"整改措施", "timed":"故障申报","timee":"整改时间","timef":"验收时间"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_b" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_b" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload2').click(function () {
+        $('#upload2').click()
+    });
+    $('form').easyform()
+
+</script>
+<script>
+    $(function () {
+        $('#tb_flowc').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"date",
+                    title:"评价年份",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:160
+                },
+                {
+                    field:"people",
+                    title:"评价时间",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:160
+                }
+                ,
+                {
+                    field:"place",
+                    title:"维保单位",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"timea",
+                    title:"故障响应",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timeb",
+                    title:"修复情况",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"Opinion",
+                    title:"保养质量",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"timec",
+                    title:"执行情况",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"date":"评价年份","people":"评价时间","place":"维保单位","timea":"故障响应","timeb":"修复情况","Opinion":"保养质量", "timec":"执行情况"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_c" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_c" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload2').click(function () {
+        $('#upload2').click()
+    });
+//    表单验证
+    $('form').easyform()
+
+
+//  整改时长
+    function getTime2Time($time1, $time2)
+    {
+        var time1 = arguments[0], time2 = arguments[1];
+        time1 = Date.parse(time1)/1000;
+        time2 = Date.parse(time2)/1000;
+        var time_ = time2 - time1;
+        return (time_/(3600*24));
+    }
+    $('.stop-time').blur(function () {
+        $('.time-count').val(getTime2Time($('.start-time').val(), $('.stop-time').val()));
+    })
+</script>

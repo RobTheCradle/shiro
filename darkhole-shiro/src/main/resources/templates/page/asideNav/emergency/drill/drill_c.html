@@ -1,0 +1,331 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>应急演练</a></li>
+                <li>»</li>
+                <li class="active">评价总结</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!--添加 add-->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body row">
+                <form action="">
+                    <div class="form-group col-md-4" >
+                        <label for="one-time"><b>时间</b></label>
+                        <input class="form-control" name="" id="one-time" placeholder="请输入时间" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="one-adress"><b>地点</b></label>
+                        <input class="form-control" name="" id="one-adress" placeholder="请输入地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="one-person"><b>参与人数</b></label>
+                        <input class="form-control" name="" id="one-person" placeholder="请输入人员" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="one-objective"><b>装备情况</b></label>
+                        <textarea class="form-control" name="" id="one-objective" cols="30" rows="5" placeholder="请输入活动描述" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="one-subject"><b>活动描述</b></label>
+                        <textarea class="form-control" name="" id="one-subject" cols="30" rows="5" placeholder="请输入现场管控" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="one-step"><b>演练成果</b></label>
+                        <textarea class="form-control" name="" id="one-step" cols="30" rows="5" placeholder="请输入应急处理" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><label for="buildFile"><b>现场管控措施</b></label></p>
+                        <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                            <i class="fa fa-link"></i>上传附件
+                        </button>
+                        <input id="buildFile" class="form-group" type="file" style="display: none;">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><label for="buildFile"><b>应急处置措施</b></label></p>
+                        <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                            <i class="fa fa-link"></i>上传附件
+                        </button>
+                        <input id="fileup" class="form-group" type="file" style="display: none;">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><label for="buildFile"><b>突发事件应急处置</b></label></p>
+                        <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                            <i class="fa fa-link"></i>上传附件
+                        </button>
+                        <input id="fileup2" class="form-group" type="file" style="display: none;">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <input type="submit" class="btn btn-info" value="提交">
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 details-->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body row">
+                <table class=" table-bordered  detail">
+                    <tr>
+                        <td ><b>时间</b></td>
+                        <td >......</td>
+                        <td ><b>地点</b></td>
+                        <td >......</td>
+                        <td ><b>参与人数</b></td>
+                        <td >......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>装备情况</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>活动描述</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>演练成果</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>现场管控措施</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>应急处置措施</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>突发事件应急处置</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 edit-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row" >
+                    <div class="form-group col-md-4" >
+                        <label for="edit-time"><b>时间</b></label>
+                        <input class="form-control" name="" id="edit-time" placeholder="请输入时间" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="edit-adress"><b>地点</b></label>
+                        <input class="form-control" name="" id="edit-adress" placeholder="请输入地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="edit-person"><b>参与人数</b></label>
+                        <input class="form-control" name="" id="edit-person" placeholder="请输入人员" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="edit-objective"><b>装备情况</b></label>
+                        <textarea class="form-control" name="" id="edit-objective" cols="30" rows="5" placeholder="请输入活动描述" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="edit-subject"><b>活动描述</b></label>
+                        <textarea class="form-control" name="" id="edit-subject" cols="30" rows="5" placeholder="请输入现场管控" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="edit-step"><b>演练成果</b></label>
+                        <textarea class="form-control" name="" id="edit-step" cols="30" rows="5" placeholder="请输入应急处理" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><label for="buildFile"><b>现场管控措施</b></label></p>
+                        <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                            <i class="fa fa-link"></i>更新附件
+                        </button>
+                        <input id="editdFile" class="form-group" type="file" style="display: none;">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><label for="buildFile"><b>应急处置措施</b></label></p>
+                        <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                            <i class="fa fa-link"></i>更新附件
+                        </button>
+                        <input id="editfileup" class="form-group" type="file" style="display: none;">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><label for="buildFile"><b>突发事件应急处置</b></label></p>
+                        <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                            <i class="fa fa-link"></i>更新附件
+                        </button>
+                        <input id="editfileup2" class="form-group" type="file" style="display: none;">
+                    </div>
+                </div>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序列",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    clickToSelect:"true",
+                    width:60
+                },
+                {
+                    field:"time",
+                    title:"时间",
+                    align:"center",
+                    valign:"middle"
+
+                },
+                {
+                    field:"place",
+                    title:"地点",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"person",
+                    title:"参与人数",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"objective",
+                    title:"装备情况",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"Subject",
+                    title:"活动描述",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"step",
+                    title:"演练成果",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":"1","time":"2017-9-6","place":"50人","person":"....","objective":"...","Subject":"...","step":"..."},
+                {"id":"2","time":"2017-9-6","place":"50人","person":"....","objective":"...","Subject":"...","step":"..."},
+                {"id":"3","time":"2017-9-6","place":"50人","person":"...","objective":"...","Subject":"...","step":"..."}
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#details" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    //富文本初始化
+    $('.summernote').summernote({
+        height: 400,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+    $('form').easyform()
+
+    // 初始化人员树
+    $.fn.zTree.init($(".tree"), setting, zNodes);
+
+</script>

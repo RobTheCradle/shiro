@@ -1,0 +1,409 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">审查审批</a></li>
+                <li>»</li>
+                <li class="active">安全防范建设审查</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addBuild"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+
+            <button type="button" class="btn btn-primary">技术要求审查</button>
+            <button type="button" class="btn btn-success">设计图纸审查</button>
+            <button type="button" class="btn btn-warning">施工方案审查</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableExamine_Build -->
+    <div class="table container-fluid">
+        <table id="tableExamine_Build"></table>
+    </div>
+</section>
+
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Build == 安防建设 ********** -->
+<!-- 添加  addBuild -->
+<div class="modal fade" id="addBuild" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="buildName"><b>建设项目名称</b></label>
+                            <input class="form-control" name="" id="buildName" placeholder="请输入 建设项目名称" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <!-- 自动生成 -->
+                        <div class="form-group col-md-4">
+                            <label for="buildNumber"><b>项目编号</b></label>
+                            <input class="form-control" name="" id="buildNumber" value="JFX20170001" disabled>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="buildWhere"><b>建设地点</b></label>
+                            <input class="form-control" name="" id="buildWhere" placeholder="请输入 建设地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <!-- 取OA数据 -->
+                        <div class="form-group col-md-4">
+                            <label for="buildUnit"><b>需求单位</b></label>
+                            <input class="form-control" name="" id="buildUnit" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="buildLevel"><b>防范等级</b></label>
+                            <select class="form-control" name="" id="buildLevel">
+                                <option>非防护目标</option>
+                                <option>一级防护目标</option>
+                                <option>二级防护目标</option>
+                                <option>三级防护目标</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <p><b>是否涉及安防</b></p>
+                            <input class="" name=" " id="buildInvolve_1" type="radio" value="1" data-message="请选择一项">
+                            <label class="radio-inline" for="buildInvolve_1"><b>是</b></label>
+                            <input class="" name=" " id="buildInvolve_0" type="radio" value="0">
+                            <label class="radio-inline" for="buildInvolve_0"><b>否</b></label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <p><b>是否满足要求</b></p>
+                            <input class="" name=" " id="buildMeet_1" type="radio" value="1" data-message="请选择一项">
+                            <label class="radio-inline" for="buildMeet_1"><b>是</b></label>
+                            <input class="" name=" " id="buildMeet_0" type="radio" value="0">
+                            <label class="radio-inline" for="buildMeet_0"><b>否</b></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <p><label for="buildFile"><b>防范需求</b></label></p>
+                            <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                                <i class="fa fa-link"></i>上传附件
+                            </button>
+                            <input id="buildFile" class="form-group" type="file" style="display: none;">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="buildOperator"><b>经办人</b></label>
+                            <input class="form-control" name="" id="buildOperator" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="buildData"><b>送审日期</b></label>
+                            <input class="form-control" name="" id="buildData" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="operatorPhone"><b>联系电话</b></label>
+                            <input class="form-control" name="" id="operatorPhone" >
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="examine_suggest"><b>审查意见</b></label>
+                            <textarea class="form-control" name="" id="examine_suggest" rows="3"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="suggestSectionChief"><b>联科室领导意见</b></label>
+                            <textarea class="form-control" name="" id="suggestSectionChief" rows="3"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="suggestMinister"><b>部级领导意见</b></label>
+                            <textarea class="form-control" name="" id="suggestMinister" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--详情 infoBuild -->
+<div class="modal fade" id="infoBuild" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">项目名称：</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">项目编号：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">建设地点：</td>
+                        <td class="info-content" colspan="3"></td>
+                        <td class="info-name">需求单位：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">防范等级：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">是否涉及安防：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">是否满足需求：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">经办人：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">送审日期：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">联系电话：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">审查意见：</td>
+                        <td class="info-content" colspan="5">
+                            ？？？
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">室领导意见：</td>
+                        <td class="info-content" colspan="5">
+                            ？？？
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">部领导意见：</td>
+                        <td class="info-content" colspan="5">
+                            ？？？
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="button"><i class="fa fa-download"></i>下载附件</button>
+                    <input id="infoDown" class="form-group" type="file" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editBuild -->
+<div class="modal fade" id="editBuild" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <form action="">
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="editName"><b>建设项目名称</b></label>
+                            <input class="form-control" name="" id="editName" placeholder="请输入 建设项目名称" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <!-- 自动生成 -->
+                        <div class="form-group col-md-4">
+                            <label for="editNumber"><b>项目编号</b></label>
+                            <input class="form-control" name="" id="editNumber" value="JFX20170001" disabled>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="editWhere"><b>建设地点</b></label>
+                            <input class="form-control" name="" id="editWhere" placeholder="请输入 建设地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <!-- 取OA数据 -->
+                        <div class="form-group col-md-4">
+                            <label for="editUnit"><b>需求单位</b></label>
+                            <input class="form-control" name="" id="editUnit" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editLevel"><b>防范等级</b></label>
+                            <select class="form-control" name="" id="editLevel">
+                                <option>非防护目标</option>
+                                <option>一级防护目标</option>
+                                <option>二级防护目标</option>
+                                <option>三级防护目标</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <p><b>是否涉及安防</b></p>
+                            <input class="" name=" " id="editInvolve_1" type="radio" value="1" data-message="请选择一项">
+                            <label class="radio-inline" for="editInvolve_1"><b>是</b></label>
+                            <input class="" name=" " id="editInvolve_0" type="radio" value="0">
+                            <label class="radio-inline" for="editInvolve_0"><b>否</b></label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <p><b>是否满足要求</b></p>
+                            <input class="" name=" " id="editMeet_1" type="radio" value="1" data-message="请选择一项">
+                            <label class="radio-inline" for="editMeet_1"><b>是</b></label>
+                            <input class="" name=" " id="editMeet_0" type="radio" value="0">
+                            <label class="radio-inline" for="editMeet_0"><b>否</b></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <p><label for="editFile"><b>防范需求</b></label></p>
+                            <button type="button"  class="btn btn-primary" onclick="javascript:$('#buildFile').click();">
+                                <i class="fa fa-link"></i>上传附件
+                            </button>
+                            <input id="editFile" class="form-group" type="file" style="display: none;">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="editOperator"><b>经办人</b></label>
+                            <input class="form-control" name="" id="editOperator" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editData"><b>送审日期</b></label>
+                            <input class="form-control" name="" id="editData" >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editPhone"><b>联系电话</b></label>
+                            <input class="form-control" name="" id="editPhone" >
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="edit_suggest"><b>审查意见</b></label>
+                            <textarea class="form-control" name="" id="edit_suggest" rows="3"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editSectionChief"><b>联科室领导意见</b></label>
+                            <textarea class="form-control" name="" id="editSectionChief" rows="3"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editMinister"><b>部级领导意见</b></label>
+                            <textarea class="form-control" name="" id="editMinister" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除 deleteBuild -->
+<div class="modal fade" id="deleteBuild" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#tableExamine_Build').bootstrapTable({
+            url:'../../testData/tableExamine-Build.json',
+            columns: [
+                { checkbox: true },
+                {
+                    field:"Id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:80
+                },
+                {
+                    field:"buildName",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"buildNumber",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"buildLevel",
+                    title:"防范等级",
+                    align:"center",
+                    valign:"middle",
+                    width:120
+                },
+                {
+                    field:"buildUnit",
+                    title:"需求单位",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"buildOperator",
+                    title:"经办人",
+                    align:"center",
+                    valign:"middle",
+                    width:120
+                },
+                {
+                    field:"operatorPhone",
+                    title:"联系电话",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"buildData",
+                    title:"送审日期",
+                    align:"center",
+                    valign:"middle",
+                    width:120
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            }
+        });
+        $(window).resize(function () {
+            $('#tableExamine_Build').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoBuild">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editBuild">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deleteBuild">删除</a>'
+            ].join('')
+        }
+    });
+</script>

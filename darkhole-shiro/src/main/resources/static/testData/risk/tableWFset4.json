@@ -1,0 +1,34 @@
+[
+  {
+    "id":"1",
+    "riskQuota" : "存放内容",
+    "riskAAAA" : "机密级图纸或文件",
+    "riskAAA" : "--",
+    "riskAA" : "--",
+    "riskA" : "--"
+  },
+  {
+    "id":"2",
+    "riskQuota" : "材质",
+    "riskAAAA" : "钢制",
+    "riskAAA" : "--",
+    "riskAA" : "--",
+    "riskA" : "--"
+  },
+  {
+    "id":"3",
+    "riskQuota" : "功能",
+    "riskAAAA" : "防撬",
+    "riskAAA" : "--",
+    "riskAA" : "--",
+    "riskA" : "--"
+  },
+  {
+    "id":"4",
+    "riskQuota" : "安全级别",
+    "riskAAAA" : "GB10409-2001-A2类",
+    "riskAAA" : "--",
+    "riskAA" : "--",
+    "riskA" : "--"
+  }
+]
