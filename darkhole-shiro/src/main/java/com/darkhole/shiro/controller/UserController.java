@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 辜勇胜
@@ -60,4 +63,67 @@ public class UserController {
         return "page/common/test";
     }
 
+
+
+    public boolean executeCodecs(String ffmpegPath,String upFilePath,String codcFilePath,String mediaPicPath) {
+        List<String> convert = new ArrayList<>();
+        convert.add(ffmpegPath);//添加转换工具路径
+        convert.add("-i");
+        convert.add(upFilePath);//添加要转换格式的视频文件的路径
+        convert.add("-qscale");//指定转换质量
+        convert.add("6");
+        convert.add("-ab");//设置音频码率
+        convert.add("64");
+        convert.add("-ac");//设置声道数
+        convert.add("2");
+        convert.add("-ar");//设置声音的采样频率
+        convert.add("22050");
+        convert.add("-r");//设置帧频
+        convert.add("24");
+        convert.add("-y");//添加参数-y，该参数指定将覆盖已存在的文件
+        convert.add(codcFilePath);//格式转换后的保存路径
+
+        List<String> cutpic = new ArrayList<>();
+        cutpic.add(ffmpegPath);
+        cutpic.add("-i");
+        cutpic.add(upFilePath);
+        cutpic.add("-y");
+        cutpic.add("-f");
+        cutpic.add("image2");
+        cutpic.add("-ss");//该参数指定截取的起始时间
+        cutpic.add("17");//其实时间为17s
+        cutpic.add("-t");//指定持续时间
+        cutpic.add("0.001");//持续时间为1毫秒
+        cutpic.add("-s");//指定截取图片的大小
+        cutpic.add("800*280");
+        cutpic.add(mediaPicPath);
+
+        boolean mark = true;
+
+        try {
+
+        ProcessBuilder builder = new ProcessBuilder();
+        builder.command(convert);
+        builder.redirectErrorStream(true);
+        builder.start();
+
+        builder.command(cutpic);
+        builder.redirectErrorStream(true);
+        builder.start();
+        }catch (Exception e){
+            mark=false;
+            System.out.println(e.getStackTrace());
+        }
+
+
+
+        return mark;
+    }
+
+    public static void main(String[] args) {
+
+       UserController u =  new UserController();
+       u.executeCodecs("D:/ffmpeg/ffmpeg.exe","D://upload/1.mp4","D://codc/1.flv","D://codc/23.jpg");
+
+    }
 }
