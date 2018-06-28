@@ -1,0 +1,1691 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 技术防范管理</a></li>
+                <li>»</li>
+                <li class="active">技防项目过程管理</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button class="btn btn-info isCheck">勘察</button>
+            <button class="btn btn-info isCheck">过程随检执行</button>
+            <button class="btn btn-info isCheck">设备调试</button>
+            <button class="btn btn-info isCheck">试运行</button>
+            <button class="btn btn-danger isCheck">到货点验</button>
+            <button class="btn btn-danger isCheck">移交点验</button>
+            <button class="btn btn-primary isCheck">技术预验收</button>
+            <button class="btn btn-primary isCheck">技术终验收</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!-------------模态框----------------->
+<!--技防项目过程管理-->
+<!--详情 ==  detail -->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body row">
+                <table class="detail" border="1">
+                    <tr>
+                        <td><b>项目编号</b></td>
+                        <td>M1321544</td>
+                        <td><b>项目名称</b></td>
+                        <td>XXX</td>
+                        <td><b>检查人</b></td>
+                        <td>XXX</td>
+                    </tr>
+                    <tr>
+                        <td><b>检查时间</b></td>
+                        <td>207-11-11</td>
+                        <td><b>检查方式</b></td>
+                        <td>XXX</td>
+                        <td><b>清单勾选</b></td>
+                        <td>XXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>问题记录</b></td>
+                        <td colspan="5">XXXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>处理方法</b></td>
+                        <td colspan="5">XXXXX</td>
+                    </tr>
+                </table>
+                <section class="panel">
+                    <!-- Tabs nav -->
+                    <header class="panel-heading " style="background-color: #006699;margin-top: 20px">
+                        <ul class="nav nav-tabs tabs-detail ">
+                            <li class="active">
+                                <a data-toggle="tab" href="#KC">勘察</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#SB">到货点验</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#YJ">移交点验</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#plan">过程随检计划</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#todo">过程随检执行</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#TS">设备调试</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#SYX"> 试运行</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#PX1">一级培训</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#PX2">二级培训</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#YYS">技术预验收</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#ZYS">技术终验收</a>
+                            </li>
+                            <li class="">
+                                <a data-toggle="tab" href="#ZC">资产转固</a>
+                            </li>
+                        </ul>
+                    </header>
+                    <!-- Tabs body -->
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <!--勘察-->
+                            <div id="KC" class="tab-pane active row">
+                                <table class="detail" border="1">
+                                <tr>
+                                    <td><b>项目编号</b></td>
+                                    <td colspan="2">M1321544</td>
+                                    <td><b>项目名称</b></td>
+                                    <td colspan="2">XXX</td>
+                                </tr>
+                                <tr>
+                                    <td><b>勘察人员</b></td>
+                                    <td>xxx</td>
+                                    <td><b>勘察时间</b></td>
+                                    <td>2017-12-01</td>
+                                    <td><b>勘察地点</b></td>
+                                    <td>xxx</td>
+                                </tr>
+                                <tr class="KP">
+                                    <td><b>现场勘察情况</b></td>
+                                    <td colspan="5">情况良好</td>
+                                </tr>
+                            </table>
+                            </div>
+                            <!--到货点验-->
+                            <div id="SB" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>点验时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>设备名称</b></td>
+                                        <td>xxx</td>
+                                        <td><b>设备编号</b></td>
+                                        <td>00001</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>资产编号</b></td>
+                                        <td>00002</td>
+                                        <td><b>设备型号</b></td>
+                                        <td>xxx</td>
+                                        <td><b>设备数量</b></td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>设备单位</b></td>
+                                        <td>台</td>
+                                        <td><b>责任人</b></td>
+                                        <td>xxx</td>
+                                        <td><b>是否完好</b></td>
+                                        <td>是</td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>点验情况</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--移交点验-->
+                            <div id="YJ" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>移交时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>设备名称</b></td>
+                                        <td>xxx</td>
+                                        <td><b>设备编号</b></td>
+                                        <td>00001</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>资产编号</b></td>
+                                        <td>00002</td>
+                                        <td><b>设备型号</b></td>
+                                        <td>xxx</td>
+                                        <td><b>设备数量</b></td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>设备单位</b></td>
+                                        <td>台</td>
+                                        <td><b>移交人</b></td>
+                                        <td>xxx</td>
+                                        <td><b>接收人</b></td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>是否完好</b></td>
+                                        <td>是</td>
+                                        <td><b>到货点验一致</b></td>
+                                        <td>是</td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>点验情况</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--过程随检计划-->
+                            <div id="plan" class="tab-pane row">
+                                过程随检计划
+                            </div>
+                            <!--过程随检执行-->
+                            <div id="todo" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>检查时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>检查人</b></td>
+                                        <td>xxx</td>
+                                        <td><b>检查方式</b></td>
+                                        <td>00001</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>检查项</b></td>
+                                        <td colspan="5">物防、技防、人防</td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>问题记录</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>处理方法</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--设备调试-->
+                            <div id="TS" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>调试时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>调试人员</b></td>
+                                        <td>xxx</td>
+                                        <td><b>调试地点</b></td>
+                                        <td>00001</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>调试完成情况</b></td>
+                                        <td>未完成</td>
+                                        <td><b>能否接入技防网络</b></td>
+                                        <td>可以</td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>问题记录</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>完成情况</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--试运行-->
+                            <div id="SYX" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>调试时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>调试人员</b></td>
+                                        <td>xxx</td>
+                                        <td><b>调试地点</b></td>
+                                        <td>00001</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>调试完成情况</b></td>
+                                        <td>未完成</td>
+                                        <td><b>能否接入技防网络</b></td>
+                                        <td>可以</td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>问题记录</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>完成情况</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--一级培训-->
+                            <div id="PX1" class="tab-pane row">
+                                一级培训
+                            </div>
+                            <!--二级培训-->
+                            <div id="PX2" class="tab-pane row">
+                               二级培训
+                            </div>
+                            <!--技术预验收-->
+                            <div id="YYS" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>验收时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>验收人</b></td>
+                                        <td>xxx</td>
+                                        <td><b>建设地点</b></td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>验收内容</b></td>
+                                        <td colspan="5">监控、门禁、报警</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>验收情况</b></td>
+                                        <td colspan="3">xxx</td>
+                                        <td><b>是否通过预验收</b></td>
+                                        <td>可以</td>
+                                    </tr>
+                                    <tr class="KP">
+                                        <td><b>隐患整改</b></td>
+                                        <td colspan="5">情况良好</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--技术终验收-->
+                            <div id="ZYS" class="tab-pane row">
+                                <table class="detail" border="1">
+                                    <tr>
+                                        <td><b>项目编号</b></td>
+                                        <td colspan="2">M1321544</td>
+                                        <td><b>项目名称</b></td>
+                                        <td colspan="2">XXX</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>验收时间</b></td>
+                                        <td>2017-12-01</td>
+                                        <td><b>验收人</b></td>
+                                        <td>xxx</td>
+                                        <td><b>建设地点</b></td>
+                                        <td>xxx</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>验收内容</b></td>
+                                        <td colspan="5">监控、门禁、报警</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>验收情况</b></td>
+                                        <td colspan="3">xxx</td>
+                                        <td><b>是否通过预验收</b></td>
+                                        <td>可以</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--资产转固-->
+                            <div id="ZC" class="tab-pane row">
+                               资产转固
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加 == add -->
+<!--添加勘察-->
+<div class="modal fade" id="add_KC" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">勘察</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>勘察人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>勘察时间</b></label>
+                        <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>勘察地点</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>现场勘查情况</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加到货点验-->
+<div class="modal fade" id="add_DY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">到货点验</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>点验时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>设备名称</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备编号</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>资产编号</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>型号</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备数量</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备单位</b></label>
+                        <select class="form-control"  name="" >
+                            <option value="0">台</option>
+                            <option value="1">套</option>
+                            <option value="1">根</option>
+                            <option value="1">个</option>
+                        </select>
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>责任人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>是否完好</b></p>
+                        <input class="" name="trainCard" id="arrival_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="arrival_0">否</label>
+                        <input class="" name="trainCard" id="arrival_1" type="radio" value="0" >
+                        <label class="radio-inline" for="arrival_1">是</label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>责任单位</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>点验情况</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加移交点验-->
+<div class="modal fade" id="add_YJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">移交点验</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>移交时间</b></label>
+                        <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备名称</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备编号</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>资产编号</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备型号</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备数量</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>设备单位</b></label>
+                        <select class="form-control"  name="" >
+                            <option value="0">台</option>
+                            <option value="1">套</option>
+                            <option value="1">根</option>
+                            <option value="1">个</option>
+                        </select>
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>移交人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>接收人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>是否完好</b></p>
+                        <input class="" name="trainCard" id="transfer_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="transfer_0">否</label>
+                        <input class="" name="trainCard" id="transfer_1" type="radio" value="0" >
+                        <label class="radio-inline" for="transfer_1">是</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>到货点验一致</b></p>
+                        <input class="" name="trainCard" id="contrast_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="contrast_0">否</label>
+                        <input class="" name="trainCard" id="contrast_1" type="radio" value="0" >
+                        <label class="radio-inline" for="contrast_1">是</label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>点验情况</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加过程随检执行-->
+<div class="modal fade" id="add_ZX" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">过程随检执行</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>检查时间</b></label>
+                        <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>检查人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>检查方式</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-12">
+                        <p><b>检查项(多选)</b></p>
+                        <input class="" name="trainCard" id="check_0" type="checkbox" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="check_0"><b>物防</b></label>
+                        <input class="" name="trainCard" id="check_1" type="checkbox" value="0" >
+                        <label class="radio-inline" for="check_1"><b>技防</b></label>
+                        <input class="" name="trainCard" id="check_2" type="checkbox" value="0" >
+                        <label class="radio-inline" for="check_2"><b>人防</b></label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>问题记录</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>处理方法</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加设备调试-->
+<div class="modal fade" id="add_TS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">设备调试</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>调试时间</b></label>
+                        <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>调试人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>测试地点</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>调试方法</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="3" data-easyform="null;length:0 200;char-chinese;" data-message="限制200个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <p><b>调试完成情况</b></p>
+                        <input class="" name="trainCard" id="test_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="test_0">未完成</label>
+                        <input class="" name="trainCard" id="test_1" type="radio" value="0" >
+                        <label class="radio-inline" for="test_1">已完成</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>能否接入技防网络</b></p>
+                        <input class="" name="trainCard" id="net_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="net_0">可以</label>
+                        <input class="" name="trainCard" id="net_1" type="radio" value="0" >
+                        <label class="radio-inline" for="net_1">拒绝</label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>问题记录</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>完成情况</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加试运行-->
+<div class="modal fade" id="add_SYX" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">试运行</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>运行开始时间</b></label>
+                        <input class="form-control start-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>运行结束时间</b></label>
+                        <input class="form-control stop-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>运行时长</b></label>
+                        <input class="form-control time-count" name=""  readonly="readonly">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>运行状态</b></label>
+                        <select name="" class="form-control">
+                            <option value="0">正常</option>
+                            <option value="1">无响应</option>
+                            <option value="2">故障</option>
+                            <option value="3">未知</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>达标情况</b></p>
+                        <input class="" name="trainCard" id="standard_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="standard_0">否</label>
+                        <input class="" name="trainCard" id="standard_1" type="radio" value="0" >
+                        <label class="radio-inline" for="standard_1">是</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加技术预验收-->
+<div class="modal fade" id="add_YS1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">技术预验收</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>验收时间</b></label>
+                        <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>验收人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>建设地点</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <p><b>验收内容</b></p>
+                        <input class="" name="trainCard" id="acceptance_0" type="checkbox" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="acceptance_0"><b>监控</b></label>
+                        <input class="" name="trainCard" id="acceptance_1" type="checkbox" value="0" >
+                        <label class="radio-inline" for="acceptance_1"><b>门禁</b></label>
+                        <input class="" name="trainCard" id="acceptance_2" type="checkbox" value="0" >
+                        <label class="radio-inline" for="acceptance_2"><b>报警</b></label>
+                        <input class="" name="trainCard" id="acceptance_3" type="checkbox" value="0" >
+                        <label class="radio-inline" for="acceptance_3"><b>电子围栏</b></label>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label ><b>验收情况</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>是否通过预验收</b></p>
+                        <input class="" name="trainCard" id="pre_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="pre_0">否</label>
+                        <input class="" name="trainCard" id="pre_1" type="radio" value="0" >
+                        <label class="radio-inline" for="pre_1">是</label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label ><b>隐患整改</b></label>
+                        <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--添加技术终验收-->
+<div class="modal fade" id="add_YS2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">技术终验收</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-6">
+                        <label><b>项目编号</b></label>
+                        <h5 class="number">M1321544</h5>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label ><b>项目名称</b></label>
+                        <h5 class="name">项目名称</h5>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label ><b>验收时间</b></label>
+                        <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>验收人</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>建设地点</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <p><b>验收内容</b></p>
+                        <input class="" name="trainCard" id="end-acceptance_0" type="checkbox" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="end-acceptance_0"><b>监控</b></label>
+                        <input class="" name="trainCard" id="end-acceptance_1" type="checkbox" value="0" >
+                        <label class="radio-inline" for="end-acceptance_1"><b>门禁</b></label>
+                        <input class="" name="trainCard" id="end-acceptance_2" type="checkbox" value="0" >
+                        <label class="radio-inline" for="end-acceptance_2"><b>报警</b></label>
+                        <input class="" name="trainCard" id="end-acceptance_3" type="checkbox" value="0" >
+                        <label class="radio-inline" for="end-acceptance_3"><b>电子围栏</b></label>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label ><b>验收情况</b></label>
+                        <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <p><b>是否通过终验收</b></p>
+                        <input class="" name="trainCard" id="end_0" type="radio" value="1" data-message="请选择一个">
+                        <label class="radio-inline" for="end_0">否</label>
+                        <input class="" name="trainCard" id="end_1" type="radio" value="0" >
+                        <label class="radio-inline" for="end_1">是</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--修改 == edit -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+                <div class="modal-body row" style="padding: 0px 15px;">
+                    <section class="panel" style="margin: 0">
+                        <!-- Tabs nav -->
+                        <header class="panel-heading " style="background-color: rgba(0,113,170,0.82);border-radius: 0">
+                            <ul class="nav nav-tabs tabs-detail ">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#edit_KC">勘察</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_SB">到货点验</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_YJ">移交点验</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_todo">过程随检执行</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_TS">设备调试</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_SYX"> 试运行</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_YYS">技术预验收</a>
+                                </li>
+                                <li class="">
+                                    <a data-toggle="tab" href="#edit_ZYS">技术终验收</a>
+                                </li>
+                            </ul>
+                        </header>
+                        <!-- Tabs body -->
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <!--勘察-->
+                                <div id="edit_KC" class="tab-pane active row">
+                                    <form action="">
+                                        <div class="modal-body row">
+                                            <div class="form-group col-md-6">
+                                                <label><b>项目编号</b></label>
+                                                <h5 class="number">M1321544</h5>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label ><b>项目名称</b></label>
+                                                <h5 class="name">项目名称</h5>
+                                            </div>
+                                            <!--单选下拉框  responsible.js-->
+                                            <div class="form-group col-md-4 no-blur">
+                                                <label><b>勘察人员</b></label>
+                                                <input class="short-input form-control"   type="text"  value=""/>
+                                                <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                                <div class="menuContent"  style="display:none; position: absolute;">
+                                                    <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-4" >
+                                                <label ><b>勘察时间</b></label>
+                                                <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label ><b>勘察地点</b></label>
+                                                <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label ><b>现场勘查情况</b></label>
+                                                <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--到货点验-->
+                                <div id="edit_SB" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>点验时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>资产编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>型号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备数量</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备单位</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">台</option>
+                                                <option value="1">套</option>
+                                                <option value="1">根</option>
+                                                <option value="1">个</option>
+                                            </select>
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>责任人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>是否完好</b></p>
+                                            <input class="" name="trainCard" id="edit_arrival_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_arrival_0">否</label>
+                                            <input class="" name="trainCard" id="edit_arrival_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_arrival_1">是</label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>责任单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>点验情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--移交点验-->
+                                <div id="edit_YJ" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>移交时间</b></label>
+                                            <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>资产编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备型号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备数量</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备单位</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">台</option>
+                                                <option value="1">套</option>
+                                                <option value="1">根</option>
+                                                <option value="1">个</option>
+                                            </select>
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>移交人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>接收人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>是否完好</b></p>
+                                            <input class="" name="trainCard" id="edit_transfer_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_transfer_0">否</label>
+                                            <input class="" name="trainCard" id="edit_transfer_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_transfer_1">是</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>到货点验一致</b></p>
+                                            <input class="" name="trainCard" id="edit_contrast_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_contrast_0">否</label>
+                                            <input class="" name="trainCard" id="edit_contrast_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_contrast_1">是</label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>点验情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--过程随检执行-->
+                                <div id="edit_todo" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>检查时间</b></label>
+                                            <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>检查人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>检查方式</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <p><b>检查项(多选)</b></p>
+                                            <input class="" name="trainCard" id="edit_check_0" type="checkbox" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_check_0"><b>物防</b></label>
+                                            <input class="" name="trainCard" id="edit_check_1" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_check_1"><b>技防</b></label>
+                                            <input class="" name="trainCard" id="edit_check_2" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_check_2"><b>人防</b></label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>问题记录</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>处理方法</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--设备调试-->
+                                <div id="edit_TS" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>调试时间</b></label>
+                                            <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>调试人员</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>测试地点</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>调试方法</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="3" data-easyform="null;length:0 200;char-chinese;" data-message="限制200个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <p><b>调试完成情况</b></p>
+                                            <input class="" name="trainCard" id="edit_test_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_test_0">未完成</label>
+                                            <input class="" name="trainCard" id="edit_test_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_test_1">已完成</label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>能否接入技防网络</b></p>
+                                            <input class="" name="trainCard" id="edit_net_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_net_0">可以</label>
+                                            <input class="" name="trainCard" id="edit_net_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_net_1">拒绝</label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>问题记录</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>完成情况</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--试运行-->
+                                <div id="edit_SYX" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>运行开始时间</b></label>
+                                            <input class="form-control start-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>运行结束时间</b></label>
+                                            <input class="form-control stop-time" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>运行时长</b></label>
+                                            <input class="form-control time-count" name=""  readonly="readonly">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>运行状态</b></label>
+                                            <select name="" class="form-control">
+                                                <option value="0">正常</option>
+                                                <option value="1">无响应</option>
+                                                <option value="2">故障</option>
+                                                <option value="3">未知</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>达标情况</b></p>
+                                            <input class="" name="trainCard" id="edit_standard_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_standard_0">否</label>
+                                            <input class="" name="trainCard" id="edit_standard_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_standard_1">是</label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--技术预验收-->
+                                <div id="edit_YYS" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>验收时间</b></label>
+                                            <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>验收人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>建设地点</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <p><b>验收内容</b></p>
+                                            <input class="" name="trainCard" id="edit_acceptance_0" type="checkbox" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_acceptance_0"><b>监控</b></label>
+                                            <input class="" name="trainCard" id="edit_acceptance_1" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_acceptance_1"><b>门禁</b></label>
+                                            <input class="" name="trainCard" id="edit_acceptance_2" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_acceptance_2"><b>报警</b></label>
+                                            <input class="" name="trainCard" id="edit_acceptance_3" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_acceptance_3"><b>电子围栏</b></label>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>验收情况</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>是否通过预验收</b></p>
+                                            <input class="" name="trainCard" id="edit-pre_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit-pre_0">否</label>
+                                            <input class="" name="trainCard" id="edit-pre_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="pre_1">是</label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>隐患整改</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="5" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--技术终验收-->
+                                <div id="edit_ZYS" class="tab-pane row">
+                                    <form action="">
+                                        <div class="form-group col-md-6">
+                                            <label><b>项目编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>项目名称</b></label>
+                                            <h5 class="name">项目名称</h5>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label ><b>验收时间</b></label>
+                                            <input class="form-control" name=""  type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>验收人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>建设地点</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <p><b>验收内容</b></p>
+                                            <input class="" name="trainCard" id="edit_end-acceptance_0" type="checkbox" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_end-acceptance_0"><b>监控</b></label>
+                                            <input class="" name="trainCard" id="edit_end-acceptance_1" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_end-acceptance_1"><b>门禁</b></label>
+                                            <input class="" name="trainCard" id="edit_end-acceptance_2" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_end-acceptance_2"><b>报警</b></label>
+                                            <input class="" name="trainCard" id="edit_end-acceptance_3" type="checkbox" value="0" >
+                                            <label class="radio-inline" for="edit_end-acceptance_3"><b>电子围栏</b></label>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>验收情况</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>是否通过终验收</b></p>
+                                            <input class="" name="trainCard" id="edit-end_0" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit-end_0">否</label>
+                                            <input class="" name="trainCard" id="edit-end_1" type="radio" value="0" >
+                                            <label class="radio-inline" for="end_1">是</label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#modify" value="修改">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">返回</button>
+                </div>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认修改-->
+<div class="modal fade" id="modify" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content" style="border: 1px solid #999">
+            <div class="modal-body">
+                <h4>确认修改？</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="../../js/responsible.js" ></script>&lt;!&ndash; 责任人，责任领导，值守人员  &ndash;&gt;-->
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            singleSelect : true,
+            columns: [
+                { checkbox: true },
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"bianhao",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                 {
+                     field:"title",
+                     title:"项目名称",
+                     align:"center",
+                     valign:"middle",
+                     sortable:"true",
+                     width:160
+                 },
+                {
+                    field:"people",
+                    title:"检查人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"time",
+                    title:"检查时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"检查方式",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"choose",
+                    title:"清单勾选",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"bianhao":"M1321544","title":"项目名称","people":"张三","time":"2017-9-6","style":"方法","choose":"...","problem":"...","shengpi":"...","way":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+               console.log(row)
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    //判断是否勾选
+    $('.isCheck').click(function () {
+        var chk = $(".bs-checkbox input");
+        var checked = chk.is(':checked');
+        var ctx = $(this).text();
+        console.log(ctx);
+        if (checked) {
+            switch(ctx)
+            {
+                case "勘察":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_KC"
+                    });
+                    break;
+                case "过程随检执行":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_ZX"
+                    });
+                    break;
+                case "设备调试":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_TS"
+                    });
+                    break;
+                case "试运行":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_SYX"
+                    });
+                    break;
+                case "到货点验":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_DY"
+                    });
+                    break;
+                case "移交点验":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_YJ"
+                    });
+                    break;
+                case "技术预验收":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_YS1"
+                    });
+                    break;
+                case "技术终验收":
+                    $(this).attr({
+                        "data-toggle":"modal",
+                        "data-target":"#add_YS2"
+                    });
+                    break;
+            }
+        } else {
+            toastr.error("请选择一项")
+            $(this).attr({
+                "data-toggle":"",
+                "data-target":""
+            });
+        }
+    })
+//    表单验证
+    $('form').easyform();
+
+//    初始化人员树
+    $.fn.zTree.init($(".tree"), setting, zNodes);
+</script>
+
+<!--运行时长-->
+<script>
+    function getTime2Time($time1, $time2)
+    {
+        var time1 = arguments[0], time2 = arguments[1];
+        time1 = Date.parse(time1)/1000;
+        time2 = Date.parse(time2)/1000;
+        var time_ = time2 - time1;
+        return (time_/(3600*24));
+    }
+    $('.stop-time').blur(function () {
+        $('.time-count').val(getTime2Time($('.start-time').val(), $('.stop-time').val()));
+    })
+</script>

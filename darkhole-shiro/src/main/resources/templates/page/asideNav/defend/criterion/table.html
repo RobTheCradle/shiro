@@ -1,0 +1,413 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">制度体系构建</a></li>
+                <li>»</li>
+                <li class="active"><a href="#">制度体系搭建</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addCriterion"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="search" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableCriterion -->
+    <div class="table container-fluid">
+        <table id="tableCriterion"></table>
+    </div>
+</section>
+
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Criterion == 制度标准 ********** -->
+<!-- 添加 addCriterion -->
+<div class="modal fade" id="addCriterion" tabindex="-1" >
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="criterionTitle"><b>制度名称</b></label>
+                            <input class="form-control" name="" id="criterionTitle" placeholder="请输入名称" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="criterionNumber"><b>制度编号</b></label>
+                                <input class="form-control" name="" id="criterionNumber" placeholder="请输入编号" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="criterionClass"><b>制度分类</b></label>
+                                <select class="form-control" name="" id="criterionClass">
+                                    <option>组织结构类</option>
+                                    <option>条件保障类</option>
+                                    <option>管理要求类</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="criterionLevel"><b>制度层级</b></label>
+                                <select class="form-control" name="" id="criterionLevel">
+                                    <option>公司级管理制度</option>
+                                    <option>企业标准</option>
+                                    <option>保卫管理制度</option>
+                                    <option>工作标准</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="criterionContent"><b>添加制度内容</b></label>
+                            <div class="summernote" id="criterionContent"></div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="button" onclick="javascript:$('#fileup').click();"><i class="fa fa-link"></i>上传附件</button>
+                            <input id="fileup" class="form-group" type="file" style="display: none;">
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                     <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--详情 infoCriterion -->
+<div class="modal fade" id="infoCriterion" tabindex="-1" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">制度详情</h4>
+            </div>
+            <div class="modal-body mb-content">
+                <div class="law-title"><h3>《公司岗位管理制度》</h3></div>
+                <div class="law-number">GS351100021</div>
+                <div class="law-text">
+                    <p class="law-text-part"><b>第一条</b>　部门主管、经理岗位职责：<br>
+                        1、严格遵守公司相关管理制度规定。<br>
+                        2、维持公司各部门的正常运转；<br>
+                        3、合理安排每个项目的正常运作；<br>
+                        4、指挥监督部门员工的日常工作，积极引导他们顺利开展工作，使公司业务高效运作，快速发展；<br>
+                        5、部门主管有权招聘、解雇部门人员，但须经总经理批准；<br>
+                        6、部门主管有权调整部门人员岗位与工作；<br>
+                        7、如部门主管未合理的安排工作，经理有权立即作出调整；<br>
+                        8、加强成本核算，厉行节约，努力提高经济效益。</p>
+                    <p class="law-text-part"><b>第二条</b>　财务部门岗位职责：<br>
+                        1、严格按照《中华人民共和国会计法》开展工作。严格遵守公司相关管理制度规定；<br>
+                        2、认真做到手续完备，内容真实，数据准确，帐目清楚，日清月结，及时编制会计报表并按期上报；<br>
+                        3、妥善保管会计凭证、帐簿和报表等档案资料；管好各种印章、空白支票、空白收据。收据与支票领用时应办理领用手续，使用完应办理注销手续；管理库存现金与各种有价证券，保证其安全完整；<br>
+                        4、根据实际发生的经济业务事项进行会计核算、填制会计凭证、登记会计帐簿、编制财务会计报告；<br>
+                        5、定期将会计帐簿记录与实物、款项及有关资料相互核对，保证帐簿记录与实物、款项、凭证、报表等有关内容相符；<br>
+                        6、空白合同由财务部统一管理，业务员申领合同，必须做好登记、备案；<br>
+                        7、财务部有权督促业务员签订合同；<br>
+                        8、每单业务结束后，有权向业务员确定金额，并结算；<br>
+                        9、在结算过程中，如发现有违规操作的，不得给予结算提成及奖金；<br>
+                        10、及时配合业务部开据发票，送货单等票据；<br>
+                        11、在收款过程中，业务员如遇有扣款行为的，必须向业务员索要客户扣款证明，否则视为应收款项处理；<br>
+                        12、业务开展过程中，如发现有违规操作的，有权拒绝支付款项，并及时向总经理或董事长汇报； <br>
+                        13、认真核实报销凭证，由上级领导签字后方可支付；<br>
+                        14、认真、统一管理公司客户资源，做好归档管理；<br>
+                        15、每月将应收款、应付款、办公费用、工资、业务开支等报送总经理审阅。</p>
+                    <p class="law-text-part"><b>第三条</b>　企划部门岗位职责：<br>
+                        1、严格遵守公司相关管理制度规定；<br>
+                        2、及时、准确的完成公司安排的工作任务；<br>
+                        3、积极配合业务部和设计部的有关工作，做到尽善尽美，并保持与相关部门的沟通和交流；<br>
+                        4、正确掌握客户对产品的要求及市场信息，对产品进行正确的定位、延伸；<br>
+                        5、服从并积极完成上级领导安排的其它任务； <br>
+                        6、不断提高自身的综合能力，不断创新，争取又好又快的发展。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editCriterion -->
+<div class="modal fade" id="editCriterion" tabindex="-1">
+    <div class="modal-dialog modal-lg" style="width: 1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修订</h4>
+            </div>
+            <form action="">
+            <div class="modal-body" >
+                <!--比对-->
+                <div class="row" style="width: 49%;float: left;margin-left:1%">
+                    <div class="form-group">
+                        <label for="editTitle"><b>制度名称</b></label>
+                        <input class="form-control" name="" id="editTitle" value="公司岗位管理制度" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="editNumber"><b>制度编号</b></label>
+                            <input class="form-control" name="" id="editNumber" value="GS351100021" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editClass"><b>制度分类</b></label>
+                            <select class="form-control" name="" id="editClass">
+                                <option>管理要求类</option>
+                                <option>组织结构类</option>
+                                <option>条件保障类</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editLevel"><b>制度层级</b></label>
+                            <select class="form-control" name="" id="editLevel">
+                                <option>公司级管理制度</option>
+                                <option>企业标准</option>
+                                <option>保卫管理制度</option>
+                                <option>工作标准</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" style="margin-left: -15px">
+                        <label><b>相关上级制度列表</b></label>
+                        <section class="panel">
+                            <div class="panel-body" style="height: 200px;padding: 0;overflow:scroll;overflow-x:hidden;">
+                                <ul class="list-group">
+                                    <li class="list-group-item item-small">
+                                        <a class="link-orange">XXXX法律条例</a>
+                                    </li>
+                                    <li class="list-group-item item-small">
+                                        <a>XXXX法律条例</a>
+                                    </li>
+                                    <li class="list-group-item item-small">
+                                        <a>XXXX法律条例</a>
+                                    </li>
+                                    <li class="list-group-item item-small">
+                                        <a>XXXX法律条例</a>
+                                    </li>
+                                    <li class="list-group-item item-small">
+                                        <a>XXXX法律条例</a>
+                                    </li>
+                                    <li class="list-group-item item-small">
+                                        <a>XXXX法律条例</a>
+                                    </li>
+                                    <li class="list-group-item item-small">
+                                        <a>XXXX法律条例</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="form-group col-md-8">
+                        <label for="mirrorContent"><b>上级制度内容</b></label>
+                        <div class="form-control" id="mirrorContent" contenteditable="true" style="height: 350px;padding: 0;overflow:scroll;overflow-x:hidden;">
+                            <p><b>第一条</b>　部门主管、经理岗位职责：</p>
+                            <p>1、严格遵守公司相关管理制度规定。</p>
+                            <p>2、维持公司各部门的正常运转；</p>
+                            <p>3、合理安排每个项目的正常运作；</p>
+                            <p>4、指挥监督部门员工的日常工作，积极引导他们顺利开展工作，使公司业务高效运作，快速发展；</p>
+                            <p>5、部门主管有权招聘、解雇部门人员，<span class="mirror-orange">但须经总经理批准；</span></p>
+                            <p>6、部门主管有权调整部门人员岗位与工作；</p>
+                            <p>7、如部门主管未合理的安排工作，经理有权立即作出调整；</p>
+                            <p>8、加强成本核算，厉行节约，努力提高经济效益。</p>
+                            <p><b>第二条</b>　财务部门岗位职责：</p>
+                            <p>1、严格按照《中华人民共和国会计法》开展工作。严格遵守公司相关管理制度规定；</p>
+                            <p>2、认真做到手续完备，内容真实，数据准确，帐目清楚，日清月结，及时编制会计报表并按期上报；</p>
+                            <p>3、妥善保管会计凭证、帐簿和报表等档案资料；管好各种印章、空白支票、空白收据。收据与支票领用时应办理领用手续，使用完应办理注销手续；管理库存现金与各种有价证券，保证其安全完整；</p>
+                            <p>4、根据实际发生的经济业务事项进行会计核算、填制会计凭证、登记会计帐簿、编制财务会计报告；</p>
+                            <p>5、定期将会计帐簿记录与实物、款项及有关资料相互核对，保证帐簿记录与实物、款项、凭证、报表等有关内容相符；</p>
+                            <p>6、空白合同由财务部统一管理，业务员申领合同，必须做好登记、备案；</p>
+                            <p>7、财务部有权督促业务员签订合同；</p>
+                            <p>8、每单业务结束后，有权向业务员确定金额，并结算；</p>
+                            <p>9、在结算过程中，如发现有违规操作的，不得给予结算提成及奖金；</p>
+                            <p>10、及时配合业务部开据发票，送货单等票据；</p>
+                            <p>11、在收款过程中，业务员如遇有扣款行为的，必须向业务员索要客户扣款证明，否则视为应收款项处理；</p>
+                            <p>12、业务开展过程中，如发现有违规操作的，有权拒绝支付款项，并及时向总经理或董事长汇报；</p>
+                            <p>13、认真核实报销凭证，由上级领导签字后方可支付；</p>
+                            <p>14、认真、统一管理公司客户资源，做好归档管理；</p>
+                            <p>15、每月将应收款、应付款、办公费用、工资、业务开支等报送总经理审阅。</p>
+                            <p><b>第三条</b>　企划部门岗位职责：</p>
+                            <p>1、严格遵守公司相关管理制度规定；</p>
+                            <p>2、及时、准确的完成公司安排的工作任务；</p>
+                            <p>3、积极配合业务部和设计部的有关工作，做到尽善尽美，并保持与相关部门的沟通和交流；</p>
+                            <p>4、正确掌握客户对产品的要求及市场信息，对产品进行正确的定位、延伸；</p>
+                            <p>5、服从并积极完成上级领导安排的其它任务；</p>
+                            <p>6、不断提高自身的综合能力，不断创新，争取又好又快的发展。</p>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="form-group"  style="width: 49%;float: left;margin-left: 2%">
+                        <label for="editContent"><b>制度条款</b></label>
+                        <div class="summernote" id="editContent">
+                            <p><b>第一条</b>　部门主管、经理岗位职责：</p>
+                            <p>1、严格遵守公司相关管理制度规定。</p>
+                            <p>2、维持公司各部门的正常运转；</p>
+                            <p>3、合理安排每个项目的正常运作；</p>
+                            <p>4、指挥监督部门员工的日常工作，积极引导他们顺利开展工作，使公司业务高效运作，快速发展；</p>
+                            <p><span class="edit-orange">5、部门主管有权招聘、解雇部门人员；</span></p>
+                            <p>6、部门主管有权调整部门人员岗位与工作；</p>
+                            <p>7、如部门主管未合理的安排工作，经理有权立即作出调整；</p>
+                            <p>8、加强成本核算，厉行节约，努力提高经济效益。</p>
+                            <p><b>第二条</b>　财务部门岗位职责：</p>
+                            <p>1、严格按照《中华人民共和国会计法》开展工作。严格遵守公司相关管理制度规定；</p>
+                            <p>2、认真做到手续完备，内容真实，数据准确，帐目清楚，日清月结，及时编制会计报表并按期上报；</p>
+                            <p>3、妥善保管会计凭证、帐簿和报表等档案资料；管好各种印章、空白支票、空白收据。收据与支票领用时应办理领用手续，使用完应办理注销手续；管理库存现金与各种有价证券，保证其安全完整；</p>
+                            <p>4、根据实际发生的经济业务事项进行会计核算、填制会计凭证、登记会计帐簿、编制财务会计报告；</p>
+                            <p>5、定期将会计帐簿记录与实物、款项及有关资料相互核对，保证帐簿记录与实物、款项、凭证、报表等有关内容相符；</p>
+                            <p>6、空白合同由财务部统一管理，业务员申领合同，必须做好登记、备案；</p>
+                            <p>7、财务部有权督促业务员签订合同；</p>
+                            <p>8、每单业务结束后，有权向业务员确定金额，并结算；</p>
+                            <p>9、在结算过程中，如发现有违规操作的，不得给予结算提成及奖金；</p>
+                            <p>10、及时配合业务部开据发票，送货单等票据；</p>
+                            <p>11、在收款过程中，业务员如遇有扣款行为的，必须向业务员索要客户扣款证明，否则视为应收款项处理；</p>
+                            <p>12、业务开展过程中，如发现有违规操作的，有权拒绝支付款项，并及时向总经理或董事长汇报；</p>
+                            <p>13、认真核实报销凭证，由上级领导签字后方可支付；</p>
+                            <p>14、认真、统一管理公司客户资源，做好归档管理；</p>
+                            <p>15、每月将应收款、应付款、办公费用、工资、业务开支等报送总经理审阅。</p>
+                            <p><b>第三条</b>　企划部门岗位职责：</p>
+                            <p>1、严格遵守公司相关管理制度规定；</p>
+                            <p>2、及时、准确的完成公司安排的工作任务；</p>
+                            <p>3、积极配合业务部和设计部的有关工作，做到尽善尽美，并保持与相关部门的沟通和交流；</p>
+                            <p>4、正确掌握客户对产品的要求及市场信息，对产品进行正确的定位、延伸；</p>
+                            <p>5、服从并积极完成上级领导安排的其它任务；</p>
+                            <p>6、不断提高自身的综合能力，不断创新，争取又好又快的发展。</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="button" onclick="javascript:$('#edit-fileup').click();"><i class="fa fa-link"></i>更新附件</button>
+                        <input id="edit-fileup" class="form-group" type="file" style="display: none;">
+                    </div>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                 <input type="submit" class="btn btn-info" value="提交">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除 deleteCriterion -->
+<div class="modal fade" id="deleteCriterion" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+              确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableCriterion').bootstrapTable({
+            url:'../../testData/tableCriterion.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:80
+                },
+                {
+                    field:"content",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle"
+                }
+                ,
+                {
+                    field:"number",
+                    title:"文件编号",
+                    align:"center",
+                    valign:"middle"
+
+                },
+                {
+                    field:"type",
+                    title:"分类",
+                    align:"center",
+                    valign:"middle",
+                    width:160
+                },
+                {
+                    field:"level",
+                    title:"层级",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"date",
+                    title:"发布时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableCriterion').bootstrapTable('resetView');
+        });
+
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoCriterion">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editCriterion">修订</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deleteCriterion">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    //富文本初始化
+    $('.summernote').summernote({
+        height: 400,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+$('form').easyform()
+</script>

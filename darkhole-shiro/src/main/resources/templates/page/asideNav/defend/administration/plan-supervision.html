@@ -1,0 +1,298 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">目标管理</a></li>
+                <li>»</li>
+                <li class="active">计划执行监督检查</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="search">
+            <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableSupervision -->
+    <div class="table container-fluid">
+        <table id="tableSupervision"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Supervision == 监督检查 ********** -->
+<!--详情 infoSupervision -->
+<div class="modal fade" id="infoSupervision" tabindex="-1" >
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">制定日期：</td>
+                        <td class="info-content">2017年11月8日</td>
+                        <td class="info-name">责任人：</td>
+                        <td class="info-content">张吉</td>
+                        <td class="info-name">责任领导：</td>
+                        <td class="info-content">张吉</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">计划类别：</td>
+                        <td class="info-content">年度计划</td>
+                        <td class="info-name">形象目标：</td>
+                        <td class="info-content" colspan="3">XXXXPPT、XXXX文档</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">计划内容：</td>
+                        <td class="info-content" colspan="5">计划内容计划内容计划内容计划内容计划内容计划内容计划内容计划内容</td>
+                    </tr>
+                </table>
+
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">完成情况：</td>
+                        <td class="info-content" colspan="5">原因原因原因原因原因原因原因原因原因原因原因原因原因原因原因原因</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">监督检查日期：</td>
+                        <td class="info-content">2017年11月28日</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editSupervision -->
+<div class="modal fade" id="editSupervision" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" >
+                <form action="">
+                    <div class="row">
+
+                        <!--<div class="form-group col-md-4">-->
+                            <!--<label for="editLiable"><b>责任人</b></label>-->
+                            <!--&lt;!&ndash; 接 OA 数据 &ndash;&gt;-->
+                            <!--<div class="input-group">-->
+                                <!--<select class="form-control" name="" id="editLiable">-->
+                                    <!--<option >张三</option>-->
+                                    <!--<option >李四</option>-->
+                                    <!--<option >王二</option>-->
+                                <!--</select>-->
+                                <!--<span class="input-group-addon">-->
+                                    <!--<a class="addon" href="#" onclick="controlToggle(this)">+</a>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; 新增 选项 &ndash;&gt;-->
+                            <!--<div class="input-group" style="display: none;">-->
+                                <!--<input type="text" class="form-control" name="" id="editLiable_">-->
+                                <!--<span class="input-group-addon">-->
+                                    <!--<a class="addon" href="#" onclick="controlToggle(this)">-</a>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group col-md-4">-->
+                            <!--<label for="editLeader"><b>责任领导</b></label>-->
+                            <!--&lt;!&ndash; 接 OA 数据 &ndash;&gt;-->
+                            <!--<div class="input-group">-->
+                                <!--<select class="form-control" name="" id="editLeader">-->
+                                    <!--<option >张三</option>-->
+                                    <!--<option >李四</option>-->
+                                    <!--<option >王二</option>-->
+                                <!--</select>-->
+                                <!--<span class="input-group-addon">-->
+                                    <!--<a class="addon" href="#" onclick="controlToggle(this)">+</a>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; 新增 选项 &ndash;&gt;-->
+                            <!--<div class="input-group" style="display: none;">-->
+                                <!--<input type="text" class="form-control" name="" id="editLeader_">-->
+                                <!--<span class="input-group-addon">-->
+                                    <!--<a class="addon" href="#" onclick="controlToggle(this)">-</a>-->
+                                <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group col-md-4">-->
+                            <!--<label for="editType"><b>计划类别</b></label>-->
+                            <!--<select class="form-control" name="" id="editType">-->
+                                <!--<option>月度计划</option>-->
+                                <!--<option>季度计划</option>-->
+                                <!--<option>年度计划</option>-->
+                                <!--<option>专项类计划</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group col-md-12">-->
+                            <!--<label for="editContent"><b>执行计划内容</b></label>-->
+                            <!--<div class="summernote" id="editContent"></div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group col-md-8">-->
+                            <!--<label for="editTarget"><b>形象目标</b></label>-->
+                            <!--<input type="text" class="form-control" name="" id="editTarget">-->
+                        <!--</div>-->
+
+                        <div class="form-group col-md-4">
+                            <label for="editDate"><b>监督检查日期</b></label>
+                            <input type="date" class="form-control" name="" id="editDate">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="editCompletion"><b>完成情况</b></label>
+                            <textarea class="form-control" id="editCompletion" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认删除 deletePlan -->
+<div class="modal fade" id="deletesupervision" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableSupervision').bootstrapTable({
+            url:'../../testData/tableSupervision.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"Id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:80
+
+                },
+                {
+                    field:"Type",
+                    title:"计划类别",
+                    align:"center",
+                    valign:"middle",
+                    width:160
+                },
+                {
+                    field:"Target",
+                    title:"形象目标",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"Responsible",
+                    title:"责任人",
+                    align:"center",
+                    valign:"middle",
+                    width:160
+                },
+                {
+                    field:"Leader",
+                    title:"责任领导",
+                    align:"center",
+                    valign:"middle",
+                    width:160
+                },
+                {
+                    field:"Date",
+                    title:"制定日期",
+                    align:"center",
+                    valign:"middle",
+                    width:100
+                },
+                {
+                    field:"supervisionDate",
+                    title:"监督检查日期",
+                    align:"center",
+                    valign:"middle",
+                    width:100
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableSupervision').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoSupervision">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editSupervision">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deleteSupervision">删除</a>'
+            ].join('')
+        }
+
+    });
+
+    //富文本初始化
+    $('#editContent').summernote({
+        height: 300,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+
+    //控件切换
+    function controlToggle( dom ) {
+        var $dom = $(dom);
+        var _flag = $dom.html();
+        var _control = $dom.parent().parent('.input-group');
+        _control.attr('style','display: none;');
+        if(_flag === '+'){
+            _control.next('.input-group').removeAttr('style');
+        }
+        if(_flag === '-'){
+            _control.prev('.input-group').removeAttr('style');
+        }
+    }
+
+</script>

@@ -1,0 +1,61 @@
+/** 保卫体系管理
+........................................................................................ **/
+/** Reset ........................................................................................ **/
+
+.input-group-addon {
+    padding: 0;
+}
+.addon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #41cac0;
+    color: #fff;
+}
+/** 法律法规执行 ........................................................................................ **/
+/** law **/
+.law-title {}
+.law-number {
+    width:100%;color: #000;text-align: center;margin: 15px 0;
+}
+.law-text {}
+
+.item-small {
+    padding: 5px 15px;
+}
+
+
+.link-orange {
+    color: orange;
+}
+.text-gray {
+    color: #7a7a7a;
+}
+.edit-orange {
+    background: orange;
+}
+.mirror-orange {
+    color: orange;
+}
+
+/** 计划制定  **/
+.list-group-item-header {
+    cursor: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.list-group-item-footer {
+    cursor: none;
+    margin-top: 5px;
+    text-align: right;
+}
+.count {
+    margin: 0 10px;
+    color: orange;
+    font-weight: bold;
+    text-align: right;
+}

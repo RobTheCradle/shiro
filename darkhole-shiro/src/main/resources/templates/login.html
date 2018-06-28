@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content = "IE=edge,chrome=1" />
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta name="msapplication-tap-highlight" content="no"><!--windows phone-->
+  <meta name="renderer" content="webkit"><!--360极速模式-->
+  <meta name="description" content=""><!--150-->
+  <meta name="keywords" content=""/>
+  <!-- ICON -->
+  <link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+  <link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_z6bs8mfg9h3t0529.css">
+  <title>请登录</title>
+  <!-- CSS-->
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/bootstrap/css/bootstrap-reset.css" rel="stylesheet">
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <!--index-0-->
+  <link href="css/index-0.css" rel="stylesheet">
+  <![endif]-->
+  </head>
+  <body >
+  <section id="container">
+    <header class="header white-bg">
+      <!-- LOGO -->
+      <div class="logo" style="line-height: 60px;">
+        <img src="img/logo/logo.png" style="display: block;float: left;width: 45px;height: 45px;margin-top: 8px;">
+        <a target="index00.html" class="logo-media " >军工企业保卫管理与防范识别处理系统</a>
+      </div>
+
+    </header><!--***** ***** ***** ****+* 顶部 -->
+    <!-- 页面 容器 -->
+    <section class="wrapper site-min-height login-bg" >
+      <div class="login-area container ">
+        <form action="">
+          <h2 class="login-name-heading title-a">
+            <span></span>登录<span></span>
+          </h2>
+          <div class="form-group " >
+            <!--<label  class="login-label-a" >用户名:</label>-->
+            <input type="text" class="form-control login-input"  id="name" onfocus="xfjianpan(this.id)" placeholder="请输入用户名">
+          </div>
+          <div class="form-group mt-20 "  >
+            <!--<label  class="login-label-a" >密 码:</label>-->
+            <input type="password" class="form-control login-input"  id="password" onfocus="xfjianpan(this.id)" placeholder="请输入密码">
+          </div>
+          <div class="form-group text-right " >
+              <button class="btn btn-primary logina-button" type="submit">
+                <a class="button-src " href="index-0.html">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+              </button>
+          </div>
+        </form>
+
+      </div>
+
+     <!-- <div class="container login-name">
+
+        <form action="">
+          <h2 class="login-name-heading">
+            请登录
+            &lt;!&ndash;<img src="img/logo/logo.png" style="width: 45px;height: 45px; margin-right: 5px">军工企业保卫管理与防范识别处理系统&ndash;&gt;
+          </h2>
+          <div class="form-group" >
+            <label  class="login-label" >用户名:</label>
+            <input type="text" class="form-control login-input"  placeholder=""  id="name" onfocus="xfjianpan(this.id)" value="jquery">
+          </div>
+          <div class="form-group mt-20"  >
+            <label  class="login-label" >密 码:</label>
+            <input type="password" class="form-control login-input"  placeholder="" id="password" onfocus="xfjianpan(this.id)">
+          </div>
+          <div class="form-group text-right  login" >
+            <button class="btn btn-primary " type="submit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+          </div>
+
+        </form>
+      </div>-->
+      <div id="jianpan">
+        <div class="title" style="text-align:center;"><span class="jianpan_hide" onclick="xfjianpan(false)">×</span></div>
+        <div id="xfjp" class="jianpan" >
+          <ul>
+            <li >~</li>
+            <li>!</li>
+            <li>@</li>
+            <li>#</li>
+            <li>$</li>
+            <li>%</li>
+            <li>^</li>
+            <li>&amp;</li>
+            <li>*</li>
+            <li>(</li>
+            <li>)</li>
+            <li>_</li>
+            <li>+</li>
+            <li>=</li>
+          </ul>
+          <ul >
+            <li >1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li colspan="2" id="qinkong">清空</li>
+          </ul>
+          <ul>
+            <li>q</li>
+            <li>w</li>
+            <li>e</li>
+            <li>r</li>
+            <li>t</li>
+            <li>y</li>
+            <li>u</li>
+            <li>i</li>
+            <li>o</li>
+            <li>p</li>
+            <li>[</li>
+            <li>]</li>
+          </ul>
+          <ul>
+            <li>a</li>
+            <li>s</li>
+            <li>d</li>
+            <li>f</li>
+            <li>g</li>
+            <li>h</li>
+            <li>j</li>
+            <li>k</li>
+            <li>l</li>
+            <li>空格</li>
+          </ul>
+          <ul>
+            <li id="shift">shift</li>
+            <li>z</li>
+            <li>x</li>
+            <li>c</li>
+            <li>v</li>
+            <li>b</li>
+            <li>n</li>
+            <li>m</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+  <!-- 页脚 *****************************************************************************-->
+  <footer class="site-footer" >
+    <div style="float: left;height: 40px;line-height: 40px;margin-left: 15px;">版本: 1.0</div>
+    <div class="setting">
+      成都飞机工业（集团）有限责任公司
+    </div>
+  </footer><!--***** ***** ***** ***** 页脚 -->
+
+
+    <!-- JS -->
+    <script src="assets/jquery/jquery-3.2.1.min.js" ></script><!-- jQuery -->
+    <script src="assets/bootstrap/js/bootstrap.min.js" ></script>
+  </body>
+
+<script>
+    //键盘部分JS
+    $("#jianpan .title").css("line-height",$("#jianpan").height()/5+"px");
+    function xfjianpan(id) {
+        //xfjianpan(id),当id为input的id，如果id==false时，键盘隐藏
+
+        var jpnub = $("#xfjp li").length;
+
+        move("jianpan");        //开启键盘可移动
+
+        $("#xfjp li").unbind("click");
+
+        if (id != false) {
+            $("#jianpan").show();
+            var xfjp_text = $("#"+id).val();                        //获取input框当前的val值
+
+
+            $(".input_on").removeClass("input_on");
+            $("#"+id).addClass("input_on");                         //设置input框选中时的样式
+
+            $("#jptitle").html($("#"+id).attr("placeholder"));      //键盘标题，自动获取input的placeholder值
+
+            $("#xfjp li").click(function () {
+                var click = $(this).html();                         //获取点击按键的内容
+
+                //特殊按键在这添加事件
+                //判断点击的按键是否有特殊事件，如果没有则按键内容加在input文本后面
+                if (click == "清空") {
+                    xfjp_text = "";
+                    $("#"+id).val(xfjp_text);
+                }else if(click == "shift"){
+                    for(i=0;i<jpnub;i++){
+                        $("#xfjp li:eq("+i+")").html($("#xfjp li:eq("+i+")").html().toUpperCase());
+                    }
+                }else if(click == "SHIFT"){
+                    for(i=0;i<jpnub;i++){
+                        $("#xfjp li:eq("+i+")").html($("#xfjp li:eq("+i+")").html().toLowerCase());
+                    }
+                }else if(click == "空格"){
+                    xfjp_text = xfjp_text + " ";
+                    $("#"+id).val(xfjp_text);
+                }else {
+                    xfjp_text = xfjp_text + click;
+                    $("#"+id).val(xfjp_text);
+                }
+
+                $("#"+id).focus();
+            })
+        }else{
+            $(".input_on").removeClass("input_on");                    //移除选中input的选中样式
+            $("#jianpan").hide();
+        }
+    }
+
+
+
+
+    //鼠标按住拖动部分JS
+    function unmove(obj){
+        $("#" + obj + " .title").unbind("mousedown");
+    }
+    function move(obj){
+        var OffsetX = 0;
+        var OffsetY = 0;
+        var moveKg = false;
+        var csZ = 0;
+        function d(id) {
+            return document.getElementById(id);
+        }
+        $("#"+obj+" .title").bind("mousedown", function () {
+            OffsetX = event.pageX - d(obj).offsetLeft;
+            OffsetY = event.pageY - d(obj).offsetTop;
+            csZ = $("#"+obj).css("z-index");
+            $("#"+obj).css("z-index","9999");
+            moveKg = true;
+            jpyd();
+        })
+        function jpyd() {
+            $(document).bind("mousemove", function () {
+                var e = e || window.event;
+                var mouswX = e.pageX;
+                var mouswY = e.pageY;
+                var moveX = mouswX - OffsetX;
+                var moveY = mouswY - OffsetY;
+                var maxX = $(window).width() - d(obj).offsetWidth;
+                var maxY = $(window).height() - d(obj).offsetHeight;
+                moveX=Math.min(maxX,Math.max(0,moveX));
+                moveY=Math.min(maxY,Math.max(0,moveY));
+                $("#"+obj).css({"left":moveX,"top":moveY});
+            })
+            $(document).bind("mouseup", function () {
+                moveKg = false;
+                $("#"+obj).css("z-index",csZ);
+                $(document).unbind("mousemove mouseup");
+            })
+        }
+    }
+</script>
+
+
+
+
+</html>
+

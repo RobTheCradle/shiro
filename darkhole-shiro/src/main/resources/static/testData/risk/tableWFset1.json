@@ -1,0 +1,42 @@
+[
+  {
+    "id":"1",
+    "riskQuota" : "覆盖区域",
+    "riskAAAA" : "主要出入口",
+    "riskAAA" : "主要出入口",
+    "riskAA" : "主要出入口",
+    "riskA" : "--"
+  },
+  {
+    "id":"2",
+    "riskQuota" : "强度",
+    "riskAAAA" : "GB17565甲级",
+    "riskAAA" : "GB17565甲级",
+    "riskAA" : "GB17565甲级",
+    "riskA" : "--"
+  },
+  {
+    "id":"3",
+    "riskQuota" : "材质",
+    "riskAAAA" : "钢制",
+    "riskAAA" : "钢化玻璃 || 铁皮",
+    "riskAA" : "钢化玻璃 || 铁皮",
+    "riskA" : "--"
+  },
+  {
+    "id":"4",
+    "riskQuota" : "防拆卸措施",
+    "riskAAAA" : "具备",
+    "riskAAA" : "具备",
+    "riskAA" : "具备",
+    "riskA" : "--"
+  },
+  {
+    "id":"5",
+    "riskQuota" : "功能",
+    "riskAAAA" : "锁闭",
+    "riskAAA" : "锁闭",
+    "riskAA" : "锁闭",
+    "riskA" : "--"
+  }
+]

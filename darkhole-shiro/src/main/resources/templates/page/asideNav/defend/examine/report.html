@@ -1,0 +1,645 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">审查审批</a></li>
+                <li>»</li>
+                <li class="active">问题上报</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Tabs  -->
+    <section class="panel">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#perilReport">隐患上报</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#faultReport">故障申报</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!-- 隐患 == Peril -->
+                <div id="perilReport" class="tab-pane active">
+                    <!-- 功能工具栏 -->
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addPeril"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx" id="uploadPeril" style="display: none" />
+                            <button  type="button" class="btn btn-info uploadPeril" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="searchPeril" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <!-- 表格 tablePeril -->
+                    <div class="table container-fluid">
+                        <table id="tablePeril"></table>
+                    </div>
+                </div>
+                <!-- 故障 == Fault -->
+                <div id="faultReport" class="tab-pane">
+                    <!-- 功能工具栏 -->
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addFault"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx" id="uploadFault" style="display: none" />
+                            <button  type="button" class="btn btn-info uploadFault" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="searchFault" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <!-- 表格 tableFault -->
+                    <div class="table container-fluid">
+                        <table id="tableFault"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Peril == 隐患 ********** -->
+<!-- 添加 addPeril -->
+<div class="modal fade" id="addPeril" tabindex="-1" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="perilDate"><b>暴露时间</b></label>
+                            <input type="date" class="form-control" name="" id="perilDate">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="perilResponsible"><b>责任人</b></label>
+                            <input type="text" class="form-control" name="" id="perilResponsible">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="perilResponsible_unit"><b>责任单位</b></label>
+                            <input type="text" class="form-control" name="" id="perilResponsible_unit">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="perilPlace"><b>隐患地点</b></label>
+                            <input type="text" class="form-control" name="" id="perilPlace">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="perilDes"><b>隐患描述</b></label>
+                            <textarea class="form-control" id="perilDes" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-primary" type="button" onclick="javascript:$('#fileUp_Peril').click();"><i class="fa fa-link"></i>上传附件</button>
+                            <input id="perilFile" class="form-group" type="file" style="display: none;">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 infoPeril -->
+<div class="modal fade" id="infoPeril" tabindex="-1" >
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">暴露时间：</td>
+                        <td class="info-content">2017年11月8日</td>
+                        <td class="info-name">责任人：</td>
+                        <td class="info-content">张吉</td>
+                        <td class="info-name">责任单位：</td>
+                        <td class="info-content">深夜食堂</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">隐患地点：</td>
+                        <td class="info-content" colspan="5">深夜食堂林荫小路</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">隐患描述：</td>
+                        <td class="info-content" colspan="5">阴井盖被盗，路人容易落入</td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="button"><i class="fa fa-download"></i>下载附件</button>
+                    <input id="infoDown_peril" class="form-group" type="file" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editPeril -->
+<div class="modal fade" id="editPeril" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" >
+                <form action="">
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="editDate"><b>暴露时间</b></label>
+                            <input type="date" class="form-control" name="" id="editDate">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="editResponsible"><b>责任人</b></label>
+                            <input type="text" class="form-control" name="" id="editResponsible">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="editResponsible_unit"><b>责任单位</b></label>
+                            <input type="text" class="form-control" name="" id="editResponsible_unit">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="editPlace"><b>隐患地点</b></label>
+                            <input type="text" class="form-control" name="" id="editPlace">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="editDes"><b>隐患描述</b></label>
+                            <textarea class="form-control" id="editDes" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-primary" type="button" onclick="javascript:$('#fileup').click();"><i class="fa fa-link"></i>上传附件</button>
+                            <input id="editFile_peril" class="form-group" type="file" style="display: none;">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认删除 deletePeril -->
+<div class="modal fade" id="deletePeril" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Fault == 故障 ********** -->
+<!-- 添加 addFault -->
+<div class="modal fade" id="addFault" tabindex="-1" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="faultDate"><b>申报时间</b></label>
+                            <input type="date" class="form-control" name="" id="faultDate">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="faultProposer"><b>申报人</b></label>
+                            <input type="text" class="form-control" name="" id="faultProposer">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="jobNumber"><b>工号</b></label>
+                            <input type="text" class="form-control" name="" id="jobNumber">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="reportUnit"><b>申报单位</b></label>
+                            <input type="text" class="form-control" name="" id="reportUnit">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="assetId"><b>资产编号</b></label>
+                            <input type="text" class="form-control" name="" id="assetId">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="deviceName"><b>设备名称</b></label>
+                            <input type="text" class="form-control" name="" id="deviceName">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="deviceId"><b>设备编号</b></label>
+                            <input type="text" class="form-control" name="" id="deviceId">
+                        </div>
+                        <div class="form-group col-md-4" style="margin-top: 20px;">
+                            <label class="radio-inline" for="hasRepair">
+                                <input class="" name="repair" id="hasRepair" type="radio" value="1"><b>已维修</b>
+                            </label>
+                            <label class="radio-inline" for="noRepair">
+                                <input class="" name="repair" id="noRepair" type="radio" value="0"><b>未维修</b>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="deviceLocation"><b>安装位置</b></label>
+                            <input type="text" class="form-control" name="" id="deviceLocation">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="faultDes"><b>故障现象</b></label>
+                            <textarea class="form-control" name="" id="faultDes" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12"><hr></div>
+
+                        <div class="form-group col-md-12">
+                            <label for="adviseSkill"><b>技术员意见</b></label>
+                            <textarea class="form-control" name="" id="adviseSkill" rows="3"></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="adviseLeader"><b>领导意见</b></label>
+                            <textarea class="form-control" name="" id="adviseLeader" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 infoFault -->
+<div class="modal fade" id="infoFault" tabindex="-1" >
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">申报时间：</td>
+                        <td class="info-content">2017年11月8日</td>
+                        <td class="info-name">申报人：</td>
+                        <td class="info-content">张吉</td>
+                        <td class="info-name">工号：</td>
+                        <td class="info-content">000315</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">资产编号：</td>
+                        <td class="info-content">XD0002017</td>
+                        <td class="info-name">申报单位：</td>
+                        <td class="info-content" colspan="3">深夜食堂伙食团</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">设备名称：</td>
+                        <td class="info-content">报警器</td>
+                        <td class="info-name">设备编号：</td>
+                        <td class="info-content">000315</td>
+                        <td class="info-name">是否维修：</td>
+                        <td class="info-content">已维修</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">安装位置：</td>
+                        <td class="info-content" colspan="5">深夜食堂厨房</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">故障现象：</td>
+                        <td class="info-content" colspan="5">经常有老鼠咬断电路线</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">技术员意见：</td>
+                        <td class="info-content" colspan="5">使用胶带包裹</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">领导意见：</td>
+                        <td class="info-content" colspan="5">部署捕鼠器，大规模灭鼠</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editFault -->
+<div class="modal fade" id="editFault" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" >
+                <form action="">
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="editDate_fault"><b>申报时间</b></label>
+                            <input type="date" class="form-control" name="" id="editDate_fault">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editProposer"><b>申报人</b></label>
+                            <input type="text" class="form-control" name="" id="editProposer">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editJobNumber"><b>工号</b></label>
+                            <input type="text" class="form-control" name="" id="editJobNumber">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="editReport_unit"><b>申报单位</b></label>
+                            <input type="text" class="form-control" name="" id="editReport_unit">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="editAssetId"><b>资产编号</b></label>
+                            <input type="text" class="form-control" name="" id="editAssetId">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editDeviceName"><b>设备名称</b></label>
+                            <input type="text" class="form-control" name="" id="editDeviceName">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editDeviceId"><b>设备编号</b></label>
+                            <input type="text" class="form-control" name="" id="editDeviceId">
+                        </div>
+                        <div class="form-group col-md-4" style="margin-top: 20px;">
+                            <label class="radio-inline" for="hasRepair">
+                                <input class="" name="repair" id="editHasRepair" type="radio" value="1"><b>已维修</b>
+                            </label>
+                            <label class="radio-inline" for="noRepair">
+                                <input class="" name="repair" id="editNoRepair" type="radio" value="0"><b>未维修</b>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="editLocation"><b>安装位置</b></label>
+                            <input type="text" class="form-control" name="" id="editLocation">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editFaultDes"><b>故障现象</b></label>
+                            <textarea class="form-control" name="" id="editFaultDes" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12"><hr></div>
+
+                        <div class="form-group col-md-12">
+                            <label for="editAdviseSkill"><b>技术员意见</b></label>
+                            <textarea class="form-control" name="" id="editAdviseSkill" rows="3"></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editAdviseLeader"><b>领导意见</b></label>
+                            <textarea class="form-control" name="" id="editAdviseLeader" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认删除 deleteFault -->
+<div class="modal fade" id="deleteFault" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tablePeril').bootstrapTable({
+            url:'../../testData/tablePeril.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"Id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    width:80
+                },
+                {
+                    field:"perilDes",
+                    title:"隐患描述",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"perilResponsible",
+                    title:"责任人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"perilDate",
+                    title:"暴露时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tablePeril').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoPeril">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editPeril">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deletePeril">删除</a>'
+            ].join('')
+        }
+    });
+
+    // 导入
+    $('.uploadPeril').click(function () {
+        $('#uploadPeril').click()
+    });
+
+
+</script>
+
+<script>
+    $(function () {
+        $('#tableFault').bootstrapTable({
+             url:'../../testData/tableFault.json',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"Id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:80
+
+                },
+                {
+                    field:"assetId",
+                    title:"资产编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+
+                },
+                {
+                    field:"deviceName",
+                    title:"设备名称",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"deviceId",
+                    title:"设备编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"proposer",
+                    title:"申报人",
+                    align:"center",
+                    valign:"middle",
+                    width:100
+                },
+                {
+                    field:"jobNumber",
+                    title:"工号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"reportUnit",
+                    title:"申报单位",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"faultDate",
+                    title:"申报时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableFault').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoFault">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editFault">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deleteFault">删除</a>'
+            ].join('')
+        }
+    });
+
+    // 导入
+    $('.uploadFault').click(function () {
+        $('#uploadFault').click()
+    });
+
+
+</script>
+

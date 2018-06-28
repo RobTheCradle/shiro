@@ -1,0 +1,415 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">风险评估</a></li>
+                <li>»</li>
+                <li class="active">风险库配置</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addRisk"><i class="fa fa-plus"></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+            <button  type="button" class="btn btn-warning" data-toggle="modal" data-target="#addQuota">设置指标项</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tableRisk"></table>
+    </div>
+</section>
+
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Risk == 风险 ********** -->
+<!-- 添加  addRisk -->
+<div class="modal fade" id="addRisk" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="riskSource"><b>自定义名称</b></label>
+                            <input type="text" class="form-control" name="" id="riskName" placeholder="请输入 ...">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="riskFlag"><b>风险标识</b></label>
+                            <input type="text" class="form-control" name="" id="riskFlag" value="FX-00001-2017" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="typeRisk"><b>风险类型</b></label>
+                            <select class="form-control" id="typeRisk">
+                                <option disabled selected>下拉选择</option>
+                                <option>制度建设及运行类风险</option>
+                                <option>宣贯培训类风险</option>
+                                <option>目标管理类风险</option>
+                                <option>审查审批类风险</option>
+                                <option>安全防范类风险</option>
+                                <option>生产过程类风险</option>
+                                <option>任务执行类风险</option>
+                                <option>条件保障类风险</option>
+                                <option>技术支持类风险</option>
+                                <option>泄密类风险</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="riskLevel"><b>风险等级</b></label>
+                            <select class="form-control" id="riskLevel">
+                                <option disabled selected>下拉选择</option>
+                                <option>高度风险</option>
+                                <option>风险</option>
+                                <option>临界</option>
+                                <option>安全</option>
+                                <option>高度安全</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="riskNature"><b>风险性质</b></label>
+                            <select class="form-control" id="riskNature">
+                                <option disabled selected>下拉选择</option>
+                                <option>可控性</option>
+                                <option>周期性</option>
+                                <option>普遍性</option>
+                                <option>偶然性</option>
+                                <option>必然性</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="riskSource"><b>风险来源</b></label>
+                            <input type="text" class="form-control" name="" id="riskSource" placeholder="请输入 ...">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="riskBasis"><b>构成依据</b></label>
+                            <textarea class="form-control" id="riskBasis" rows="3" placeholder="请输入 ..."></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="riskAffect"><b>影响描述</b></label>
+                            <textarea class="form-control" id="riskAffect" rows="3" placeholder="请输入 ..."></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="riskFactor"><b>条件因素</b></label>
+                            <textarea class="form-control" id="riskFactor" rows="3" placeholder="请输入 ..."></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="riskStep"><b>管控措施</b></label>
+                            <textarea class="form-control" id="riskStep" rows="3" placeholder="请输入 ..."></textarea>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="riskTarget"><b>管理对象</b></label>
+                            <input type="text" class="form-control" name="" id="riskTarget" placeholder="请输入 管理对象">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="theWork"><b>所属业务类</b></label>
+                            <select class="form-control" id="theWork">
+                                <option disabled selected>下拉选择</option>
+                                <option>保卫体系</option>
+                                <option>人力防范</option>
+                                <option>物理防范</option>
+                                <option>技术防范</option>
+                                <option>应急管理</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="theWork2"><b>所属业务</b></label>
+                            <select class="form-control" id="theWork2">
+                                <option disabled selected>下拉选择</option>
+                                <option>保卫工作制度</option>
+                                <option>二级保卫制度</option>
+                                <option>宣传思想教育</option>
+                                <option>业务技能培训</option>
+                                <option>规划计划执行</option>
+                                <option>审查审批</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 设置指标项  addQuota -->
+<div class="modal fade" id="addQuota" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                        <label for="QuotaName"><b>指标项名称</b></label>
+                        <input type="text" class="form-control" name="" id="QuotaName" placeholder="请输入 指标项名称">
+                        </div>
+                        <div class="form-group col-md-12">
+                        <label for="QuotaBasis"><b>指标依据</b></label>
+                        <input type="text" class="form-control" name="" id="QuotaBasis" placeholder="请输入 指标依据">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="riskQuota_AAAA"><b>禁区偏差值</b></label>
+                        <input type="text" class="form-control" name="" id="riskQuota_AAAA" placeholder="请输入 禁区参考值">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="riskQuota_AAAA"><b>防护区偏差值</b></label>
+                        <input type="text" class="form-control" name="" id="riskQuota_AAA" placeholder="请输入 防护区参考值">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="riskQuota_AAAA"><b>监控区偏差值</b></label>
+                        <input type="text" class="form-control" name="" id="riskQuota_AA" placeholder="请输入 监控区参考值">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="riskQuota_AAAA"><b>周界偏差值</b></label>
+                        <input type="text" class="form-control" name="" id="riskQuota_A" placeholder="请输入 周界参考值">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="button" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 详情 infoRisk -->
+<div class="modal fade" id="infoRisk" tabindex="-1" >
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="info-title">风险点信息</h5>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">自定义名称：</td>
+                        <td class="info-content" colspan="3">无关人员擅自进入总控室</td>
+                        <td class="info-name">风险标识：</td>
+                        <td class="info-content">FX-00001-2017</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">风险类型：</td>
+                        <td class="info-content">运行安全类风险</td>
+                        <td class="info-name">风险等级：</td>
+                        <td class="info-content">风险</td>
+                        <td class="info-name">风险性质：</td>
+                        <td class="info-content">普遍性</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">风险来源：</td>
+                        <td class="info-content" colspan="5">技术中心总控室的门禁系统漏洞</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">构成依据：</td>
+                        <td class="info-content" colspan="5">保密规定</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">影响描述：</td>
+                        <td class="info-content" colspan="5">该风险提高了发生泄密、伤亡、破坏、盗窃等情况的概率，损失追责将变得困难</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">条件因素：</td>
+                        <td class="info-content" colspan="5">人员证件，通行记录，入侵报警，培训教育，制度履行</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">管控措施：</td>
+                        <td class="info-content" colspan="5">通过技术防范手段提升门禁系统的智能性，避免入侵报警的漏报，加强行为规范制度履行的培训教育</td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">管理对象：</td>
+                        <td class="info-content">人员</td>
+                        <td class="info-name">所属业务分类：</td>
+                        <td class="info-content">？？</td>
+                        <td class="info-name">所属业务：</td>
+                        <td class="info-content">？？</td>
+                    </tr>
+                </table>
+                <h5 class="info-title">风险控制指标</h5>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">序号</th>
+                            <th rowspan="2">指标项</th>
+                            <th colspan="4">区域指标</th>
+                        </tr>
+                        <tr>
+                            <th>禁区</th>
+                            <th>防护区</th>
+                            <th>监视区</th>
+                            <th>周界</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>-->
+                            <!--<td>？？</td>-->
+                            <!--<td>？？</td>-->
+                            <!--<td>？？</td>-->
+                            <!--<td>？？</td>-->
+                            <!--<td>？？</td>-->
+                            <!--<td>？？</td>-->
+                        <!--</tr>-->
+                        <tr>
+                            <td>1</td>
+                            <td>入侵报警系统漏报率</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>0.01%</td>
+                            <td>0.5%</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>门禁系统失效率</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>0.01%</td>
+                            <td>0.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#tableRisk').bootstrapTable({
+            url:'xxx',// 服务器数据的加载地址
+            height : 720,
+            columns: [
+                { checkbox: true },
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"workType",
+                    title:"业务分类",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"workName",
+                    title:"业务名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"riskName",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"riskType",
+                    title:"风险类别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"riskStep",
+                    title:"管控措施",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                }
+                //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"workType":"保卫体系","workName":"单位保卫工作制度","riskName":"未根据单位保卫工作任务建立相应保卫工作制度","riskType":"制度建设及运行类风险","riskStep":"启动制度体系构建及流程设计规范"},
+                {"id":2,"workType":"保卫体系","workName":"单位保卫工作制度","riskName":"制度未正式发布、签发流程不规范或不够准确规范","riskType":"制度建设及运行类风险","riskStep":"建立发布流程与制度验证方法"},
+                {"id":3,"workType":"保卫体系","workName":"单位保卫工作制度","riskName":"保卫工作制度可操作性不强、流程不清晰、表格不规范","riskType":"制度建设及运行类风险","riskStep":"建立保卫工作制度审批机制"},
+                {"id":4,"workType":"保卫体系","workName":"单位保卫工作制度","riskName":"保卫工作制度未及时运行评估并修订完善","riskType":"制度建设及运行类风险","riskStep":"建立保卫工作制度时效性，评估与修订流程审批机制"},
+                {"id":6,"workType":"保卫体系","workName":"二级保卫工作制度","riskName":"未按要求制定二级保卫工作制度","riskType":"制度建设及运行类风险","riskStep":"---"},
+                {"id":7,"workType":"保卫体系","workName":"二级保卫工作制度","riskName":"二级保卫工作制度结合部门实际和特点不足","riskType":"制度建设及运行类风险","riskStep":"---"},
+                {"id":8,"workType":"保卫体系","workName":"宣传教育","riskName":"未制定年度保卫宣传教育计划","riskType":"宣贯培训类风险","riskStep":"---"},
+                {"id":9,"workType":"保卫体系","workName":"宣传教育","riskName":"年度内开展保卫宣传活动少于2","riskType":"宣贯培训类风险","riskStep":"---"},
+                {"id":10,"workType":"保卫体系","workName":"培训","riskName":"未实施培训，培训内容、时间不符合制度要求，出现违反公司管理制度行为的","riskType":"宣贯培训类风险","riskStep":"---"},
+                {"id":11,"workType":"保卫体系","workName":"培训","riskName":"未经培训（或取证），擅自操作安防设施设备的","riskType":"宣贯培训类风险","riskStep":"---"},
+                {"id":12,"workType":"保卫体系","workName":"培训","riskName":"未经培训（或取证），单位私自聘用其从事保卫相关工作的","riskType":"宣贯培训类风险","riskStep":"---"},
+                {"id":13,"workType":"保卫体系","workName":"保卫三年规划","riskName":"未定期制定保卫管理规划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":14,"workType":"保卫体系","workName":"保卫三年规划","riskName":"保卫管理规划制定不合理，不符合公司发展规划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":15,"workType":"保卫体系","workName":"年度计划","riskName":"未根据实际情况制定年度计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":16,"workType":"保卫体系","workName":"年度计划","riskName":"未完成年度目标计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":17,"workType":"保卫体系","workName":"季度计划","riskName":"未根据实际情况制定季度计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":18,"workType":"保卫体系","workName":"季度计划","riskName":"未完成季度目标计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":19,"workType":"保卫体系","workName":"月度计划","riskName":"未根据实际情况制定月度计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":20,"workType":"保卫体系","workName":"月度计划","riskName":"未完成月度目标计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":21,"workType":"保卫体系","workName":"周计划","riskName":"未根据实际情况制定周计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":22,"workType":"保卫体系","workName":"周计划","riskName":"未完成周计划","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":23,"workType":"保卫体系","workName":"年度总结","riskName":"未进行年度工作总结","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":24,"workType":"保卫体系","workName":"季度总结","riskName":"未进行季度工作总结","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":25,"workType":"保卫体系","workName":"月度总结","riskName":"未进行月度工作总结","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"周总结","riskName":"未进行周工作总结","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"业务流程","riskName":"业务流程不清晰","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"审查审批","riskName":"未进行审查审批","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"审查审批","riskName":"审查审批要素不全面","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"隐患上报","riskName":"发现隐患未及时上报","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"考核奖惩","riskName":"未将保卫职责落实情况纳入单位年度绩效考核","riskType":"目标管理类风险","riskStep":"---"},
+                {"id":26,"workType":"保卫体系","workName":"考核奖惩","riskName":"未制定本单位保卫工作考核奖惩办法","riskType":"目标管理类风险","riskStep":"---"}
+            ]
+        });
+        $(window).resize(function () {
+            $('#tableRisk').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoRisk">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#editRisk">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#deleteRisk">删除</a>'
+            ].join('');
+        }
+
+        // 导入
+        $('.upload').click(function () {
+            $('#upload').click()
+        });
+    });
+
+</script>

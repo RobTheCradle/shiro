@@ -1,0 +1,373 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 人力防范管理</a></li>
+                <li>»</li>
+                <li class="active">值守情况监督检查</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!-------------模态框----------------->
+<!--详情 == detail -->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body row">
+                <table class="detail" border="1">
+                    <tr>
+                        <td><b>起始时间</b></td>
+                        <td>XXX</td>
+                        <td><b>结束时间</b></td>
+                        <td>XXX</td>
+                        <td><b>值守人员</b></td>
+                        <td>XXX</td>
+                    </tr>
+                    <tr>
+                        <td><b>值守地点</b></td>
+                        <td>XXX</td>
+                        <td><b>值守类型</b></td>
+                        <td>XXX</td>
+                        <td><b>区域类型</b></td>
+                        <td>XXX</td>
+                    </tr>
+                    <tr class="KP">
+                        <td><b>隐患描述</b></td>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td><b>附件</b></td>
+                        <td colspan="5"><a href="#">下载附件</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加 == add -->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-4">
+                        <label><b>起始时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入地点" data-easyform="null;date;" data-message="请正确选择日期" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>结束时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入地点"  data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>值守人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>值守地点</b></label>
+                        <input  class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4 no-blur">
+                        <label ><b>值守类型</b></label>
+                        <select name=""  class="form-control short-input">
+                            <option value="0">定点值守</option>
+                            <option value="1">巡逻值守</option>
+                            <option value="2">值机值守</option>
+                        </select>
+                        <a class="menuBtn" href="#" data-toggle="modal" data-target="#add_defend"><span class="glyphicon glyphicon-pencil"></span></a>
+                    </div>
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>区域类型</b></label>
+                        <select name=""  class="form-control short-input">
+                            <option value="0">禁区</option>
+                            <option value="1">防护区</option>
+                            <option value="2">监视区</option>
+                            <option value="3">周界</option>
+                        </select>
+                        <a class="menuBtn" href="#" data-toggle="modal" data-target="#add_area"><span class="glyphicon glyphicon-pencil"></span></a>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>隐患描述</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="5" placeholder="请输入……"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input   type="file" multiple  name="xx" style="display: none" />
+                        <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传附件</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input class="btn btn-info" value="提交" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--修改 == edit -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-4">
+                        <label><b>起始时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入地点" data-easyform="null;date;" data-message="请正确选择日期" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>结束时间</b></label>
+                        <input class="form-control" name="" type="date" placeholder="请输入地点"  data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <!--单选下拉框  responsible.js-->
+                    <div class="form-group col-md-4 no-blur">
+                        <label><b>值守人员</b></label>
+                        <input class="short-input form-control"   type="text"  value=""/>
+                        <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                        <div class="menuContent"  style="display:none; position: absolute;">
+                            <ul class="tree ztree"  style="margin-top:0; "></ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>值守地点</b></label>
+                        <input  class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label ><b>值守类型</b></label>
+                        <select name=""  class="form-control">
+                            <option value="0">定点值守</option>
+                            <option value="1">巡逻值守</option>
+                            <option value="2">值机值守</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label><b>区域类型</b></label>
+                        <select name=""  class="form-control">
+                            <option value="0">禁区</option>
+                            <option value="1">防护区</option>
+                            <option value="2">监视区</option>
+                            <option value="3">周界</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label><b>隐患描述</b></label>
+                        <textarea class="form-control" name="" cols="30" rows="5" placeholder="请输入……"  data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input   type="file" multiple  name="xx" style="display: none" />
+                        <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新附件</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input class="btn btn-info" value="提交" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document" >
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加值守类型-->
+<div class="modal fade" id="add_defend" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document" style="margin-top: 100px;box-shadow: 0 0 8px 0 #999">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加值守类型</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 0">
+                <input  class="form-control" placeholder="添加值守类型" type="text" style="width: 75%;display: inline-block">
+                 <button class="btn btn-info">添加</button>
+                <ul class="type">
+                    <li>定点值守 <span class="glyphicon glyphicon-remove"></span></li>
+                    <li>巡逻值守 <span class="glyphicon glyphicon-remove"></span></li>
+                    <li>值机值守 <span class="glyphicon glyphicon-remove"></span></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加区域类型-->
+<div class="modal fade" id="add_area" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document" style="margin-top: 100px;box-shadow: 0 0 8px 0 #999">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加区域类型</h4>
+            </div>
+            <div class="modal-body" style="padding-bottom: 0">
+                <input  class="form-control" placeholder="添加值守类型" type="text" style="width: 75%;display: inline-block">
+                <button class="btn btn-info">添加</button>
+                <ul class="type">
+                    <li>禁区 <span class="glyphicon glyphicon-remove"></span></li>
+                    <li>防护区 <span class="glyphicon glyphicon-remove"></span></li>
+                    <li>监视区 <span class="glyphicon glyphicon-remove"></span></li>
+                    <li>周界 <span class="glyphicon glyphicon-remove"></span></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"type",
+                    title:"值守类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"area",
+                    title:"区域",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"place",
+                    title:"地点",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+
+                },
+                {
+                    field:"zeren",
+                    title:"人员",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+
+                },
+                {
+                    field:"start",
+                    title:"起始时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+
+                },
+                {
+                    field:"stop",
+                    title:"结束时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"date":"2017-10-6","place":"地点 地点","describe":"请描述隐患","zeren":"小明"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+    $("form").easyform();
+
+    // 初始化人员树
+    $.fn.zTree.init($(".tree"), setting, zNodes);
+</script>

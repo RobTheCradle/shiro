@@ -1,0 +1,251 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">审查审批</a></li>
+                <li>»</li>
+                <li class="active">内部审查</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addExamine"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+        </div>
+        <div class="search">
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+                <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableExamine -->
+    <div class="table container-fluid">
+        <table id="tableExamine"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Examine == 审查 ********** -->
+<!-- 添加 addExamine -->
+<div class="modal fade" id="addExamine" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="ExamineId"><b>编号</b></label>
+                            <input type="text" class="form-control" name="" id="ExamineId">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ExamineName"><b>名称</b></label>
+                            <input type="text" class="form-control" name="" id="ExamineName">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ExamineClass"><b>类别</b></label>
+                            <input type="text" class="form-control" name="" id="ExamineClass">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ExamineMan"><b>审查人</b></label>
+                            <input type="text" class="form-control" name="" id="ExamineMan">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ExamineLeader_room"><b>科室领导</b></label>
+                            <input type="text" class="form-control" name="" id="ExamineLeader_room">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ExamineLeader_dept"><b>部领导</b></label>
+                            <input type="text" class="form-control" name="" id="ExamineLeader_dept">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 infoExamine -->
+<div class="modal fade" id="infoExamine" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editExamine -->
+<div class="modal fade" id="editExamine" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" >
+                <form action="">
+
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除 deleteExamine -->
+<div class="modal fade" id="deleteExamine" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+              确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableExamine').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序列",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    clickToSelect:"true",
+                    width:60
+                },
+                {
+                    field:"number",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"content",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"type",
+                    title:"类别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"summary",
+                    title:"概述",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"Opinion",
+                    title:"建议",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"people",
+                    title:"审查人",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"leader",
+                    title:"主管室意见",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"leader_first",
+                    title:"部门领导意见",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:150
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"number":"L201715454","content":"...","type":"办公类", "summary":"****","Opinion":"*****","people":"小明","leader":"通过","leader_first":"通过"},
+                {"id":2,"number":"L201715454","content":"...","type":"办公类", "summary":"****","Opinion":"*****","people":"小明","leader":"通过","leader_first":"通过"},
+                {"id":3,"number":"L201715454","content":"...","type":"办公类", "summary":"****","Opinion":"*****","people":"小明","leader":"通过","leader_first":"通过"}
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoExamine">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editExamine">修订/调整</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deleteExamine">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+
+
+</script>

@@ -1,0 +1,8 @@
+[
+  {"id":1,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"报警系统","riskSubName":"--","riskJudge":"是否配置"},
+  {"id":2,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"监控系统","riskSubName":"--","riskJudge":"是否配置"},
+  {"id":3,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"门禁系统","riskSubName":"--","riskJudge":"是否配置"},
+  {"id":4,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"巡更系统","riskSubName":"--","riskJudge":"是否配置"},
+  {"id":5,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"传输系统","riskSubName":"--","riskJudge":"是否配置"},
+  {"id":6,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"声音复核系统","riskSubName":"--","riskJudge":"是否配置"}
+]

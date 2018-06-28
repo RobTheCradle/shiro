@@ -1,0 +1,3181 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>台账管理</a></li>
+                <li>»</li>
+                <li class="active">技防信息</li>
+            </ul>
+        </div>
+    </div>
+    <section class="panel" style="margin: 0 15px">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#flowDesign">技防专用计算机台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowTodo">视频监控台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowMonitor">报警台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow4">出入口控制系统台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow5">技防专用监视屏台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow6">存储设备台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow7">传输设备台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow8">辅助照明台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow9">巡更系统台账</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flow10">其他设备台账</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!--技防专用计算机-->
+                <div id="flowDesign" class="tab-pane active">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_JSJ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount1" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_departments"></table>
+                    </div>
+                    <!--------------模态框  技防专用计算机--------------->
+                    <!--详情 技防专用计算机 == detail_JSJ -->
+                    <div class="modal fade" id="detail_JSJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>责任人</b></td>
+                                            <td>李四</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>使用单位</b></td>
+                                            <td colspan="5">XXX部门</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装位置</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用状态</b></td>
+                                            <td>XXX</td>
+                                            <td><b>密级</b></td>
+                                            <td>绝密</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>MAC地址</b></td>
+                                            <td>aaaa-aaaa-aaaa-aaaa</td>
+                                            <td><b>硬盘序列号</b></td>
+                                            <td>SSSS-SSSS-SSSS-SSSS</td>
+                                            <td><b>IP地址</b></td>
+                                            <td>192.168.1.1</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>联网类型</b></td>
+                                            <td>内网</td>
+                                            <td><b>操作系统</b></td>
+                                            <td>windows7</td>
+                                            <td><b>系统安装时间</b></td>
+                                            <td>2017-05-08</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>有无外接设备</b></td>
+                                            <td>有</td>
+                                            <td><b>外接设备名称</b></td>
+                                            <td>XXXX</td>
+                                            <td><b>外接设备编号</b></td>
+                                            <td>100</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 技防专用计算机 == add_JSJ -->
+                    <div class="modal fade" id="add_JSJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>责任人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>使用单位</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">在用</option>
+                                                <option value="1">备用</option>
+                                                <option value="2">待报废</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>安防位置</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>密级</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">内部</option>
+                                                <option value="1">秘密</option>
+                                                <option value="1">机密</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>MAC地址</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>硬盘序列号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>IP地址</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>联网类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">单机</option>
+                                                <option value="1">专用网络</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>操作系统</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>系统安装时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>有无外接设备</b></p>
+                                            <input class="" name="trainCard" id="perfect_2" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="perfect_2"><b>有</b></label>
+                                            <input class="" name="trainCard" id="perfect_3" type="radio" value="0" >
+                                            <label class="radio-inline" for="perfect_3"><b>无</b></label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>外接设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>外接设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 技防专用计算机 == edit_JSJ  -->
+                    <div class="modal fade" id="edit_JSJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>责任人</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <!--单选下拉框  responsible.js-->
+                                        <div class="form-group col-md-4 no-blur">
+                                            <label><b>使用单位</b></label>
+                                            <input class="short-input form-control"   type="text"  value=""/>
+                                            <a class="menuBtn" href="#" onclick="showMenu(this); return false;"><span class="glyphicon glyphicon-list"></span></a>
+                                            <div class="menuContent"  style="display:none; position: absolute;">
+                                                <ul class="tree ztree"  style="margin-top:0; "></ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">在用</option>
+                                                <option value="1">备用</option>
+                                                <option value="2">待报废</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>安防位置</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>密级</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">内部</option>
+                                                <option value="1">秘密</option>
+                                                <option value="1">机密</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>MAC地址</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>硬盘序列号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>IP地址</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>联网类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">单机</option>
+                                                <option value="1">专用网络</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>操作系统</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-normal;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>系统安装时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p><b>有无外接设备</b></p>
+                                            <input class="" name="trainCard" id="edit_perfect_2" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_perfect_2"><b>有</b></label>
+                                            <input class="" name="trainCard" id="edit_perfect_3" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_perfect_3"><b>无</b></label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>外接设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>外接设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--视频监控台账-->
+                <div id="flowTodo" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_sp"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount2" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowTodo"></table>
+                    </div>
+                    <!--------------模态框  视频监控台账 --------------->
+                    <!--详情 视频监控台账 == detail_SP -->
+                    <div class="modal fade" id="detail_SP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 视频监控台账 ==  add_sp -->
+                    <div class="modal fade" id="add_sp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                         <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 视频监控台账 edit_sp == -->
+                    <div class="modal fade" id="edit_sp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--报警台账-->
+                <div id="flowMonitor" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_BJ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount3" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowMonitor"></table>
+                    </div>
+                    <!--------------模态框   报警台账 --------------->
+                    <!--详情 报警台账 == detail_BJ -->
+                    <div class="modal fade" id="detail_BJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 报警台账 == add_BJ -->
+                    <div class="modal fade" id="add_BJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 报警台账 == edit_BJ -->
+                    <div class="modal fade" id="edit_BJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--出入口控制系统台账-->
+                <div id="flow4" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_CR"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount4" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow4"></table>
+                    </div>
+                    <!--------------模态框  出入口控制系统台账 --------------->
+                    <!--详情 出入口控制系统台账 == detail_CR -->
+                    <div class="modal fade" id="detail_CR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 技防专用显示屏台账 == add_CR  -->
+                    <div class="modal fade" id="add_CR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 技防专用显示屏台账 == edit_CR -->
+                    <div class="modal fade" id="edit_CR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--技防专用显示屏台账-->
+                <div id="flow5" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_JFZY"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount5" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow5"></table>
+                    </div>
+                    <!--------------模态框  技防专用显示屏台账 --------------->
+                    <!--详情 技防专用显示屏台账 detail_JFZY  -->
+                    <div class="modal fade" id="detail_JFZY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 技防专用显示屏台账 == add_JFZY -->
+                    <div class="modal fade" id="add_JFZY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 技防专用显示屏台账 ==  edit_JFZY -->
+                    <div class="modal fade" id="edit_JFZY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--存储设备台账-->
+                <div id="flow6" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_CCH"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount6" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow6"></table>
+                    </div>
+                    <!--------------模态框  存储设备台账 --------------->
+                    <!--详情 存储设备台账 == detail_CCH -->
+                    <div class="modal fade" id="detail_CCH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 存储设备台账 == add_CCH  -->
+                    <div class="modal fade" id="add_CCH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 存储设备台账 == edit_CCH  -->
+                    <div class="modal fade" id="edit_CCH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--传输设备台账-->
+                <div id="flow7" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_CSH"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount7" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow7"></table>
+                    </div>
+                    <!--------------模态框  传输设备台账 --------------->
+                    <!--详情 传输设备台账 == detail_CSH -->
+                    <div class="modal fade" id="detail_CSH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 传输设备台账 == add_CSH -->
+                    <div class="modal fade" id="add_CSH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 传输设备台账 == edit_CSH -->
+                    <div class="modal fade" id="edit_CSH" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--辅助照片设备台账-->
+                <div id="flow8" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_FZ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount8" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow8"></table>
+                    </div>
+                    <!--------------模态框  辅助照片设备台账--------------->
+                    <!--详情 辅助照片设备台账 == detail_FZ -->
+                    <div class="modal fade" id="detail_FZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 辅助照明台账 == add_FZ -->
+                    <div class="modal fade" id="add_FZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 辅助照片设备台账 == edit_FZ -->
+                    <div class="modal fade" id="edit_FZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                <!--巡更系统台账-->
+                <div id="flow9" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_XG"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount9" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow9"></table>
+                    </div>
+                    <!--------------模态框 巡更系统台账 --------------->
+                    <!--详情 巡更系统台账 == detail_XG -->
+                    <div class="modal fade" id="detail_XG" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 巡更系统台账 ==  add_XG -->
+                    <div class="modal fade" id="add_XG" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 巡更系统台账 == edit_XG -->
+                    <div class="modal fade" id="edit_XG" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                <!--其他设备台账-->
+                <div id="flow10" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_QT"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx"  style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flow10"></table>
+                    </div>
+                    <!--------------模态框 其他设备台账 --------------->
+                    <!--详情 其他设备台账 == detail_QT -->
+                    <div class="modal fade" id="detail_QT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">设备详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>项目编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>区域类型</b></td>
+                                            <td>1</td>
+                                            <td><b>项目名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>品牌</b></td>
+                                            <td>XXX</td>
+                                            <td><b>型号规格</b></td>
+                                            <td>XXX</td>
+                                            <td><b>出厂编号</b></td>
+                                            <td>0002</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装地点</b></td>
+                                            <td>XXX</td>
+                                            <td><b>使用时间</b></td>
+                                            <td>2017-08-05</td>
+                                            <td><b>保修期</b></td>
+                                            <td>2018-01-01</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 其他设备台账 == add_QT -->
+                    <div class="modal fade" id="add_QT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 其他设备台账 edit_QT -->
+                    <div class="modal fade" id="edit_QT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">禁区</option>
+                                                <option value="1">防护区</option>
+                                                <option value="2">监视区</option>
+                                                <option value="3">周界</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>项目名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>项目编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>安装地点</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>品牌</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label><b>型号规格</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出厂编号</b></label>
+                                            <input class="form-control"  name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>使用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>保修期</b></label>
+                                            <select class="form-control" name="">
+                                                <option value="0">一年</option>
+                                                <option value="1">两年</option>
+                                                <option value="2">三年</option>
+                                                <option value="2">永久</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--技防专用计算机台账-->
+<script>
+//    技防专用计算机台账
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"使用单位",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"责任人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"安装位置",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"time",
+                    title:"使用状态",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"problem",
+                    title:"密级",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"photo",
+                    title:"联网类型",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"系统安装时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"number":"...","choose":"编号","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"...","nativeplace":"...",
+                    "family":"IP地址","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_JSJ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_JSJ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+// 导入
+$('.upload').click(function () {
+    $(this).prev('input').click()
+});
+$('form').easyform()
+</script>
+<!--视频监控台账-->
+<script>
+    $(function () {
+        $('#tb_flowTodo').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowTodo').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_SP" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_sp" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+
+    });
+
+</script>
+<!--报警台账-->
+<script>
+    $(function () {
+        $('#tb_flowMonitor').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+             ],
+            data: [
+            {"number":"区域类型","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowMonitor').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_BJ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_BJ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--出入口控制系统台账-->
+<script>
+    $(function () {
+        $('#tb_flow4').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow4').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_CR" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_CR" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--技防专用监视屏台账-->
+<script>
+    $(function () {
+        $('#tb_flow5').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"区域类型","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow5').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_JFZY" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_JFZY" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--存储设备台账-->
+<script>
+    $(function () {
+        $('#tb_flow6').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow6').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_CCH" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_CCH" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--传输设备台账-->
+<script>
+    $(function () {
+        $('#tb_flow7').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow7').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_CSH" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_CSH" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--辅助照明设备台账-->
+<script>
+    $(function () {
+        $('#tb_flow8').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"...","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow8').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_FZ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_FZ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--巡更系统台账-->
+<script>
+    $(function () {
+        $('#tb_flow9').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow9').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_XG" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_XG" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+
+</script>
+<!--其他设备台账-->
+<script>
+    $(function () {
+        $('#tb_flow10').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"区域类型",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"项目名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"birth",
+                    title:"项目编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"age",
+                    title:"安装地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"品牌",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"education",
+                    title:"使用时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"nativeplace",
+                    title:"保修期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"项目名称","birth":"...","age":"","style":"...","time":"...","problem":"...","education":"...","nativeplace":"保修期"},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flow10').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_QT" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_QT" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+</script>

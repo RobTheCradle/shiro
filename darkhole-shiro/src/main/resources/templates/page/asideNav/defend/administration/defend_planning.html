@@ -1,0 +1,520 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">目标管理</a></li>
+                <li>»</li>
+                <li class="active">保卫规划制定</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addLayout"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+                <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+                <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableLayout -->
+    <div class="table container-fluid">
+        <table id="tableLayout"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Layout == 规划 ********** -->
+<!-- 添加 addLayout -->
+<div class="modal fade" id="addLayout" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="layoutDate"><b>制定日期</b></label>
+                            <input type="date" class="form-control" name="" id="layoutDate">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="layoutResponsible"><b>责任人</b></label>
+                            <input type="text" class="form-control people" name="" id="layoutResponsible">
+                            <div  class="drop-tree">
+                                <span>×</span>
+                                <div>
+                                    <ul id="treeDemo2" class="ztree "></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4" style="position: relative">
+                            <label for="layoutLeader"><b>责任领导</b></label>
+                            <input type="text" class="form-control people" name="" id="layoutLeader">
+                            <div  class="drop-tree">
+                                <span>×</span>
+                                <div class="treeNode">
+                                    <ul id="treeDemo" class="ztree "></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="layoutType"><b>规划类别</b></label>
+                            <select class="form-control" name="" id="layoutType">
+                                <option>管理类</option>
+                                <option>建设类</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="layoutTarget"><b>形象目标</b></label>
+                            <input type="text" class="form-control" name="" id="layoutTarget">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="layoutContent"><b>规划内容</b></label>
+                            <div class="summernote" id="layoutContent"></div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-primary" type="button" onclick="javascript:$('#fileup').click();"><i class="fa fa-link"></i>上传附件</button>
+                            <input id="fileup" class="form-group" type="file" style="display: none;">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="layoutCompletion"><b>完成情况</b></label>
+                            <textarea class="form-control" id="layoutCompletion" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 infoLayout -->
+<div class="modal fade" id="infoLayout" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">制定日期：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">责任人：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">责任领导：</td>
+                        <td class="info-content"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">规划类别：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">形象目标：</td>
+                        <td class="info-content" colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">规划内容：</td>
+                        <td class="info-content" colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">完成情况：</td>
+                        <td class="info-content" colspan="5"></td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="button"><i class="fa fa-download"></i>下载附件</button>
+                    <input id="infoDown" class="form-group" type="file" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 editLayout-->
+<div class="modal fade" id="editLayout" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body" >
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="editDate"><b>制定日期</b></label>
+                            <input type="date" class="form-control" name="" id="editDate">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editResponsible"><b>责任人</b></label>
+                            <input type="text" class="form-control" name="" id="editResponsible">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editLeader"><b>责任领导</b></label>
+                            <input type="text" class="form-control" name="" id="editLeader">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="editType"><b>规划类别</b></label>
+                            <select class="form-control" name="" id="editType">
+                                <option>管理类</option>
+                                <option>建设类</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="editTarget"><b>形象目标</b></label>
+                            <input type="text" class="form-control" name="" id="editTarget">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editContent"><b>规划内容</b></label>
+                            <div class="summernote" id="editContent"></div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-primary" type="button" onclick="javascript:$('#fileup').click();"><i class="fa fa-link"></i>上传附件</button>
+                            <input id="edit_fileup" class="form-group" type="file" style="display: none;">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="editCompletion"><b>完成情况</b></label>
+                            <textarea class="form-control" id="editCompletion" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认删除 deleteLayout -->
+<div class="modal fade" id="deleteLayout" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+              确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableLayout').bootstrapTable({
+             url:'../../testData/tableLayout.json',
+            columns: [
+
+                {
+                    field:"type",
+                    title:"类别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+
+                },
+
+               /* {
+                    field:"content",
+                    title:"内容",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+
+                },*/
+                {
+                    field:"people",
+                    title:"责任人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"lead",
+                    title:"责任领导",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"date",
+                    title:"定制日期",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+                },
+                {
+                    field:"target",
+                    title:"形象目标",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"choose",
+                    title:"完成情况",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableLayout').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary table-info"   href="#" data-toggle="modal" data-target="#infoLayout">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info table-edit" href="#" data-toggle="modal" data-target="#editLayout">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger table-delete" href="#" data-toggle="modal" data-target="#deleteLayout">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+    //富文本初始化
+    $('#layoutContent').summernote({
+        height: 300,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+    $('#editContent').summernote({
+        height: 300,
+        tabsize: 2,
+        lang: 'zh-CN'
+    });
+
+</script>
+<script>
+    $(".people").click(function (){
+        $(this).nextAll('div').show()
+    });
+    $(".drop-tree>span").click(function (){
+        $(this).parent().hide()
+    });
+</script>
+<!--责任领导-->
+<script type="text/javascript">
+    var setting = {
+        view: {
+            selectedMulti: false,
+            fontCss : {
+                font:"14px",
+            }
+        },
+        check: {
+            enable: false
+        },
+        data: {
+            simpleData: {
+                enable: false
+            }
+        },
+        callback:{
+            onClick: zTreeOnClick
+        },
+        edit: {
+            enable: false,
+            showRemoveBtn: false,
+            editNameSelectAll: true,
+            drag: {
+                isCopy: false,
+                isMove: false
+            }
+        }
+    };
+    var zNodes =[
+        { name:"部门", open:false,
+            children: [
+                { name:"部门1",
+                    children: [
+                        { name:"名字1"},
+                        { name:"名字2"}
+                    ]},
+                { name:"部门2",
+                    children: [
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},{ name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},{ name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"}
+
+
+                    ]}
+            ]},
+        { name:"部门", open:false,
+            children: [
+                { name:"部门3",
+                    children: [
+                        { name:"名字-1"},
+                        { name:"名字-2"}
+                    ]},
+                { name:"部门4",
+                    children: [
+                        { name:"名字-1"},
+                        { name:"名字-2"},
+                        { name:"名字-3"}
+                    ]},
+            ]}
+    ];
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    });
+    function zTreeOnClick(event, treeId, treeNode) {
+        $('#layoutLeader').val(treeNode.name)
+    }
+</script>
+<!--负责人-->
+<script type="text/javascript">
+    var setting2 = {
+        view: {
+            selectedMulti: false,
+            fontCss : {
+                font:"14px",
+            }
+        },
+        check: {
+            enable: false
+        },
+        data: {
+            simpleData: {
+                enable: false
+            }
+        },
+        callback:{
+            onClick: zTreeOnClick1
+        },
+        edit: {
+            enable: false,
+            showRemoveBtn: false,
+            editNameSelectAll: true,
+            drag: {
+                isCopy: false,
+                isMove: false
+            }
+        }
+    };
+    var zNodes2 =[
+        { name:"部门", open:false,
+            children: [
+                { name:"部门1",
+                    children: [
+                        { name:"名字1"},
+                        { name:"名字2"}
+                    ]},
+                { name:"部门2",
+                    children: [
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},{ name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},{ name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"},
+                        { name:"名字3"},
+                        { name:"名字"},
+                        { name:"名字"}
+                    ]}
+            ]},
+        { name:"部门", open:false,
+            children: [
+                { name:"部门3",
+                    children: [
+                        { name:"名字-1"},
+                        { name:"名字-2"}
+                    ]},
+                { name:"部门4",
+                    children: [
+                        { name:"名字-1"},
+                        { name:"名字-2"},
+                        { name:"名字-3"}
+                    ]},
+            ]}
+    ];
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo2"), setting2, zNodes2);
+    });
+    function zTreeOnClick1(event, treeId, treeNode) {
+        $('#layoutResponsible').val(treeNode.name)
+    }
+</script>

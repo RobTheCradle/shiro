@@ -1,0 +1,274 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li>»</li>
+                <li><a href="#">保卫体系管理</a></li>
+                <li>»</li>
+                <li><a href="#">档案管理</a></li>
+                <li>»</li>
+                <li class="active"><a href="#">使用管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 功能工具栏 -->
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addBorrow"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+                <input type="text" class="form-control" id="fuzzySearch" placeholder="请输入">
+                <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <!-- 表格 tableBorrow -->
+    <div class="table container-fluid">
+        <table id="tableBorrow"></table>
+    </div>
+</section>
+<!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+<!-- ********** Borrow == 借阅 ********** -->
+<!-- 添加  addBorrow -->
+<div class="modal fade" id="addBorrow" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="archiveId"><b>档案编号</b></label>
+                            <input type="text" class="form-control" name="" id="archiveId" placeholder="请输入档案编号">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="archiveTitle"><b>档案名称</b></label>
+                            <input type="text" class="form-control" name="" id="archiveTitle" placeholder="请输入档案名称">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="borrowMan"><b>借阅人</b></label>
+                            <input type="text" class="form-control" name="" id="borrowMan" placeholder="请输入借阅人">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="borrowDatetime"><b>借阅时间</b></label>
+                            <input type="date" class="form-control" name="" id="borrowDatetime">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="returnDatetime"><b>归还时间</b></label>
+                            <input type="date" class="form-control" name="" id="returnDatetime">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="examineMan"><b>审批人</b></label>
+                            <input type="text" class="form-control" name="" id="examineMan" placeholder="请输入审批人">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 详情 infoBorrow -->
+<div class="modal fade" id="infoBorrow" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <td class="info-name">档案编号：</td>
+                        <td class="info-content"></td>
+                        <td class="info-name">档案名称：</td>
+                        <td class="info-content" colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">借阅人：</td>
+                        <td class="info-content" colspan="2"></td>
+                        <td class="info-name">借阅时间：</td>
+                        <td class="info-content" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td class="info-name">归还时间：</td>
+                        <td class="info-content" colspan="2"></td>
+                        <td class="info-name">审批人：</td>
+                        <td class="info-content" colspan="2"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 编辑 editBorrow -->
+<div class="modal fade" id="editBorrow" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="editId"><b>档案编号</b></label>
+                            <input type="text" class="form-control" name="" id="editId" disabled value="DA000116">
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="editTitle"><b>档案名称</b></label>
+                            <input type="text" class="form-control" name="" id="editTitle" disabled value="X档案">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editBorrowMan"><b>借阅人</b></label>
+                            <input type="text" class="form-control" name="" id="editBorrowMan" placeholder="请输入借阅人">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editBorrowDate"><b>借阅时间</b></label>
+                            <input type="date" class="form-control" name="" id="editBorrowDate">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editReturnDate"><b>归还时间</b></label>
+                            <input type="date" class="form-control" name="" id="editReturnDate">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="editExamineMan"><b>审批人</b></label>
+                            <input type="text" class="form-control" name="" id="editExamineMan" placeholder="请输入审批人">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除 deleteBorrow -->
+<div class="modal fade" id="deleteBorrow" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+              确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tableBorrow').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序列",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:60
+                },
+                {
+                    field:"content",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+
+                },
+                {
+                    field:"number",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"borrow",
+                    title:"借阅人",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field:"timea",
+                    title:"借阅时间",
+                    align:"center",
+                    valign:"middle",
+                    width:150
+                },
+                {
+                    field:"timeb",
+                    title:"归还时间",
+                    align:"center",
+                    valign:"middle",
+                    width:150
+                },
+                {
+                    field:"people",
+                    title:"审批人",
+                    align:"center",
+                    valign:"middle"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"content":"档案名称","number":"E1232454","borrow":"张明","timea":"2017-6-30","timeb":"2017-8-16","people":"审批人"},
+                {"content":"档案名称","number":"E1232454","borrow":"张明","timea":"2017-6-30","timeb":"2017-8-16","people":"审批人"},
+                {"content":"档案名称","number":"E1232454","borrow":"张明","timea":"2017-6-30","timeb":"2017-8-16","people":"审批人"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow: function (row, $element) { return false; }
+        });
+        $(window).resize(function () {
+            $('#tableBorrow').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info"   href="#" data-toggle="modal" data-target="#infoBorrow">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit"   href="#" data-toggle="modal" data-target="#editBorrow">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a  class="btn btn-danger del" href="#" data-toggle="modal" data-target="#deleteBorrow">删除</a>'
+            ].join('');
+        }
+
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+</script>

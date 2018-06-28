@@ -1,0 +1,5 @@
+[
+  {"id":1,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"可控性","riskName":"人员配置","riskSubName":"值守人员","riskJudge":"是否配置"},
+  {"id":2,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"普遍性","riskName":"人员配置","riskSubName":"巡逻人员","riskJudge":"是否配置"},
+  {"id":3,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"周期性","riskName":"人员配置","riskSubName":"值机人员","riskJudge":"是否配置"}
+]

@@ -1,0 +1,7 @@
+[
+  {"id":1,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"可控性","riskName":"实体门配置","riskSubName":"防盗门","riskJudge":"是否配置"},
+  {"id":2,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"可控性","riskName":"防护栏配置","riskSubName":"窗户栏","riskJudge":"是否配置"},
+  {"id":3,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"可控性","riskName":"防盗柜配置","riskSubName":"保险柜","riskJudge":"是否配置"},
+  {"id":4,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"可控性","riskName":"防盗柜配置","riskSubName":"密码柜","riskJudge":"是否配置"},
+  {"id":5,"riskType":"安全防范类风险","riskLevel":"安全","riskNature":"可控性","riskName":"防护墙配置","riskSubName":"建筑内墙","riskJudge":"是否达标"}
+]

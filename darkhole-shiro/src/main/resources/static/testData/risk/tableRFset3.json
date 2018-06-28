@@ -1,0 +1,34 @@
+[
+  {
+    "id":"1",
+    "riskQuota" : "值机人员类型",
+    "riskAAAA" : "内保队员 || 武警队员",
+    "riskAAA" : "内保队员 || 武警队员",
+    "riskAA" : "内保队员 || 武警队员",
+    "riskA" : "内保队员 || 武警队员"
+  },
+  {
+    "id":"2",
+    "riskQuota" : "值机人员年龄结构",
+    "riskAAAA" : "40",
+    "riskAAA" : "50",
+    "riskAA" : "60",
+    "riskA" : "40"
+  },
+  {
+    "id":"3",
+    "riskQuota" : "值机时间",
+    "riskAAAA" : "24",
+    "riskAAA" : "24",
+    "riskAA" : "24",
+    "riskA" : "24"
+  },
+  {
+    "id":"4",
+    "riskQuota" : "值机人员数量",
+    "riskAAAA" : "2",
+    "riskAAA" : "2",
+    "riskAA" : "2",
+    "riskA" : "2"
+  }
+]

@@ -1,0 +1,2252 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>台账管理</a></li>
+                <li>»</li>
+                <li class="active">人防信息</li>
+            </ul>
+        </div>
+    </div>
+    <section class="panel" style="margin: 0 15px">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#flowDesign">兼职保卫管理人员</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowTodo">专职保卫管理人员</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowa">内保值守人员</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowb">外聘值守人员</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowc">武警值守人员</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!--兼职保卫管理人员-->
+                <div id="flowDesign" class="tab-pane active">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_JZ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control"  placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_departments"></table>
+                    </div>
+
+                    <!-- ********** ********** ********** 模态框 ********** ********** ********** -->
+                    <!-- 兼职详情  detail_JZ-->
+                    <div class="modal fade" id="detail_JZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                       <table class="detail" border="1">
+                                           <tr>
+                                               <td><b>工号</b></td>
+                                               <td colspan="3">0001</td>
+                                               <td rowspan="4" colspan="2">
+                                                   <img width="120px" src="../../img/timg%20(4).jpg" alt="">
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>姓名</b></td>
+                                               <td colspan="3">张三</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>性别</b></td>
+                                               <td>男</td>
+                                               <td><b>出生日期</b></td>
+                                               <td>1995-03-24</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>年龄</b></td>
+                                               <td>22</td>
+                                               <td><b>学历</b></td>
+                                               <td>本科</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>进厂时间</b></td>
+                                               <td>2017-05-20</td>
+                                               <td><b>政治面貌</b></td>
+                                               <td>党员</td>
+                                               <td><b>民族</b></td>
+                                               <td>汉族</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>籍贯</b></td>
+                                               <td colspan="5">四川省成都市</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>单位</b></td>
+                                               <td colspan="5">XXX公司</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>值守哨位/区域</b></td>
+                                               <td>1</td>
+                                               <td><b>值守类型</b></td>
+                                               <td>1</td>
+                                               <td><b>取证状态</b></td>
+                                               <td>1</td>
+                                           </tr>
+                                           <tr>
+                                               <td><b>证件类型</b></td>
+                                               <td>身份证</td>
+                                               <td><b>取证时间</b></td>
+                                               <td>2017-12-01</td>
+                                               <td><b>取证有限时间</b></td>
+                                               <td>1</td>
+                                           </tr>
+                                           <tr class="KP">
+                                               <td><b>考评及违规记录</b></td>
+                                               <td colspan="5"></td>
+                                           </tr>
+                                       </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 兼职保卫管理人员 ==add_JZ -->
+                    <div class="modal fade" id="add_JZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form class="" action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label><b>工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name="" type="number"  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>任职时间</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>证件类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证有效时间</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>考评及违规记录</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="3" placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑兼职 == edit_JZ -->
+                    <div class="modal fade" id="edit_JZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form class="" action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label><b>工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name="" type="number"  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>任职时间</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>证件类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请正确选择日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证有效时间</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>考评及违规记录</b></label>
+                                            <textarea class="form-control" name=""  cols="30" rows="3" placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--专职保卫管理人员-->
+                <div id="flowTodo" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_ZZ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowTodo"></table>
+                    </div>
+                    <!--------------模态框-------------------->
+                    <!--专职详情 == detail_ZZ -->
+                    <div class="modal fade" id="detail_ZZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>工号</b></td>
+                                            <td colspan="3">0001</td>
+                                            <td rowspan="4" colspan="2">
+                                                <img width="120px" src="../../img/timg%20(4).jpg" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>姓名</b></td>
+                                            <td colspan="3">张三</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>性别</b></td>
+                                            <td>男</td>
+                                            <td><b>出生日期</b></td>
+                                            <td>1995-03-24</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>年龄</b></td>
+                                            <td>22</td>
+                                            <td><b>学历</b></td>
+                                            <td>本科</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>进厂时间</b></td>
+                                            <td>2017-05-20</td>
+                                            <td><b>政治面貌</b></td>
+                                            <td>党员</td>
+                                            <td><b>民族</b></td>
+                                            <td>汉族</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>籍贯</b></td>
+                                            <td colspan="5">四川省成都市</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>单位</b></td>
+                                            <td colspan="5">XXX公司</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>值守哨位/区域</b></td>
+                                            <td>1</td>
+                                            <td><b>值守类型</b></td>
+                                            <td>1</td>
+                                            <td><b>取证状态</b></td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>证件类型</b></td>
+                                            <td>身份证</td>
+                                            <td><b>取证时间</b></td>
+                                            <td>2017-12-01</td>
+                                            <td><b>取证有限时间</b></td>
+                                            <td>1</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 专职保卫管理人员 == add_ZZ-->
+                    <div class="modal fade" id="add_ZZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label><b>工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>任职时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>证件类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证时间</b></label>
+                                            <input class="form-control" name="" type="date"  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证有效时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 专职人员 == edit_ZZ -->
+                    <div class="modal fade" id="edit_ZZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label><b>工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>任职时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>证件类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证时间</b></label>
+                                            <input class="form-control" name="" type="date"  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证有效时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--内保值守人员-->
+                <div id="flowa" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_NB"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowa"></table>
+                    </div>
+                    <!------------------模态框-------------------->
+                    <!--内保详情 == detail_NB -->
+                    <div class="modal fade" id="detail_NB" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>工号</b></td>
+                                            <td colspan="3">0001</td>
+                                            <td rowspan="4" colspan="2">
+                                                <img width="120px" src="../../img/timg%20(4).jpg" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>姓名</b></td>
+                                            <td colspan="3">张三</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>性别</b></td>
+                                            <td>男</td>
+                                            <td><b>出生日期</b></td>
+                                            <td>1995-03-24</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>年龄</b></td>
+                                            <td>22</td>
+                                            <td><b>学历</b></td>
+                                            <td>本科</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>进厂时间</b></td>
+                                            <td>2017-05-20</td>
+                                            <td><b>政治面貌</b></td>
+                                            <td>党员</td>
+                                            <td><b>民族</b></td>
+                                            <td>汉族</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>籍贯</b></td>
+                                            <td colspan="5">四川省成都市</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>单位</b></td>
+                                            <td colspan="5">XXX公司</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>值守哨位/区域</b></td>
+                                            <td>1</td>
+                                            <td><b>值守类型</b></td>
+                                            <td>1</td>
+                                            <td><b>取证状态</b></td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>证件类型</b></td>
+                                            <td>身份证</td>
+                                            <td><b>取证时间</b></td>
+                                            <td>2017-12-01</td>
+                                            <td><b>取证有限时间</b></td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td>考评及违规记录</td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 内保值守人员 == add_NB-->
+                    <div class="modal fade" id="add_NB" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label><b>工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  type="number" placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>任职时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>证件类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证有效时间</b></label>
+                                            <input class="form-control" name="" type="number" placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>考评及违规记录</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 内保人员 == edit_NB -->
+                    <div class="modal fade" id="edit_NB" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+
+                                        <div class="form-group col-md-6" >
+                                            <label><b>工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  type="number" placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>任职时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证状态</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>证件类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>取证有效时间</b></label>
+                                            <input class="form-control" name="" type="number" placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5个数字以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>考评及违规记录</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--外聘值守人员-->
+                <div id="flowb" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_WP"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowb"></table>
+                    </div>
+                    <!--------模态框----------->
+                    <!--外聘 详情 == detail_WP -->
+                    <div class="modal fade" id="detail_WP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>身份证号</b></td>
+                                            <td colspan="3">0001</td>
+                                            <td rowspan="4" colspan="2">
+                                                <img width="120px" src="../../img/timg%20(4).jpg" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>姓名</b></td>
+                                            <td colspan="3">张三</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>性别</b></td>
+                                            <td>男</td>
+                                            <td><b>出生日期</b></td>
+                                            <td>1995-03-24</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>年龄</b></td>
+                                            <td>22</td>
+                                            <td><b>学历</b></td>
+                                            <td>本科</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>进厂时间</b></td>
+                                            <td>2017-05-20</td>
+                                            <td><b>政治面貌</b></td>
+                                            <td>党员</td>
+                                            <td><b>民族</b></td>
+                                            <td>汉族</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>籍贯</b></td>
+                                            <td colspan="5">四川省成都市</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>单位</b></td>
+                                            <td colspan="5">XXX公司</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>值守哨位/区域</b></td>
+                                            <td colspan="2"> 1</td>
+                                            <td><b>值守类型</b></td>
+                                            <td colspan="2">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>聘用时间</b></td>
+                                            <td colspan="2"> 1</td>
+                                            <td><b>聘用剩余时间(月)</b></td>
+                                            <td colspan="2">1</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td>考评及违规记录</td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 外聘值守人员 == add_WP -->
+                    <div class="modal fade" id="add_WP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label ><b>身份证号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 18;char-normal;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 5;" data-message="限制5个数字以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>值守类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>聘用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>聘用剩余时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>考评及违规记录</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑外聘 == edit_WP -->
+                    <div class="modal fade" id="edit_WP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label ><b>身份证号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 18;char-normal;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 5;" data-message="限制5个数字以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>进厂时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>值守类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>聘用时间</b></label>
+                                            <input class="form-control" name="" type="date" placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>聘用剩余时间</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>考评及违规记录</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--武警值守人员-->
+                <div id="flowc" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_WJ"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowc"></table>
+                    </div>
+                    <!----------------模态框--------------->
+                    <!--详情武警 == detail_WJ -->
+                    <div class="modal fade" id="detail_WJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>身份证号</b></td>
+                                            <td colspan="3">0001</td>
+                                            <td rowspan="4" colspan="2">
+                                                <img width="120px" src="../../img/timg%20(4).jpg" alt="">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>姓名</b></td>
+                                            <td colspan="3">张三</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>性别</b></td>
+                                            <td>男</td>
+                                            <td><b>出生日期</b></td>
+                                            <td>1995-03-24</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>年龄</b></td>
+                                            <td>22</td>
+                                            <td><b>学历</b></td>
+                                            <td>本科</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>值守哨位/区域</b></td>
+                                            <td></td>
+                                            <td><b>政治面貌</b></td>
+                                            <td>党员</td>
+                                            <td><b>民族</b></td>
+                                            <td>汉族</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>籍贯</b></td>
+                                            <td colspan="5">四川省成都市</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>所属部队</b></td>
+                                            <td colspan="5">XXX部队</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>值守类型</b></td>
+                                            <td>1</td>
+                                            <td><b>入驻时间</b></td>
+                                            <td>1</td>
+                                            <td><b>离开时间</b></td>
+                                            <td>1</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 武警值守人员 == add_WJ -->
+                    <div class="modal fade" id="add_WJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label ><b>身份证号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 18;normal;" data-message="限制18个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 10;char-chinese;" data-message="限制10个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5位数字以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>所属部队</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>离开时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>上传照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>值守类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑武警 == edit_WJ -->
+                    <div class="modal fade" id="edit_WJ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-6" >
+                                            <label ><b>身份证号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 18;normal;" data-message="限制18个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>姓名</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>性别</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">男</option>
+                                                <option value="1">女</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>出生</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期" >
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>年龄</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 5;number;" data-message="限制5位数字以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>所属部队</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>离开时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>政治面貌</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">党员</option>
+                                                <option value="1">团员</option>
+                                                <option value="2">群众</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>学历</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">研究生</option>
+                                                <option value="1">本科</option>
+                                                <option value="2">大专</option>
+                                                <option value="3">中专</option>
+                                                <option value="4">高中</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label ><b>民族</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">汉族</option>
+                                                <option value="1">藏族</option>
+                                                <option value="2">回族</option>
+                                                <option value="3">维族</option>
+                                                <option value="4">其他少数民族</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>籍贯</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>照片</b></label>
+                                            <input   type="file" multiple  name="xx" style="display: none" />
+                                            <button  type="button" class="btn btn-danger upload" ><i class="fa fa-upload" aria-hidden="true"></i>更新照片</button>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>区域</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label ><b>值守类型</b></label>
+                                            <select class="form-control"  name="" >
+                                                <option value="0">1</option>
+                                                <option value="1">2</option>
+                                                <option value="2">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//    兼职人员-->
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"工号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"name",
+                    title:"姓名",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                 {
+                     field:"choose",
+                     title:"性别",
+                     align:"center",
+                     valign:"middle",
+                     sortable:"true"
+                 },
+                {
+                    field:"style",
+                    title:"单位",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"time",
+                    title:"进厂时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"type",
+                    title:"区域类型 ",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"任职时限",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"state",
+                    title:"取证状态",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"名族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"...","effective":"...","evaluation":"..."},
+                {"number":"...","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"名族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"...","effective":"...","evaluation":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_JZ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_JZ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+    $('form').easyform()
+</script>
+<!--//    专职-->
+<script>
+    $(function () {
+        $('#tb_flowTodo').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"工号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"name",
+                    title:"姓名",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"性别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"单位",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"problem",
+                    title:"管辖骗取",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"任职时限",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"state",
+                    title:"取证状态",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","name":"....","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"名族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"...","effective":"..."},
+                {"number":"...","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"名族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"...","effective":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowTodo').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_ZZ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#add_ZZ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $(this).prev('input').click()
+    });
+    $('form').easyform()
+</script>
+<!--//    内保值守人员-->
+<script>
+    $(function () {
+        $('#tb_flowa').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"工号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"name",
+                    title:"姓名",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"性别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"单位",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"time",
+                    title:"进厂时间 ",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"area",
+                    title:"值守哨位/区域 ",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"值守类型",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"state",
+                    title:"取证状态",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","name":"姓名","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"民族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"...","effective":"...","evaluation":"..."},
+                {"number":"...","name":"姓名","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"民族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"...","effective":"...","evaluation":"..."},
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowa').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_NB" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_NB" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+</script>
+<!--//    外聘值守人员-->
+<script>
+    $(function () {
+        $('#tb_flowb').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"身份证号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"name",
+                    title:"姓名",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"性别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"单位",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"time",
+                    title:"进厂时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"type",
+                    title:"值守哨位/区域 ",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"值守类型",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"number":"...","name":"姓名","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"民族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"..."},
+                {"number":"...","name":"姓名","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"民族","photo":"...","type":"..." ,"date":"...","state":"...","papers":"...","card":"..."}
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowb').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_WP" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_WP" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+</script>
+<!--//    武警值守人员-->
+<script>
+    $(function () {
+        $('#tb_flowc').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"number",
+                    title:"身份证号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"name",
+                    title:"姓名",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"choose",
+                    title:"性别",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"style",
+                    title:"所属部队",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"time",
+                    title:"离开时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"type",
+                    title:"区域 ",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"值守类型",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"number":"...","name":"姓名","choose":"...","birth":"...","age":"16","style":"...","time":"...","problem":"...","education":"学历","nativeplace":"籍贯",
+                    "family":"民族","photo":"...","type":"..." ,"date":"..."}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_flowc').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_WJ" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_WJ" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+</script>

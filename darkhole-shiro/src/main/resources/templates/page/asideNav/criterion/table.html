@@ -1,0 +1,202 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 制度标准</a></li>
+                <li>»</li>
+                <li class="active">公司级管理制度</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#addLaw"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+        </div>
+        <div class="search">
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+                <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!--添加-->
+<div class="modal fade" id="addLaw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <label for="law-title"><b>制度名称</b></label>
+                    <input class="form-control" name="" id="law-title" placeholder="请输入名称">
+                    <label for="law-content"><b>添加制度条款</b></label>
+                    <textarea class="form-control" name="" id="law-content" cols="30" rows="10" placeholder="请输入条款"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情-->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">一条法律法规名字</h4>
+            </div>
+            <div class="modal-body law-content">
+              我是法律条款详情
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <label for="edit-title"><b>制度名称</b></label>
+                    <input class="form-control" name="" id="edit-title" placeholder="请输入名称">
+                    <label for="edit-content"><b>添加制度条款</b></label>
+                    <textarea class="form-control" name="" id="edit-content" cols="30" rows="10" placeholder="请输入条款"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+              确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    clickToSelect:"true",
+                    width:60
+                },
+                {
+                    field:"content",
+                    title:"名称",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"type",
+                    title:"类型",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"date",
+                    title:"录入时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+                },
+                {
+                    field:"reporter",
+                    title:"录入员",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:100
+
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:150
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":1,"content":"制度名1","type":"制度","date":"2017-09-13","reporter":"二狗"},
+                {"id":2,"content":"制度名2","type":"制度","date":"2014-10-13","reporter":"二狗"}
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+                console.log(row)
+                $('#detail .modal-title').html(row.content)
+                $('#detail .modal-body').html('法律，是国家的产物，是指统治阶级（统治集团就是政党，包括国王、君主），为了实现统治并管理国家的目的，经过一定立法程序，所颁布的基本法律和普通法律。法律是统治阶级意志的体现，国家的统治工具。[1]'
+                +'法律是由享有立法权的立法机关（全国人民代表大会和全国人民代表大会常务委员会）行使国家立法权，依照法定程序制定、修改并颁布，并由国家强制力保证实施的基本法律和普通法律总称。包括基本法律、普通法律。法，可划分为1、宪法，2、法律，3、行政法规，4、地方性法规，5、自治条例和单行条例。宪法是高于其它法律部门（法律、行政法规、地方性法规、自治条例和单行条例）的国家根本大法，它规定国家制度和社会制度最基本的原则，公民基本权利和义务，国家机构的组织及其活动的原则等。法律是从属于宪法的强制性规范，是宪法的具体化。宪法是国家法的基础与核心，法律则是国家法的重要组成部分。法律可划分为基本法律（如刑法、刑事诉讼法、民法通则、民事诉讼法、行政诉讼法、行政法、商法、国际法等）和普通法律（如商标法、文物保护法等）。行政法规，是国家行政机关（国务院）根据宪法和法律，制定的行政规范的总称。')
+                $('#detail').modal()
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">编辑</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#delete" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+        $('.del').click(function (e) {
+            e.stopPropagation();
+            $('#shanchu').modal()
+        })
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+
+
+
+</script>

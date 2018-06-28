@@ -1,0 +1,42 @@
+[
+  {
+    "id":"1",
+    "riskQuota" : "覆盖区域",
+    "riskAAAA" : "全部窗户",
+    "riskAAA" : "全部窗户",
+    "riskAA" : "全部窗户",
+    "riskA" : "--"
+  },
+  {
+    "id":"2",
+    "riskQuota" : "竖向栏杆间距",
+    "riskAAAA" : "不大于150mm",
+    "riskAAA" : "不大于150mm",
+    "riskAA" : "不大于150mm",
+    "riskA" : "--"
+  },
+  {
+    "id":"3",
+    "riskQuota" : "横向栏杆高度",
+    "riskAAAA" : "大于1m",
+    "riskAAA" : "大于1m",
+    "riskAA" : "大于1m",
+    "riskA" : "--"
+  },
+  {
+    "id":"4",
+    "riskQuota" : "材质",
+    "riskAAAA" : "不锈钢",
+    "riskAAA" : "不锈钢",
+    "riskAA" : "不锈钢",
+    "riskA" : "--"
+  },
+  {
+    "id":"5",
+    "riskQuota" : "防拆卸措施",
+    "riskAAAA" : "隐蔽螺栓",
+    "riskAAA" : "隐蔽螺栓",
+    "riskAA" : "隐蔽螺栓",
+    "riskA" : "--"
+  }
+]

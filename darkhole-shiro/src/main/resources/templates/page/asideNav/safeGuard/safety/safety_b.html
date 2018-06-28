@@ -1,0 +1,816 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i> 技术防范管理</a></li>
+                <li>»</li>
+                <li class="active">技防运行监控</li>
+            </ul>
+        </div>
+    </div>
+    <section class="panel" style="margin: 0 15px">
+        <!-- Tabs nav -->
+        <header class="panel-heading tab-bg-dark-navy-blue ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#flowDesign">运行检查</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowa">故障申报</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#flowb">故障处置</a>
+                </li>
+            </ul>
+        </header>
+        <!-- Tabs body -->
+        <div class="panel-body">
+            <div class="tab-content">
+                <!--运行检查-->
+                <div id="flowDesign" class="tab-pane active">
+                    <div class="container-fluid head-add">
+                        <div class="search">
+                            <input type="text" class="form-control"  placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_departments"></table>
+                    </div>
+                </div>
+                <!--故障申报-->
+                <div id="flowa" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_declare"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx" id="upload2" style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+                            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control"  placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowa"></table>
+                    </div>
+                    <!------------------模态框-------------------->
+                    <!--故障申报 详情 == detail_declare -->
+                    <div class="modal fade" id="detail_declare" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>申报编号</b></td>
+                                            <td colspan="3">20171201</td>
+                                            <td><b>申报状态</b></td>
+                                            <td>已申报</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>申报时间</b></td>
+                                            <td>2017/12/01</td>
+                                            <td><b>申报人工号</b></td>
+                                            <td>001</td>
+                                            <td><b>申报人</b></td>
+                                            <td>张三</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>设备编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>资产编号</b></td>
+                                            <td>001</td>
+                                            <td><b>设备名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>申报单位</b></td>
+                                            <td colspan="3">XXX</td>
+                                            <td><b>是否维修</b></td>
+                                            <td>是</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>安装位置</b></td>
+                                            <td colspan="5">四川省成都市</td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>故障现象</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>技术意见</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                        <tr class="KP">
+                                            <td><b>领导意见</b></td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 故障申报 == add_NB-->
+                    <div class="modal fade" id="add_declare" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <label><b>申报编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>申报时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label><b>申报人工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>申报人</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>申报单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>资产编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>安装位置</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>是否维修</b></p>
+                                            <input class="" name="trainCard" id="fix_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="fix_1"><b>是</b></label>
+                                            <input class="" name="trainCard" id="fix_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="fix_0"><b>否</b></label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>故障现象</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>技术人员意见</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>主管领导意见</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 故障申报 == edit_declare -->
+                    <div class="modal fade" id="edit_declare" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-12">
+                                            <label><b>申报编号</b></label>
+                                            <h5 class="number">M1321544</h5>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>申报时间</b></label>
+                                            <input class="form-control" type="date" name=""  placeholder="请输入" data-easyform="null;date;" data-message="请选择正确的日期">
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label><b>申报人工号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>申报人</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>资产编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label ><b>安装位置</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>是否维修</b></p>
+                                            <input class="" name="trainCard" id="edit_fix_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_fix_1"><b>是</b></label>
+                                            <input class="" name="trainCard" id="edit_fix_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_fix_0"><b>否</b></label>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>申报单位</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>故障现象</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>技术意见</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label ><b>领导意见</b></label>
+                                            <textarea class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--故障处置-->
+                <div id="flowb" class="tab-pane">
+                    <div class="container-fluid head-add">
+                        <div class="add">
+                            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add_handle"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+                            <input   type="file" multiple  name="xx" id="upload3" style="display: none" />
+                            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+                            <button type="button" class="btn btn-default">下载模板</button>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control" id="" placeholder="请输入">
+                            <button type="submit"  class="btn btn-info">搜索</button>
+                        </div>
+                    </div>
+                    <div class="table container-fluid">
+                        <table id="tb_flowb"></table>
+                    </div>
+                    <!--------模态框----------->
+                    <!--故障处置 详情 == detail_handle -->
+                    <div class="modal fade" id="detail_handle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">人员详情</h4>
+                                </div>
+                                <div class="modal-body row">
+                                    <table class="detail" border="1">
+                                        <tr>
+                                            <td><b>故障编号</b></td>
+                                            <td colspan="5">20171201</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>设备编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>资产编号</b></td>
+                                            <td>0001</td>
+                                            <td><b>设备名称</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>处置方式</b></td>
+                                            <td>XXX</td>
+                                            <td><b>设备状态</b></td>
+                                            <td>XXX</td>
+                                            <td><b>归结标识</b></td>
+                                            <td>XXX</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--添加 故障处置 == add_handle -->
+                    <div class="modal fade" id="add_handle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">添加</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>资产编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>处置方式</b></label>
+                                            <select name="" class="form-control">
+                                                <option value="0">进行维修</option>
+                                                <option value="1">进行更换</option>
+                                                <option value="3">暂时停用</option>
+                                                <option value="4">立即处理</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>设备状态</b></p>
+                                            <input class="" name="trainCard" id="status_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="status_1"><b>已恢复</b></label>
+                                            <input class="" name="trainCard" id="status_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="status_0"><b>未恢复</b></label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>归结标识</b></p>
+                                            <input class="" name="trainCard" id="attribute_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="attribute_1"><b>是</b></label>
+                                            <input class="" name="trainCard" id="attribute_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="attribute_0"><b>否</b></label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--编辑 故障处置 == edit_handle -->
+                    <div class="modal fade" id="edit_handle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">编辑</h4>
+                                </div>
+                                <form action="">
+                                    <div class="modal-body row">
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>资产编号</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>设备名称</b></label>
+                                            <input class="form-control" name=""  placeholder="请输入" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label ><b>处置方式</b></label>
+                                            <select name="" class="form-control">
+                                                <option value="0">进行维修</option>
+                                                <option value="1">进行更换</option>
+                                                <option value="3">暂时停用</option>
+                                                <option value="4">立即处理</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>设备状态</b></p>
+                                            <input class="" name="trainCard" id="edit_status_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_status_1"><b>已恢复</b></label>
+                                            <input class="" name="trainCard" id="edit_status_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_status_0"><b>未恢复</b></label>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <p ><b>归结标识</b></p>
+                                            <input class="" name="trainCard" id="edit_attribute_1" type="radio" value="1" data-message="请选择一个">
+                                            <label class="radio-inline" for="edit_attribute_1"><b>是</b></label>
+                                            <input class="" name="trainCard" id="edit_attribute_0" type="radio" value="0" >
+                                            <label class="radio-inline" for="edit_attribute_0"><b>否</b></label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <input type="submit" class="btn btn-info" value="提交">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<!-------------模态框----------------->
+<!--技防运行监控-->
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--运行检查-->
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"SB_num",
+                    title:"设备编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"ZC_num",
+                    title:"资产编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"name",
+                    title:"设备名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"weizhi",
+                    title:"安装位置",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"zaixian",
+                    title:"在线状态",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"shiyong",
+                    title:"使用状态",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"baojing",
+                    title:"故障报警",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+//                {
+//                    field: 'operate',
+//                    title: '操作',
+//                    align:"center",
+//                    valign:"middle",
+//                    formatter: operateFormatter,
+//                    width:200
+//                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "id":1,
+                    "SB_num":"...",
+                    "ZC_num":"^",
+                    "name":"XXX",
+                    "weizhi":"XXX",
+                    "zaixian":"...",
+                    "shiyong":"...",
+                    "baojing":"<p style='color: red'>报警</p>"
+                }
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_declare" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_declare" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $(this).prev('input').click()
+    });
+    $('form').easyform()
+
+//    // 初始化人员树
+//    $.fn.zTree.init($(".tree"), setting, zNodes);
+</script>
+<!--故障申报-->
+<script>
+    $(function () {
+        $('#tb_flowa').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"time",
+                    title:"申请时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"gonghao",
+                    title:"工号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true"
+                },
+                {
+                    field:"people",
+                    title:"申报人",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    width:160
+                },
+                {
+                    field:"department",
+                    title:"申报单位",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"SB_num",
+                    title:"设备编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"ZC_num",
+                    title:"资产编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"name",
+                    title:"设备名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"weizhi",
+                    title:"安装位置",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "id":1,
+                    "time":"2017-12-01",
+                    "gonghao":"0001",
+                    "people":"张三",
+                    "department":"XXX",
+                    "SB_num":"...",
+                    "ZC_num":"^",
+                    "name":"XXX",
+                    "weizhi":"XXX"}
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_declare" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_declare" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+       $(this).prev('input').click()
+    });
+    $('form').easyform()
+</script>
+<!--故障处置-->
+<script>
+    $(function () {
+        $('#tb_flowb').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"编号",
+                    align:"center",
+                    valign:"middle",
+                    clickToSelect:"true",
+                    width:80
+                },
+                {
+                    field:"SB_num",
+                    title:"设备编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"ZC_num",
+                    title:"资产编号",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"name",
+                    title:"设备名称",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"fangshi",
+                    title:"处置方式",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"biaoshi",
+                    title:"归结标识",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"fangshi",
+                    title:"处置方式",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:200
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {
+                    "id":1,
+                    "SB_num":"...",
+                    "ZC_num":"^",
+                    "name":"XXX",
+                    "fangshi":"XXX",
+                    "zhuangtai":"XXX",
+                    "biaoshi":"XXX"
+                }
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#detail_handle" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit_handle" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+</script>

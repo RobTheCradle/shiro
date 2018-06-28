@@ -1,0 +1,276 @@
+<section class="wrapper site-min-height">
+    <!-- 页面地址栏  -->
+    <div class=" container-fluid">
+        <div class="">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="fa fa-home"></i>应急处置</a></li>
+                <li>»</li>
+                <li class="active">总结</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid head-add">
+        <div class="add">
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#add"><i class="fa fa-plus" aria-hidden="true" ></i> 添加</button>
+            <input   type="file" multiple  name="xx" id="upload" style="display: none" />
+            <button  type="button" class="btn btn-info upload" ><i class="fa fa-upload" aria-hidden="true"></i> 导入</button>
+            <button type="button" class="btn btn-default">下载模板</button>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入">
+            <button type="submit"  class="btn btn-info">搜索</button>
+        </div>
+    </div>
+    <div class="table container-fluid">
+        <table id="tb_departments"></table>
+    </div>
+</section>
+<!--添加 add-->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row">
+                    <div class="form-group col-md-4" >
+                        <label for="one-time"><b>时间</b></label>
+                        <input class="form-control" name="" id="one-time" placeholder="请输入时间" data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="one-adress"><b>地点</b></label>
+                        <input class="form-control" name="" id="one-adress" placeholder="请输入地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="one-person"><b>人数</b></label>
+                        <input class="form-control" name="" id="one-person" placeholder="请输入人数" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="one-objective"><b>管控措施</b></label>
+                        <textarea class="form-control" name="" id="one-objective" cols="30" rows="5" placeholder="请输入管控措施" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="one-step"><b>处置措施</b></label>
+                        <textarea class="form-control" name="" id="one-step" cols="30" rows="5" placeholder="请输入处置措施" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="one-situation"><b>处置情况</b></label>
+                        <textarea class="form-control" name="" id="one-situation" cols="30" rows="5" placeholder="请输入处置情况" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--详情 details-->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">详情</h4>
+            </div>
+            <div class="modal-body row">
+                <table class=" table-bordered  detail">
+                    <tr>
+                        <td><b>时间</b></td>
+                        <td>......</td>
+                        <td><b>地点</b></td>
+                        <td>......</td>
+                        <td><b>人数</b></td>
+                        <td>......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>管控措施</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>处置措施</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                    <tr class="KP">
+                        <td ><b>处置情况</b></td>
+                        <td colspan="5">......</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info edit" data-dismiss="modal">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑 edit-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <form action="">
+                <div class="modal-body row" >
+
+                    <div class="form-group col-md-4" >
+                        <label for="edit-time"><b>时间</b></label>
+                        <input class="form-control" name="" id="edit-time" placeholder="请输入时间"  data-easyform="null;date;" data-message="请正确选择日期">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="edit-adress"><b>地点</b></label>
+                        <input class="form-control" name="" id="edit-adress" placeholder="请输入地点" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="edit-person"><b>人数</b></label>
+                        <input class="form-control" name="" id="edit-person" placeholder="请输入人员" data-easyform="null;length:0 50;char-chinese;" data-message="限制50个字符以内">
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="edit-objective"><b>管控措施</b></label>
+                        <textarea class="form-control" name="" id="edit-objective" cols="30" rows="5" placeholder="请输入管控措施" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="edit-step"><b>处置措施</b></label>
+                        <textarea class="form-control" name="" id="edit-step" cols="30" rows="5" placeholder="请输入处置措施" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                    <div class="form-group col-md-12" >
+                        <label for="edit-situation"><b>处置情况</b></label>
+                        <textarea class="form-control" name="" id="edit-situation" cols="30" rows="5" placeholder="请输入处置情况" data-easyform="null;length:0 500;char-chinese;" data-message="限制500个字符以内"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <input type="submit" class="btn btn-info" value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--确认删除-->
+<div class="modal fade" id="shanchu" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#tb_departments').bootstrapTable({
+            // url:'xxx',// 服务器数据的加载地址
+            columns: [
+                {
+                    field:"id",
+                    title:"序列",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+                    clickToSelect:"true",
+                    width:60
+                },
+                {
+                    field:"time",
+                    title:"时间",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true",
+
+                },
+                {
+                    field:"place",
+                    title:"地点",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"person",
+                    title:"人数",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"objective",
+                    title:"管控措施",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"Subject",
+                    title:"处置措施",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field:"step",
+                    title:"处置情况",
+                    align:"center",
+                    valign:"middle",
+                    sortable:"true"
+                },
+                {
+                    field: 'operate',
+                    title: '操作',
+                    align:"center",
+                    valign:"middle",
+                    formatter: operateFormatter,
+                    width:220
+                } //自定义方法，添加操作按钮,
+            ],
+            data: [
+                {"id":"1","time":"2017-9-6","place":"地点","person":"人数","objective":"...","Subject":"...","step":"...."},
+                {"id":"2","time":"2017-9-6","place":"地点","person":"人数","objective":"...","Subject":"...","step":"...."},
+                {"id":"3","time":"2017-9-6","place":"地点","person":"人数","objective":"...","Subject":"...","step":"...."}
+
+            ],
+            // 页码变更时触发
+            onPageChange: function (size, number) {
+//                $("#pageSizeInput").val(size);
+//                $("#pageNumberInput").val(number);
+//                console.log(size, number)
+//                var form = $('#tableForm');
+//                form.action= '${base}/showReport';
+//                form.submit();
+            },
+            formatNoMatches: function(){
+                return '没有更多条目';
+            },
+            // 当用户点击某一行的时候触发，参数包括
+            onClickRow:function (row, $element) {
+            }
+        });
+        $(window).resize(function () {
+            $('#tb_departments').bootstrapTable('resetView');
+        });
+        function operateFormatter(value, row, index) {//赋予的参数
+            return [
+                '<a class="btn btn-primary info" data-toggle="modal" data-target="#details" href="#">详情</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a class="btn btn-info edit" data-toggle="modal" data-target="#edit" href="#">修改</a>',
+                '<span style="width: 15px">&nbsp;&nbsp;</span>',
+                '<a data-toggle="modal" data-target="#shanchu" class="btn btn-danger del" href="#">删除</a>'
+            ].join('')
+        }
+    });
+    // 导入
+    $('.upload').click(function () {
+        $('#upload').click()
+    });
+    $('form').easyform()
+
+
+</script>
