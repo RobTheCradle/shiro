@@ -1,0 +1,25 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html>
+<head>
+    <title>sdfasdfa</title>
+</head>
+<body>
+<section class="wrapper site-min-height">
+    <div th:include="/page/common/editor :: editor"></div>
+    <button onclick="$('#sd').html(editor.txt.html())"></button>
+    <div id="sd"></div>
+    <script>
+
+    </script>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+
+
+</section>
+</body>
+</html>
