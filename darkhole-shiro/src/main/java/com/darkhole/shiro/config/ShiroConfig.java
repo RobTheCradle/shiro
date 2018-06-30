@@ -1,6 +1,11 @@
 package com.darkhole.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.darkhole.shiro.dao.UrlMapper;
+import com.darkhole.shiro.model.Url;
+import com.darkhole.shiro.vo.PermsFilterVo;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -12,9 +17,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.apache.shiro.web.filter.authz.AuthorizationFilter;
 
+import javax.annotation.Resource;
 import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +34,9 @@ import java.util.Map;
  */
 @Configuration
 public class ShiroConfig {
+    //url权限控制数据接口
+    @Resource
+    private UrlMapper urlMapper;
 
 
     /**
@@ -36,6 +46,9 @@ public class ShiroConfig {
      */
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager manager) {
+        //url权限控制集合
+        List<Url> urls = urlMapper.selectUrls();
+
         //配置自定义filter
         Map<String, Filter> filterMap = new HashMap<>();
         filterMap.put("roles",new CustomRolesAuthorizationFilter());
@@ -47,7 +60,15 @@ public class ShiroConfig {
 
         //配置访问权限
         LinkedHashMap<String, String> filterChainDefinitionMap=new LinkedHashMap<>();
-        filterChainDefinitionMap.put("/getUserInfoWithPerms", "roles[医生,护士],perms[查看]");
+        for(Url url : urls){
+        //filterChainDefinitionMap.put("/getUserInfoWithPerms", "roles[医生,护士],perms[查看]");
+            PermsFilterVo permsFilterVo = JSONObject.parseObject(url.getUrlPerms(),PermsFilterVo.class);
+            filterChainDefinitionMap.put(url.getUrlHref(), permsFilterVo.getStringOfPermsFilter());
+        }
+
+
+
+
         filterChainDefinitionMap.put("/**","anon");
 
         //将权限注入到过滤链

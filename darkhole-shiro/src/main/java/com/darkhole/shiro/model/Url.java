@@ -38,6 +38,7 @@ public class Url {
     }
 
     public void setUrlPremsType(Integer urlPremsType) {
+
         this.urlPremsType = urlPremsType;
     }
 }

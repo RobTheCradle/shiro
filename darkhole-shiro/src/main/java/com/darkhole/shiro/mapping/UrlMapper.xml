@@ -79,4 +79,20 @@
       url_prems_type = #{urlPremsType,jdbcType=INTEGER}
     where url_id = #{urlId,jdbcType=VARCHAR}
   </update>
+  <!-- 根据url修改权限列表 -->
+  <update id="updateByUrl"  parameterType="com.darkhole.shiro.model.Url" >
+    update url
+    <set >
+
+      <if test="urlPerms != null" >
+        url_perms = #{urlPerms,jdbcType=VARCHAR},
+      </if>
+
+    </set>
+    where url_href = #{urlHref,jdbcType=VARCHAR}
+  </update>
+<select id="selectUrls" resultMap="BaseResultMap">
+  select <include refid="Base_Column_List"/> from url
+</select>
+
 </mapper>

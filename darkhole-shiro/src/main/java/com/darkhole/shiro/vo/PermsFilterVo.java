@@ -1,5 +1,8 @@
 package com.darkhole.shiro.vo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +16,20 @@ import java.util.List;
  */
 public class PermsFilterVo {
     //需要过滤权限的url
-    String url;
+    private String url;
     //存放角色列表
-    List<String> roles;
+    private List<String> roles;
     //存放权限列表
-    List<String> perms;
+    private List<String> perms;
     //存放认证类型  --> anon:无需登陆即可访问     authc:登录后才可访问
-    String authType;
+    private String authType;
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public List<String> getRoles() {
         return roles;
@@ -44,6 +54,7 @@ public class PermsFilterVo {
     public void setAuthType(String authType) {
         this.authType = authType;
     }
+
 
     //将权限转换为字符串
     public String getStringOfPermsFilter(){
@@ -79,13 +90,13 @@ public class PermsFilterVo {
             }
         }
         if(sb.length()<=0){
-            return "anon";
+            return "authc";
         }
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        PermsFilterVo p = new PermsFilterVo();
+       /* PermsFilterVo p = new PermsFilterVo();
         List<String> rList = new ArrayList<>();
         List<String> pList = new ArrayList<>();
         rList.add("医生");
@@ -95,8 +106,22 @@ public class PermsFilterVo {
         //p.setAuthType("authc");
         p.setPerms(pList);
         p.setRoles(rList);
-        System.out.println(p.getStringOfPermsFilter());
+        System.out.println(p.getStringOfPermsFilter());*/
 
+       PermsFilterVo p = new PermsFilterVo();
+        List<String> rList = new ArrayList<>();
+        List<String> pList = new ArrayList<>();
+        rList.add("医生");
+        rList.add("护士");
+        rList.add("导医");
+        pList.add("查看");
+        p.setUrl("/getUserInfoWithPerms");
+        p.setPerms(pList);
+        p.setRoles(rList);
+        String s = JSON.toJSONString(rList);
+        System.out.println(JSON.toJSONString(rList));
+        JSONArray ss = (JSONArray) JSON.parse(s);
+        System.out.println(JSON.toJSONString(p));
     }
 
 }
